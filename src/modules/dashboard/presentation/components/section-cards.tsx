@@ -1,7 +1,7 @@
 "use client"
 
-import { cn } from "@/core/infrastructure/utilities/utils"
-import { Badge } from "@/core/presentation/ui/badge"
+import { cn } from "@sentients/sdk/infrastructure/utilities/utils"
+import { Badge } from "@sentients/sdk/presentation/ui/badge"
 import {
   Card,
   CardAction,
@@ -9,7 +9,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/core/presentation/ui/card"
+} from "@sentients/sdk/presentation/ui/card"
 import { TrendingUpIcon, TrendingDownIcon } from "lucide-react"
 
 export function SectionCards({ className }: { className?: string }) {

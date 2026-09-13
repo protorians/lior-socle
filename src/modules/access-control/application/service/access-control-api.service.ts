@@ -1,5 +1,5 @@
-import {ApiService} from "@/core/infrastructure/utilities/api-service";
-import {FetchResponseInterface} from "@/core/domain/typing/response";
+import {ApiService} from "@sentients/sdk/infrastructure/utilities/api-service";
+import {FetchResponseInterface} from "@sentients/sdk/domain/typing/response";
 import {RolesSummaryType} from "@/modules/access-control/domain/entities/roles.interface";
 
 export class AccessControlApiService extends ApiService {

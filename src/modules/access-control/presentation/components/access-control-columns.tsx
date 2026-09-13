@@ -1,110 +1,92 @@
 "use client"
 
-import * as React from "react"
-import { type ColumnDef } from "@tanstack/react-table"
-import { z } from "zod"
-import { 
-  ShieldCheckIcon, 
-  ShieldAlertIcon, 
-  EllipsisVerticalIcon,
-  UsersIcon
-} from "lucide-react"
+import {type ColumnDef} from "@tanstack/react-table"
+import {ShieldCheckIcon} from "lucide-react"
 
-import { Badge } from "@/core/presentation/ui/badge"
-import { Button } from "@/core/presentation/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/core/presentation/ui/dropdown-menu"
+import {Badge} from "@sentients/sdk/presentation/ui/badge"
+import {PermissionsCapabilitiesInterface} from "@/modules/access-control/domain/entities/roles.interface"
+import {getRoleLabel} from "@sentients/sdk/infrastructure/utilities/access-label.util"
 
-export const accessControlSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  description: z.string(),
-  domain: z.string(),
-  usersCount: z.number(),
-  status: z.string(),
-  createdAt: z.string(),
-})
+export interface AccessControlRow {
+    id: string
+    name: string
+    color?: string
+    description?: string
+    level?: number
+    permissions?: PermissionsCapabilitiesInterface
+    permissionCount?: {
+        create: number
+        read: number
+        update: number
+        delete: number
+    }
+    disabled?: boolean
+}
 
-export type AccessControlRow = z.infer<typeof accessControlSchema>
+const formatLevel = (level?: number) =>
+    (level ?? 0).toFixed(2)
 
 export const accessControlColumns: ColumnDef<AccessControlRow>[] = [
-  {
-    accessorKey: "name",
-    header: "Nom du Rôle",
-    cell: ({ row }) => (
-      <div className="font-medium">{row.original.name}</div>
-    ),
-    enableHiding: false,
-  },
-  {
-    accessorKey: "domain",
-    header: "Domaine",
-    cell: ({ row }) => (
-      <Badge variant="outline" className="px-1.5 text-muted-foreground">
-        {row.original.domain}
-      </Badge>
-    ),
-  },
-  {
-    accessorKey: "usersCount",
-    header: "Utilisateurs",
-    cell: ({ row }) => (
-      <div className="flex items-center gap-2">
-        <UsersIcon className="size-4 text-muted-foreground" />
-        {row.original.usersCount}
-      </div>
-    ),
-  },
-  {
-    accessorKey: "status",
-    header: "Statut",
-    cell: ({ row }) => (
-      <Badge variant="outline" className="px-1.5 text-muted-foreground">
-        {row.original.status === "Active" ? (
-          <ShieldCheckIcon className="size-4 text-emerald-500 mr-1" />
-        ) : (
-          <ShieldAlertIcon className="size-4 text-rose-500 mr-1" />
-        )}
-        {row.original.status}
-      </Badge>
-    ),
-  },
-  {
-    accessorKey: "description",
-    header: "Description",
-    cell: ({ row }) => (
-      <div className="max-w-[300px] truncate text-muted-foreground">
-        {row.original.description}
-      </div>
-    ),
-  },
-  {
-    id: "actions",
-    cell: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="ghost"
-            className="flex size-8 text-muted-foreground data-[state=open]:bg-muted"
-            size="icon"
-          >
-            <EllipsisVerticalIcon />
-            <span className="sr-only">Ouvrir le menu</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-40">
-          <DropdownMenuItem>Modifier les permissions</DropdownMenuItem>
-          <DropdownMenuItem>Voir les utilisateurs</DropdownMenuItem>
-          <DropdownMenuItem>Dupliquer</DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Supprimer</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    ),
-  },
+    {
+        accessorKey: "name",
+        header: "Nom du Rôle",
+        cell: ({row}) => (
+            <div className="flex items-center gap-2 font-medium">
+                <span
+                    className="size-2.5 rounded-full"
+                    style={{backgroundColor: row.original.color ?? 'transparent'}}
+                />
+                {getRoleLabel(row.original.name)}
+            </div>
+        ),
+        enableHiding: false,
+    },
+    {
+        accessorKey: "level",
+        header: "Niveau",
+        cell: ({row}) => (
+            <Badge variant="outline" className="px-1.5 text-muted-foreground tabular-nums">
+                {formatLevel(row.original.level)}
+            </Badge>
+        ),
+    },
+    {
+        accessorKey: "description",
+        header: "Description",
+        cell: ({row}) => (
+            <div className="max-w-[260px] truncate text-muted-foreground">
+                {row.original.description}
+            </div>
+        ),
+    },
+    {
+        id: "permissions",
+        header: "Permissions",
+        cell: ({row}) => {
+            const count = row.original.permissionCount
+            if (!count) return <span className="text-muted-foreground">—</span>
+            return (
+                <div className="flex items-center gap-1.5">
+                    <Badge variant="outline" className="px-1.5 tabular-nums">C {count.create}</Badge>
+                    <Badge variant="outline" className="px-1.5 tabular-nums">L {count.read}</Badge>
+                    <Badge variant="outline" className="px-1.5 tabular-nums">M {count.update}</Badge>
+                    <Badge variant="outline" className="px-1.5 tabular-nums text-rose-500">S {count.delete}</Badge>
+                </div>
+            )
+        },
+    },
+    {
+        id: "type",
+        header: "Type",
+        cell: () => (
+            <ShieldCheckIcon className="size-4 text-emerald-500"/>
+        ),
+    },
+    {
+        id: "statut",
+        header: "Statut",
+        cell: ({row}) => row.original.disabled
+            ? <Badge variant="outline" className="px-1.5 text-muted-foreground">Inactif</Badge>
+            : <Badge variant="outline" className="px-1.5 text-emerald-600">Actif</Badge>,
+    },
 ]

@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { renderHook } from '@testing-library/react'
-import {SignInDataset} from "../../../infrastructure/dataset/sign-in.dataset";
-import {SignUpDataset} from "../../../infrastructure/dataset/sign-up.dataset";
+import {SignInDataset} from "@sentients/sdk/infrastructure/dataset/sign-in.dataset";
+import {SignUpDataset} from "@sentients/sdk/infrastructure/dataset/sign-up.dataset";
 
 describe('Dataset Validation System', () => {
   describe('SignInDataset', () => {

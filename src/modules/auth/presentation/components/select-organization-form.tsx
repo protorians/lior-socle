@@ -1,17 +1,19 @@
 "use client"
 
-import {AuthConfig} from "@/core/domain/config/auth.config";
-import {cn} from "@/core/infrastructure/utilities/utils"
-import {Button} from "@/core/presentation/ui/button"
-import {Loader2, Building2, CheckCircle2} from "lucide-react"
+import {AuthConfig} from "@sentients/sdk/domain/config/auth.config";
+import {cn} from "@sentients/sdk/infrastructure/utilities/utils"
+import {Button} from "@sentients/sdk/presentation/ui/button"
+import {Building2, CheckCircle2} from "lucide-react"
 import {useRouter, useSearchParams} from "next/navigation"
 import {useState} from "react"
-import {motion} from "framer-motion"
-import {AuthUserService} from "@/modules/auth/application/service/auth-user.service";
-import {authUserConnectedStore} from "@/modules/auth/infrastructure/store/auth-user-connected.store";
+import {Motion} from "@sentients/sdk/infrastructure/library/motion"
+import {elasticEnter} from "@sentients/sdk/infrastructure/library/motion-utils"
+import {AuthUserService} from "@sentients/sdk/application/service/auth-user.service";
+import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
 import {toast} from "sonner";
-import {OrganizationsApiService} from "@/modules/organizations/application/service/organizations-api-service";
-import {OrganizationInterface} from "@/modules/organizations/domain/entities/organization.interface";
+import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service";
+import {OrganizationInterface} from "@sentients/sdk/domain/entities/organization.interface";
+import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
 
 export function SelectOrganizationForm({className, ...props}: React.ComponentProps<"div">) {
     const [isLoading, setIsLoading] = useState(false)
@@ -66,11 +68,8 @@ export function SelectOrganizationForm({className, ...props}: React.ComponentPro
     }
 
     return (
-        <motion.div
-            initial={{opacity: 0, x: -20}}
-            animate={{opacity: 1, x: 0}}
-            exit={{opacity: 0, x: 20}}
-            transition={{duration: 0.3}}
+        <Motion
+            animation={elasticEnter()}
             className={cn("flex flex-col gap-6 w-full", className)}>
 
             <div className="flex flex-col gap-1 text-left w-full mb-4">
@@ -109,7 +108,7 @@ export function SelectOrganizationForm({className, ...props}: React.ComponentPro
                         {selectedId === org.id ? (
                             <CheckCircle2 className="size-5 text-primary"/>
                         ) : (
-                            isLoading && selectedId === org.id ? <Loader2 className="size-5 animate-spin"/> : null
+                            isLoading && selectedId === org.id ? <WaitingActivity size={20}/> : null
                         )}
                     </button>
                 ))}
@@ -118,6 +117,6 @@ export function SelectOrganizationForm({className, ...props}: React.ComponentPro
             <p className="px-2 text-left text-[11px] text-muted-foreground/50 leading-relaxed">
                 Besoin d'aide ? Contactez votre administrateur pour accéder à d'autres organisations.
             </p>
-        </motion.div>
+        </Motion>
     )
 }

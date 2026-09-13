@@ -1,6 +1,6 @@
 "use client"
 
-import {FormScreen} from "@/core/presentation/form-screen";
+import {FormScreen} from "@sentients/sdk/presentation/form-screen";
 import {SelectOrganizationForm} from "@/modules/auth/presentation/components/select-organization-form";
 
 export function AuthSelectOrganizationView() {

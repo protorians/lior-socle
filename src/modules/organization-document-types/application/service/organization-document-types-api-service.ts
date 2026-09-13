@@ -1,4 +1,4 @@
-import {ApiService} from "@/core/infrastructure/utilities/api-service";
+import {ApiService} from "@sentients/sdk/infrastructure/utilities/api-service";
 
 export class OrganizationDocumentTypesApiService extends ApiService {
     // Organization Document Types
