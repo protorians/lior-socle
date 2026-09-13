@@ -10,9 +10,9 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/core/presentation/ui/breadcrumb"
-import { defaultModulesNavConfig } from "@/core/domain/config/modules.config"
-import {useModuleStore} from "@/core/infrastructure/stores/module.store";
+} from "@sentients/sdk/presentation/ui/breadcrumb"
+import { defaultModulesNavConfig } from "@/modules.config"
+import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
 
 export function AutoBreadcrumb() {
   const pathname = usePathname()

@@ -1,21 +1,21 @@
 "use client"
 
-import {ModuleNavigationInterface} from "@/core/domain/entities/module.interface";
-import {defaultModulesNavConfig} from "@/core/domain/config/modules.config";
+import {ModuleNavigationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {defaultModulesNavConfig} from "@/modules.config";
 import Link from "next/link";
-import {cn} from "@/core/infrastructure/utilities/utils";
-import {LucideIcon} from "@/core/presentation/icons/lucide";
+import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+import {LucideIcon} from "@sentients/sdk/presentation/icons/lucide";
 import {usePathname} from "next/navigation";
 import {Fragment} from "react";
-import {DropdownMenu, DropdownMenuTrigger} from "@/core/presentation/ui/dropdown-menu";
+import {DropdownMenu, DropdownMenuTrigger} from "@sentients/sdk/presentation/ui/dropdown-menu";
 import {
     SheetDescription,
     SheetHeader,
     SheetTitle
-} from "@/core/presentation/ui/sheet";
-import {LegacySheet} from "@/core/presentation/sheets/legacy-sheet";
-import {CommonClassName} from "@/core/infrastructure/utilities/classname.util";
-import {useRecentModules} from "@/core/presentation/themes/katon/use-recent-modules";
+} from "@sentients/sdk/presentation/ui/sheet";
+import {LegacySheet} from "@sentients/sdk/presentation/sheets/legacy-sheet";
+import {CommonClassName} from "@sentients/sdk/infrastructure/utilities/classname.util";
+import {useRecentModules} from "@sentients/sdk/infrastructure/hooks/use-recent-modules";
 
 
 export function StartMenuItem(module: ModuleNavigationInterface) {
@@ -50,7 +50,7 @@ export function StartMenuItem(module: ModuleNavigationInterface) {
                 module.dropdown
                     ? (
                         <LegacySheet
-                            trigger={<div className={cn(itemClassName, "cursor-pointer")}>{renderChildren()}</div>}
+                            trigger={<div className={cn(itemClassName, "cursor-pointer items-center justify-center")}>{renderChildren()}</div>}
                             side={module.dropdown.side ?? "left"}
                             className={cn(
                                 "bg-background/90",
@@ -96,12 +96,13 @@ export function StartMenu() {
         <nav
             className={cn(
                 "flex flex-row md:flex-col items-center",
-                CommonClassName.glossyBorder,
-                CommonClassName.layer,
+                // CommonClassName.glossyBorder,
+                // CommonClassName.layer,
                 "p-2",
-                "max-h-[60vh] md:max-h-[60vh]",
-                "overflow-y-auto",
-                "scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+                "max-h-16 sm:max-h-[60vh]",
+                // "overflow-x-auto",
+                // "sm:overflow-x-hidden sm:overflow-y-auto",
+                // "scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
             )}>
             {
                 defaultModulesNavConfig.map((module, index) => {

@@ -1,2 +1,0 @@
-
-export type DeviseType = string;
