@@ -11,7 +11,7 @@ Un module doit suivre la structure standard du projet :
 
 ## Installation
 1. Copiez votre module dans ce dossier.
-2. Rendez-vous sur la page `/modules` du dashboard.
+2. Rendez-vous sur la page `/store` du dashboard.
 3. Cliquez sur "Installer un module".
 4. Remplissez les informations (ID, Nom, URL, Icône).
 5. Activez le module pour le voir apparaître dans la barre latérale.

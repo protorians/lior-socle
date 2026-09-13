@@ -22,7 +22,6 @@
     "hooks": "@/core/presentation/hooks"
   },
   "registries": {
-    "@acme": "https://acme.com/r/{name}.json",
     "@8starlabs-ui": "https://ui.8starlabs.com/r/{name}.json",
     "@abui": "https://abui.io/r/{name}.json",
     "@reui": "https://reui.io/r/{style}/{name}.json"
