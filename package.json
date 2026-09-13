@@ -17,7 +17,6 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:e2e": "playwright test",
-    "version:sync": "bun run ./scripts/update-version.ts",
     "kill:server": "sudo kill -9 $(sudo lsof -t -i:5010)"
   },
   "dependencies": {
