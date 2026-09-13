@@ -1,7 +1,7 @@
-import {AuthLoginView} from "@/modules/auth/presentation/auth-login.view";
+"use client";
 
-export default function LoginPage() {
-  return (
-    <AuthLoginView />
-  )
+import {SsoSignInView} from "@sentients/sdk/presentation/components/auth/sso-sign-in.view";
+
+export default function SignInPage() {
+    return <SsoSignInView/>;
 }

@@ -1,6 +1,6 @@
-import {View} from "@/core/presentation/themes/katon/view";
-import {Header} from "@/core/presentation/themes/katon/header";
-import {Main} from "@/core/presentation/themes/katon/main";
+import {View} from "@sentients/sdk/presentation/themes/katon/view";
+import {Header} from "@sentients/sdk/presentation/themes/katon/header";
+import {Main} from "@sentients/sdk/presentation/themes/katon/main";
 
 
 export default function Page() {

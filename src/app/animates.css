@@ -1,9 +1,67 @@
 :root {
     --animate-duration: 300ms;
+    --elastic-spring: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --elastic-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --elastic-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 
 @layer utilities {
+
+    .transition-elastic {
+        transition-timing-function: var(--elastic-spring);
+    }
+
+    .transition-bounce {
+        transition-timing-function: var(--elastic-bounce);
+    }
+
+    .transition-soft {
+        transition-timing-function: var(--elastic-soft);
+    }
+
+    @keyframes elastic-scale-in {
+        0% { transform: scale(0.92); opacity: 0; }
+        60% { transform: scale(1.02); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes elastic-slide-up-in {
+        0% { transform: translateY(24px); opacity: 0; }
+        60% { transform: translateY(-4px); }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes elastic-fade-in {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    .animate-elastic-scale-in {
+        animation: elastic-scale-in 0.6s var(--elastic-spring) forwards;
+        animation-delay: var(--tw-animation-delay, 0s);
+    }
+
+    .animate-elastic-slide-up-in {
+        animation: elastic-slide-up-in 0.5s var(--elastic-spring) forwards;
+        animation-delay: var(--tw-animation-delay, 0s);
+    }
+
+    .animate-elastic-fade-in {
+        animation: elastic-fade-in 0.4s var(--elastic-soft) forwards;
+        animation-delay: var(--tw-animation-delay, 0s);
+    }
+
+    @keyframes elastic-card-in {
+        0% { transform: scale(0.94); opacity: 0; }
+        60% { transform: scale(1.02); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .animate-elastic-card-in {
+        animation: elastic-card-in 0.55s var(--elastic-spring) forwards;
+        animation-delay: var(--tw-animation-delay, 0s);
+    }
 
     [class*="animate-"] {
         animation-duration: var(--tw-duration, 360ms);
@@ -283,5 +341,21 @@
             width: 100%;
             opacity: 1;
         }
+    }
+
+    @keyframes calendar-seq-dash {
+        to {
+            stroke-dashoffset: -24;
+        }
+    }
+
+    .calendar-seq-flow {
+        stroke-dasharray: 6 6;
+        animation: calendar-seq-dash 1.2s linear infinite;
+    }
+
+    .calendar-seq-flow:hover,
+    .calendar-seq-flow:active {
+        animation-play-state: paused;
     }
 }

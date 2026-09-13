@@ -1,4 +1,4 @@
-import {StockView} from "@/modules/stock/presentation/views/stock.view";
+import {StockView} from "../../../external_modules/stock-management/presentation/views/stock.view";
 
 export default function (){
     return (
