@@ -12,10 +12,10 @@ import {
 } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
-import { Badge } from "@/core/presentation/ui/badge"
-import { Button } from "@/core/presentation/ui/button"
-import { Input } from "@/core/presentation/ui/input"
-import { Label } from "@/core/presentation/ui/label"
+import { Badge } from "@sentients/sdk/presentation/ui/badge"
+import { Button } from "@sentients/sdk/presentation/ui/button"
+import { Input } from "@sentients/sdk/presentation/ui/input"
+import { Label } from "@sentients/sdk/presentation/ui/label"
 import {
   Select,
   SelectContent,
@@ -23,14 +23,14 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/core/presentation/ui/select"
+} from "@sentients/sdk/presentation/ui/select"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/core/presentation/ui/dropdown-menu"
+} from "@sentients/sdk/presentation/ui/dropdown-menu"
 import {
   Drawer,
   DrawerClose,
@@ -40,15 +40,15 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/core/presentation/ui/drawer"
-import { Separator } from "@/core/presentation/ui/separator"
+} from "@sentients/sdk/presentation/ui/drawer"
+import { Separator } from "@sentients/sdk/presentation/ui/separator"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/core/presentation/ui/chart"
-import { useIsMobile } from "@/core/presentation/hooks/use-mobile"
+} from "@sentients/sdk/presentation/ui/chart"
+import { useIsMobile } from "@sentients/sdk/infrastructure/hooks/use-mobile"
 
 export const schema = z.object({
   id: z.number(),

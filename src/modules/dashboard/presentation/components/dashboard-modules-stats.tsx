@@ -1,8 +1,8 @@
 "use client"
 
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/core/presentation/ui/card";
-import {useModuleStore} from "@/core/infrastructure/stores/module.store";
-import {ListItems} from "@/core/presentation/list-items";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card";
+import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+import {ListItems} from "@sentients/sdk/presentation/ui/list-items";
 import {ReactNode} from "react";
 import {CircleCheckIcon, CircleXIcon} from "lucide-react";
 

@@ -1,9 +1,9 @@
 "use client"
 
 import React from "react";
-import {useModuleStore} from "@/core/infrastructure/stores/module.store";
-import {useAuth} from "@/modules/auth/infrastructure/hooks/use-auth";
-import {DynamicIcon} from "@/core/presentation/components/dynamic-icon";
+import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
+import {DynamicIcon} from "@sentients/sdk/presentation/components/dynamic-icon";
 import {
     Item,
     ItemActions,
@@ -12,12 +12,12 @@ import {
     ItemGroup,
     ItemMedia,
     ItemTitle
-} from "@/core/presentation/ui/item";
-import {Button} from "@/core/presentation/ui/button";
-import {cn} from "@/core/infrastructure/utilities/utils";
+} from "@sentients/sdk/presentation/ui/item";
+import {Button} from "@sentients/sdk/presentation/ui/button";
+import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
 import {ExternalLink} from "lucide-react";
 import Link from "next/link";
-import {defaultModulesNavConfig} from "@/core/domain/config/modules.config";
+import {defaultModulesNavConfig} from "@/modules.config";
 
 
 export function ModulesListSheet() {
@@ -48,11 +48,11 @@ export function ModulesListSheet() {
                 {modules.map((module) => (
                     defaultModulesNavConfig
                         .map(m => m.id)
-                        .includes(module.id)
+                        .includes(module.identifier)
                         ? null
                         : (
                             <Item
-                                key={module.id}
+                                key={module.identifier}
                                 variant="outline"
                                 className={cn(
                                     !module.isEnabled ? "opacity-60" : "",

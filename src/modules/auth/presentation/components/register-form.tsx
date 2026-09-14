@@ -1,21 +1,23 @@
 "use client"
 
-import {cn} from "@/core/infrastructure/utilities/utils"
-import {Button} from "@/core/presentation/ui/button"
-import {FieldGroup} from "@/core/presentation/ui/field"
-import {LegacyInput} from "@/core/presentation/ui/legacy-input"
-import {LegacyPhoneInput} from "@/core/presentation/ui/legacy-phone-input"
-import {User, Mail, Eye, EyeOff, Building, Loader2} from "lucide-react"
+import {cn} from "@sentients/sdk/infrastructure/utilities/utils"
+import {Button} from "@sentients/sdk/presentation/ui/button"
+import {FieldGroup} from "@sentients/sdk/presentation/ui/field"
+import {LegacyInput} from "@sentients/sdk/presentation/ui/legacy-input"
+import {LegacyPhoneInput} from "@sentients/sdk/presentation/ui/legacy-phone-input"
+import {User, Mail, Eye, EyeOff, Building} from "lucide-react"
 import Link from "next/link"
 import {useRouter} from "next/navigation"
 import {useEffect, useState} from "react"
-import {SignUpDataset} from "@/modules/auth/infrastructure/dataset/sign-up.dataset"
-import {motion} from "framer-motion"
-import {AuthApiService} from "@/modules/auth/application/service/auth-api-service";
-import {AuthUserService} from "@/modules/auth/application/service/auth-user.service";
-import {authUserConnectedStore} from "@/modules/auth/infrastructure/store/auth-user-connected.store";
+import {SignUpDataset} from "@sentients/sdk/infrastructure/dataset/sign-up.dataset"
+import {Motion} from "@sentients/sdk/infrastructure/library/motion"
+import {elasticEnter} from "@sentients/sdk/infrastructure/library/motion-utils"
+import {AuthApiService} from "@sentients/sdk/application/service/auth-api-service";
+import {AuthUserService} from "@sentients/sdk/application/service/auth-user.service";
+import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
 import { toast } from "sonner";
-import {AuthConfig} from "@/core/domain/config/auth.config";
+import {AuthConfig} from "@sentients/sdk/domain/config/auth.config";
+import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
 
 export function RegisterForm({className, ...props}: React.ComponentProps<"form">) {
     const {setter, getter, consolidate} = SignUpDataset()
@@ -73,11 +75,8 @@ export function RegisterForm({className, ...props}: React.ComponentProps<"form">
     }
 
     return (
-        <motion.div
-            initial={{opacity: 0, x: 20}}
-            animate={{opacity: 1, x: 0}}
-            exit={{opacity: 0, x: -20}}
-            transition={{duration: 0.3}}
+        <Motion
+            animation={elasticEnter()}
             className={cn("flex flex-col gap-6 w-full", className)}>
             <form onSubmit={handleSubmit} {...props}>
                 <FieldGroup className="gap-4">
@@ -227,7 +226,7 @@ export function RegisterForm({className, ...props}: React.ComponentProps<"form">
                             disabled={isLoading}
                             className="flex-1 rounded-full text-white font-bold border-none transition-all py-5 shadow-lg shadow-primary/20 cursor-pointer"
                         >
-                            {isLoading ? <Loader2 className="size-4 animate-spin" /> : "Créer un compte"}
+                            {isLoading ? <WaitingActivity size={16}/> : "Créer un compte"}
                         </Button>
                     </div>
                 </FieldGroup>
@@ -237,6 +236,6 @@ export function RegisterForm({className, ...props}: React.ComponentProps<"form">
                 Générales d'utilisation</Link> et notre <Link href="#" className="underline hover:text-white">Politique
                 de confidentialité</Link>.
             </p>
-        </motion.div>
+        </Motion>
     )
 }

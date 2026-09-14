@@ -1,11 +1,11 @@
 "use client"
 
-import {cn} from "@/core/infrastructure/utilities/utils"
-import {Button} from "@/core/presentation/ui/button"
-import {FieldGroup} from "@/core/presentation/ui/field"
-import {LegacyBirthDateInput} from "@/core/presentation/ui/legacy-birth-date-input"
-import {LegacyInput} from "@/core/presentation/ui/legacy-input"
-import {LegacyPhoneInput} from "@/core/presentation/ui/legacy-phone-input"
+import {cn} from "@sentients/sdk/infrastructure/utilities/utils"
+import {Button} from "@sentients/sdk/presentation/ui/button"
+import {FieldGroup} from "@sentients/sdk/presentation/ui/field"
+import {LegacyBirthDateInput} from "@sentients/sdk/presentation/ui/legacy-birth-date-input"
+import {LegacyInput} from "@sentients/sdk/presentation/ui/legacy-input"
+import {LegacyPhoneInput} from "@sentients/sdk/presentation/ui/legacy-phone-input"
 import {
     User,
     Mail,
@@ -16,7 +16,6 @@ import {
     Calendar,
     FileText,
     CheckCircle2,
-    Loader2,
     ChevronRight,
     ChevronLeft,
     Shield,
@@ -24,10 +23,10 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import {useEffect, useState} from "react"
-import {SignUpDataset} from "@/modules/auth/infrastructure/dataset/sign-up.dataset"
-import {motion, AnimatePresence} from "framer-motion"
-import {AuthApiService} from "@/modules/auth/application/service/auth-api-service"
-import {ApiService} from "@/core/infrastructure/utilities/api-service"
+import {SignUpDataset} from "@sentients/sdk/infrastructure/dataset/sign-up.dataset"
+import {Motion} from "@sentients/sdk/infrastructure/library/motion"
+import {AuthApiService} from "@sentients/sdk/application/service/auth-api-service"
+import {ApiService} from "@sentients/sdk/infrastructure/utilities/api-service"
 import {toast} from "sonner"
 import {
     Stepper,
@@ -40,8 +39,9 @@ import {
     StepperContent,
     StepperTitle,
     StepperDescription,
-} from "@/components/reui/stepper"
-import {AuthConfig} from "@/core/domain/config/auth.config";
+} from "@sentients/sdk/presentation/reui/stepper"
+import {AuthConfig} from "@sentients/sdk/domain/config/auth.config";
+import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
 
 interface OTPResponse {
     id: string
@@ -206,11 +206,11 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
     }
 
     return (
-        <motion.div
-            initial={{opacity: 0, x: 20}}
-            animate={{opacity: 1, x: 0}}
-            exit={{opacity: 0, x: -20}}
-            transition={{duration: 0.3}}
+        <Motion
+            animation={{
+                from: {opacity: 0, x: 20},
+                to: {opacity: 1, x: 0, duration: 0.3},
+            }}
             className={cn("flex flex-col gap-6 w-full", className)}
         >
             <form onSubmit={handleSubmit} {...props}>
@@ -319,11 +319,11 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                         <StepperPanel className="mt-8">
                             {/* Step 1: Account Info */}
                             <StepperContent value={1}>
-                                <motion.div
-                                    initial={{opacity: 0, y: 10}}
-                                    animate={{opacity: 1, y: 0}}
-                                    exit={{opacity: 0, y: -10}}
-                                    transition={{duration: 0.2}}
+                                <Motion
+                                    animation={{
+                                        from: {opacity: 0, y: 10},
+                                        to: {opacity: 1, y: 0, duration: 0.2},
+                                    }}
                                 >
                                     <FieldGroup className="gap-4">
                                         <div
@@ -404,16 +404,16 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                             icon={<User className="size-4 text-muted-foreground/60"/>}
                                         />
                                     </FieldGroup>
-                                </motion.div>
+                                </Motion>
                             </StepperContent>
 
                             {/* Step 2: Password */}
                             <StepperContent value={2}>
-                                <motion.div
-                                    initial={{opacity: 0, y: 10}}
-                                    animate={{opacity: 1, y: 0}}
-                                    exit={{opacity: 0, y: -10}}
-                                    transition={{duration: 0.2}}
+                                <Motion
+                                    animation={{
+                                        from: {opacity: 0, y: 10},
+                                        to: {opacity: 1, y: 0, duration: 0.2},
+                                    }}
                                 >
                                     <FieldGroup className="gap-4">
                                         <div
@@ -473,16 +473,16 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                             }
                                         />
                                     </FieldGroup>
-                                </motion.div>
+                                </Motion>
                             </StepperContent>
 
                             {/* Step 3: Contact Info */}
                             <StepperContent value={3}>
-                                <motion.div
-                                    initial={{opacity: 0, y: 10}}
-                                    animate={{opacity: 1, y: 0}}
-                                    exit={{opacity: 0, y: -10}}
-                                    transition={{duration: 0.2}}
+                                <Motion
+                                    animation={{
+                                        from: {opacity: 0, y: 10},
+                                        to: {opacity: 1, y: 0, duration: 0.2},
+                                    }}
                                 >
                                     <FieldGroup className="gap-4">
                                         <div
@@ -569,16 +569,16 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                             />
                                         </div>
                                     </FieldGroup>
-                                </motion.div>
+                                </Motion>
                             </StepperContent>
 
                             {/* Step 4: OTP Verification */}
                             <StepperContent value={4}>
-                                <motion.div
-                                    initial={{opacity: 0, y: 10}}
-                                    animate={{opacity: 1, y: 0}}
-                                    exit={{opacity: 0, y: -10}}
-                                    transition={{duration: 0.2}}
+                                <Motion
+                                    animation={{
+                                        from: {opacity: 0, y: 10},
+                                        to: {opacity: 1, y: 0, duration: 0.2},
+                                    }}
                                 >
                                     <FieldGroup className="gap-4">
                                         <div
@@ -603,7 +603,7 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                             >
                                                 {otpLoading ? (
                                                     <>
-                                                        <Loader2 className="size-4 mr-2 animate-spin"/>
+                                                        <WaitingActivity size={16}/>
                                                         Génération...
                                                     </>
                                                 ) : (
@@ -635,16 +635,16 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                             icon={<FileText className="size-4 text-muted-foreground/60"/>}
                                         />
                                     </FieldGroup>
-                                </motion.div>
+                                </Motion>
                             </StepperContent>
 
                             {/* Step 5: Completion */}
                             <StepperContent value={5}>
-                                <motion.div
-                                    initial={{opacity: 0, y: 10}}
-                                    animate={{opacity: 1, y: 0}}
-                                    exit={{opacity: 0, y: -10}}
-                                    transition={{duration: 0.2}}
+                                <Motion
+                                    animation={{
+                                        from: {opacity: 0, y: 10},
+                                        to: {opacity: 1, y: 0, duration: 0.2},
+                                    }}
                                     className="flex flex-col items-center justify-center gap-4 py-8"
                                 >
                                     <div className="relative">
@@ -664,7 +664,7 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                     >
                                         Se connecter
                                     </Button>
-                                </motion.div>
+                                </Motion>
                             </StepperContent>
                         </StepperPanel>
                     </Stepper>
@@ -691,7 +691,7 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                 >
                                     {loading ? (
                                         <>
-                                            <Loader2 className="size-4 mr-2 animate-spin"/>
+                                            <WaitingActivity size={16}/>
                                             Création...
                                         </>
                                     ) : (
@@ -729,6 +729,6 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                 </Link>
                 .
             </p>
-        </motion.div>
+        </Motion>
     )
 }

@@ -1,7 +1,7 @@
-import {cn} from "@/core/infrastructure/utilities/utils";
-import {AppConfig} from "@/core/domain/config/app.config";
+import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+import {AppConfig} from "@sentients/sdk/domain/config/app.config";
 import {AutoBreadcrumb} from "@/core/presentation/components/auto-breadcrumb";
-import {EdgeSection} from "@/core/presentation/themes/katon/edge-section";
+import {EdgeSection} from "@sentients/sdk/presentation/themes/katon/edge-section";
 
 export interface FooterProps {
     className?: string;

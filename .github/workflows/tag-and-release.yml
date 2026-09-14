@@ -1,0 +1,75 @@
+name: Create Tag & Release
+
+on:
+  push:
+    branches:
+      - alpha
+      - beta
+      - rc
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  tag-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Compute next tag
+        id: version
+        run: |
+          branch="${{ github.ref_name }}"
+          case "$branch" in
+            alpha|beta|rc)
+              last=$(git tag -l "${branch}-*" | sort -V | tail -n 1)
+              if [ -z "$last" ]; then
+                next="${branch}-1"
+              else
+                number="${last#${branch}-}"
+                next="${branch}-$((number + 1))"
+              fi
+              ;;
+            main)
+              last=$(git tag -l 'v*' | sort -V | tail -n 1)
+              if [ -z "$last" ]; then
+                next="v0.1.0"
+              else
+                major=$(echo "$last" | cut -d. -f1)
+                minor=$(echo "$last" | cut -d. -f2)
+                patch=$(echo "$last" | cut -d. -f3)
+                next="${major}.${minor}.$((patch + 1))"
+              fi
+              ;;
+          esac
+          echo "tag=$next" >> "$GITHUB_OUTPUT"
+          echo "Computed tag: $next"
+
+      - name: Skip if tag already created
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="${{ steps.version.outputs.tag }}"
+          if gh release view "$tag" >/dev/null 2>&1 || git rev-parse -q --verify "refs/tags/$tag" >/dev/null 2>&1; then
+            echo "Tag $tag already exists on this branch, skipping."
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create tag and release
+        if: steps.check.outputs.exists == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="${{ steps.version.outputs.tag }}"
+          branch="${{ github.ref_name }}"
+          if [ "$branch" = "main" ]; then
+            gh release create "$tag" --target "${{ github.sha }}" --generate-notes
+          else
+            gh release create "$tag" --target "${{ github.sha }}" --generate-notes --prerelease
+          fi

@@ -2,16 +2,17 @@
 
 import * as React from "react"
 import {LayersIcon, ShieldIcon} from "lucide-react"
-import {ModuleWidget} from "@/core/presentation/module-widget"
+import {ModuleWidget} from "@sentients/sdk/presentation/module-widget"
 import {RolesSummaryType} from "../../domain/entities/roles.interface";
 import accessControlModule from "@/modules/access-control";
 import {useQuery} from "@tanstack/react-query";
 import {AccessControlApiService} from "@/modules/access-control/application/service/access-control-api.service";
+import {getRoleLabel} from "@sentients/sdk/infrastructure/utilities/access-label.util";
 import {Fragment, ReactNode, useEffect, useState} from "react";
-import {StatisticalProps} from "@/core/domain/typing/statisticals";
-import {WaitingBar} from "@/core/presentation/waiting-bar";
-import {Waiting} from "@/core/presentation/waiting";
-import {ChartConfig} from "@/core/presentation/ui/chart";
+import {StatisticalProps} from "@sentients/sdk/domain/typing/statisticals";
+import {WaitingBar} from "@sentients/sdk/presentation/components/waiting-bar";
+import {Waiting} from "@sentients/sdk/presentation/components/waiting";
+import {ChartConfig} from "@sentients/sdk/presentation/ui/chart";
 
 export interface AccessControlWidgetProps {
     data?: RolesSummaryType
@@ -45,8 +46,9 @@ export function AccessControlWidget() {
 
             for (const [_, role] of Object.entries(response.data.data)) {
                 const name = role.metadata.name
+                const label = getRoleLabel(name)
                 roles.push({
-                    label: name,
+                    label,
                     amount: role.stats.fullAccess,
                     color: role.metadata.color,
                     fill: role.metadata.color,
@@ -54,7 +56,7 @@ export function AccessControlWidget() {
                 })
 
                 chartConfig[name] = {
-                    label: name,
+                    label,
                     color: role.metadata.color,
                 }
             }

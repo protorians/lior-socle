@@ -1,13 +1,13 @@
 "use client"
 
 import {LoginForm} from "@/modules/auth/presentation/components/login-form";
-import {authUserConnectedStore} from "@/modules/auth/infrastructure/store/auth-user-connected.store";
+import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
 import {AuthSessionView} from "@/modules/auth/presentation/auth-session.view";
-import {ThemeLogo} from "@/core/presentation/system/logo.theme";
-import {AppConfig} from "@/core/domain/config/app.config";
-import {FormScreen} from "@/core/presentation/form-screen";
+import {ThemeLogo} from "@sentients/sdk/presentation/system/logo.theme";
+import {AppConfig} from "@sentients/sdk/domain/config/app.config";
+import {FormScreen} from "@sentients/sdk/presentation/form-screen";
 import {Fragment, useEffect, useState} from "react";
-import {AuthApiService} from "@/modules/auth/application/service/auth-api-service";
+import {AuthApiService} from "@sentients/sdk/application/service/auth-api-service";
 
 export function AuthLoginView() {
     const [pending, setPending] = useState<boolean>(false)

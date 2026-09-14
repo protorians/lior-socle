@@ -19,7 +19,34 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/external_modules/*": ["./external_modules/*"],
+      "@sentients/sdk": ["../../packages/sdk/src/index.ts"],
+      "@sentients/sdk/*": ["../../packages/sdk/src/*"],
+      "@sentients/module-accounting": ["./external_modules/accounting/index.tsx"],
+      "@sentients/module-accounting/*": ["./external_modules/accounting/*"],
+      "@sentients/module-billing": ["./external_modules/billing/index.tsx"],
+      "@sentients/module-billing/*": ["./external_modules/billing/*"],
+      "@sentients/module-blogging": ["./external_modules/blogging/index.tsx"],
+      "@sentients/module-blogging/*": ["./external_modules/blogging/*"],
+      "@sentients/module-calendar": ["./external_modules/calendar/index.tsx"],
+      "@sentients/module-calendar/*": ["./external_modules/calendar/*"],
+      "@sentients/module-crm": ["./external_modules/crm/index.tsx"],
+      "@sentients/module-crm/*": ["./external_modules/crm/*"],
+      "@sentients/module-customer": ["./external_modules/customer/index.tsx"],
+      "@sentients/module-customer/*": ["./external_modules/customer/*"],
+      "@sentients/module-ecommerce": ["./external_modules/ecommerce/index.tsx"],
+      "@sentients/module-ecommerce/*": ["./external_modules/ecommerce/*"],
+      "@sentients/module-messenger": ["./external_modules/messenger/index.tsx"],
+      "@sentients/module-messenger/*": ["./external_modules/messenger/*"],
+      "@sentients/module-pos-management": ["./external_modules/pos-management/index.tsx"],
+      "@sentients/module-pos-management/*": ["./external_modules/pos-management/*"],
+      "@sentients/module-project-management": ["./external_modules/project-management/index.tsx"],
+      "@sentients/module-project-management/*": ["./external_modules/project-management/*"],
+      "@sentients/module-restaurant": ["./external_modules/restaurant/index.tsx"],
+      "@sentients/module-restaurant/*": ["./external_modules/restaurant/*"],
+      "@sentients/module-stock-management": ["./external_modules/stock-management/index.tsx"],
+      "@sentients/module-stock-management/*": ["./external_modules/stock-management/*"]
     }
   },
   "include": [

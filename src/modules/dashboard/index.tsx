@@ -1,9 +1,10 @@
-import {ModuleDeclarationInterface} from "@/core/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
 
 const dashboardModule: ModuleDeclarationInterface = {
-    id: 'dashboard',
+    identifier: 'mod.sentients.dashboard',
     key: 'DASHBOARD',
-    name: 'Dashboard',
+    version: '1.0.0',
+    name: 'Tableau de board',
     description: 'Tableau de bord principal',
     icon: "LayoutDashboardIcon",
     logo: undefined,
@@ -11,6 +12,8 @@ const dashboardModule: ModuleDeclarationInterface = {
     isEnabled: true,
     isDefault: true,
     type: 'INTERNAL',
+    category: 'SYSTEM',
+    requirements: {},
 }
 
 export default dashboardModule

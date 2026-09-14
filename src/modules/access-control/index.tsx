@@ -1,10 +1,11 @@
 import {AccessControlApiService} from "@/modules/access-control/application/service/access-control-api.service";
-import {ModuleDeclarationInterface} from "@/core/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
 import {AccessControlWidget} from "@/modules/access-control/presentation/widgets/access-control.widget";
 
 const accessControlModule: ModuleDeclarationInterface = {
-    id: 'access-control',
+    identifier: 'mod.sentients.access-control',
     key: 'ACCESS_CONTROL',
+    version: '1.0.0',
     name: "Contrôle d'accès",
     description: "Gestion des permissions et rôles",
     icon: "ShieldIcon",
@@ -17,8 +18,13 @@ const accessControlModule: ModuleDeclarationInterface = {
     },
     uri: '/access-control',
     isEnabled: true,
-    isDefault: true,
+    isDefault: false,
     type: 'INTERNAL',
+    category: 'ADMINISTRATION',
+    requirements: {
+        'organization': '>=1.0.0',
+        'identity': '>=1.0.0',
+    },
 }
 
 export default accessControlModule
