@@ -148,3 +148,5 @@ test-results/
 playwright-report/
 
 certificates
+
+.idea/*.iml
