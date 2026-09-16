@@ -11,7 +11,7 @@ import {ModulesSwitcherProvider} from "@sentients/sdk/infrastructure/providers/m
 import {ModulesRoutinesProvider} from "@sentients/sdk/infrastructure/providers/modules-routines.provider";
 import {ModulesGuardProvider} from "@sentients/sdk/infrastructure/providers/modules-guard.provider";
 import {ModuleUsageProvider} from "@sentients/sdk/infrastructure/providers/module-usage.provider";
-import {MessengerHeaderProvider} from "../../external_modules/messenger/presentation/providers/messenger-header.provider";
+import {ModulesLayoutProviders} from "@/core/presentation/components/modules-layout-providers";
 import ModalPortal from "@sentients/sdk/presentation/modals/components/ModalPortal";
 import {FloatingUpload} from "@sentients/sdk/presentation/components/floating-upload";
 import {cn, ThemePreferColorSchemeProvider} from "@sentients/sdk";
@@ -76,7 +76,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
                     <ModulesSwitcherProvider/>
                     <ModulesRoutinesProvider/>
                     <ModuleUsageProvider/>
-                    <MessengerHeaderProvider/>
+                    <ModulesLayoutProviders/>
                     <ModulesGuardProvider>
                         <ThemePreferColorSchemeProvider/>
                         <PushNotificationsProvider/>

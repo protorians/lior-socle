@@ -5,7 +5,7 @@
   "identifier": "com.protorians.sentient.manager",
   "build": {
     "beforeDevCommand": "bun run dev",
-    "devUrl": "http://localhost:5010",
+    "devUrl": "http://localhost:5880",
     "beforeBuildCommand": "bun run build:tauri",
     "frontendDist": "../out"
   },

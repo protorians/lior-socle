@@ -1,21 +1,21 @@
 "use client"
 
-import {ModuleNavigationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {defaultModulesNavConfig} from "@/modules.config";
+import {
+    ModuleDeclarationInterface,
+    ModuleNavigationInterface
+} from "@sentients/sdk/domain/entities/module.interface";
+import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
 import Link from "next/link";
 import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
 import {LucideIcon} from "@sentients/sdk/presentation/icons/lucide";
 import {usePathname} from "next/navigation";
 import {Fragment} from "react";
-import {DropdownMenu, DropdownMenuTrigger} from "@sentients/sdk/presentation/ui/dropdown-menu";
 import {
     SheetDescription,
     SheetHeader,
     SheetTitle
 } from "@sentients/sdk/presentation/ui/sheet";
 import {LegacySheet} from "@sentients/sdk/presentation/sheets/legacy-sheet";
-import {CommonClassName} from "@sentients/sdk/infrastructure/utilities/classname.util";
-import {useRecentModules} from "@sentients/sdk/infrastructure/hooks/use-recent-modules";
 
 
 export function StartMenuItem(module: ModuleNavigationInterface) {
@@ -42,7 +42,6 @@ export function StartMenuItem(module: ModuleNavigationInterface) {
 
     const isMega = module.dropdown?.type === "mega"
     const isMini = module.dropdown?.type === "mini"
-    // const side = isMega ? "top" : "left"
 
     return (
         <Fragment>
@@ -85,40 +84,37 @@ export function StartMenuItem(module: ModuleNavigationInterface) {
     )
 }
 
-export function StartMenu() {
-    const recentModules = useRecentModules()
+function moduleToNavItem(module: ModuleDeclarationInterface): ModuleNavigationInterface {
+    return {
+        id: module.identifier,
+        label: module.name,
+        icon: module.icon,
+        url: module.uri,
+        useOnlyIcon: true,
+    }
+}
 
-    const filteredRecent = recentModules.filter(
-        rm => !defaultModulesNavConfig.some(dm => dm.id === rm.id)
-    )
+export function StartMenu() {
+    const modules = useModuleStore(state => state.modules)
+
+    const navItems = modules
+        .filter(module => module.isEnabled)
+        .map(moduleToNavItem)
 
     return (
         <nav
             className={cn(
                 "flex flex-row md:flex-col items-center",
-                // CommonClassName.glossyBorder,
-                // CommonClassName.layer,
                 "p-2",
                 "max-h-16 sm:max-h-[60vh]",
-                // "overflow-x-auto",
-                // "sm:overflow-x-hidden sm:overflow-y-auto",
-                // "scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
             )}>
             {
-                defaultModulesNavConfig.map((module, index) => {
+                navItems.map((module, index) => {
                     return (
                         <StartMenuItem key={`default-modules-nav-${index}`} {...module} />
                     )
                 })
             }
-            {filteredRecent.length > 0 && (
-                <>
-                    <div className="w-4/5 h-px bg-border my-2" />
-                    {filteredRecent.slice(0, 3).map((module) => (
-                        <StartMenuItem key={`recent-module-${module.id}`} {...module} />
-                    ))}
-                </>
-            )}
         </nav>
     )
 }

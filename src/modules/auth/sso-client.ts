@@ -1,6 +1,6 @@
 "use client";
 
-// Client SSO de sentient-manager vers `sentient-auth`.
+// Client SSO de sentient-socle vers `sentient-auth`.
 // La logique est centralisée dans le SDK (@sentients/sdk) pour être partagée
 // avec le composant `AuthLockScreen` ; ce fichier en expose l'API publique.
 export {
