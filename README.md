@@ -27,7 +27,7 @@ Application modulaire : chaque fonctionnalité métier est un module à 4 couche
 ```
 
 - Enregistrement des modules : `src/modules.ts` (`ModulesDefinition`).
-- Navigation : `src/modules.config.tsx` (`defaultModulesNavConfig`).
+- Navigation : pilotée par le store `useModuleStore` (`@sentients/sdk/infrastructure/stores/module.store`) à partir des modules activés.
 - Routes publiques : déclarées dans `src/bootstrapper.ts` (`/intl`), authentification gérée par les providers du SDK (`AuthProvider`, `AuthGuard`, routes `/auth/*`).
 
 ### Modules internes (`src/modules/`)
