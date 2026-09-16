@@ -23,26 +23,19 @@ jobs:
         id: version
         run: |
           branch="${{ github.ref_name }}"
+          base_version="v$(node -p "require('./package.json').version")"
           case "$branch" in
             alpha|beta|rc)
-              last=$(git tag -l "${branch}-*" | sort -V | tail -n 1)
+              last=$(git tag -l "${base_version}-${branch}.*" | sort -V | tail -n 1)
               if [ -z "$last" ]; then
-                next="${branch}-1"
+                next="${base_version}-${branch}.1"
               else
-                number="${last#${branch}-}"
-                next="${branch}-$((number + 1))"
+                number="${last##*.}"
+                next="${base_version}-${branch}.$((number + 1))"
               fi
               ;;
             main)
-              last=$(git tag -l 'v*' | sort -V | tail -n 1)
-              if [ -z "$last" ]; then
-                next="v0.1.0"
-              else
-                major=$(echo "$last" | cut -d. -f1)
-                minor=$(echo "$last" | cut -d. -f2)
-                patch=$(echo "$last" | cut -d. -f3)
-                next="${major}.${minor}.$((patch + 1))"
-              fi
+              next="$base_version"
               ;;
           esac
           echo "tag=$next" >> "$GITHUB_OUTPUT"
