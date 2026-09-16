@@ -11,7 +11,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@sentients/sdk/presentation/ui/breadcrumb"
-import { defaultModulesNavConfig } from "@/modules.config"
 import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
 
 export function AutoBreadcrumb() {
@@ -41,15 +40,14 @@ export function AutoBreadcrumb() {
       currentPath += `/${segment}`
       const isLast = index === pathSegments.length - 1
       
-      // Essayer de trouver un label dans la config des modules
-      const navConfig = defaultModulesNavConfig.find(m => m.url === currentPath)
-      const moduleDecl = modules.find(m => m.uri === currentPath)
-      
+      // Essayer de trouver le module le plus spécifique correspondant au chemin
+      const moduleDecl = modules
+        .filter(m => m.uri && m.uri !== "/" && currentPath.startsWith(m.uri))
+        .sort((a, b) => b.uri.length - a.uri.length)[0]
+
       let label = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ")
-      
-      if (navConfig) {
-        label = navConfig.label
-      } else if (moduleDecl) {
+
+      if (moduleDecl) {
         label = moduleDecl.name
       }
 
@@ -61,7 +59,7 @@ export function AutoBreadcrumb() {
     })
 
     return items
-  }, [pathSegments])
+  }, [pathSegments, modules])
 
   if (breadcrumbs.length === 0) {
       return (

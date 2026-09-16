@@ -4,4 +4,4 @@
 @import "@sentients/sdk/styles.css";
 @import "./themes.css";
 
-@source "../../../../packages/sdk/src";
+@source "../../node_modules/@sentients/sdk/src";
