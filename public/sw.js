@@ -62,7 +62,7 @@ self.addEventListener('push', (event) => {
             actions: data.actions || [],
         };
 
-        await self.registration.showNotification(data.title || 'Sentient Dashboard', options);
+        await self.registration.showNotification(data.title || 'Liorian Dashboard', options);
     })());
 });
 

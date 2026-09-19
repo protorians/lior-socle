@@ -1,7 +1,7 @@
 "use client"
 
 import {Fragment} from "react";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
 
 /**
  * Rends dynamiquement les providers de layout déclarés par les modules

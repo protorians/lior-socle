@@ -3,10 +3,10 @@
 import {Fragment, useMemo, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import {ActivityIcon, RefreshCwIcon} from "lucide-react";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
-import {hasPermissions} from "@sentients/sdk/infrastructure/utilities/permission.util";
-import {DomainsEnum} from "@sentients/sdk/domain/enums/domains.enum";
-import {ActivitiesType} from "@sentients/sdk/domain/entities/activities.interface";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
+import {hasPermissions} from "@liorian/sdk/infrastructure/utilities/permission.util";
+import {DomainsEnum} from "@liorian/sdk/domain/enums/domains.enum";
+import {ActivitiesType} from "@liorian/sdk/domain/entities/activities.interface";
 import {UserActivitiesApiService} from "@/modules/user-activity/application/service/user-activities-api-service";
 import {
     Timeline,
@@ -17,16 +17,16 @@ import {
     TimelineItem,
     TimelineSeparator,
     TimelineTitle,
-} from "@sentients/sdk/presentation/reui/timeline";
-import {ActivityDescriptor, explainActivityAction} from "@sentients/sdk/infrastructure/utilities/activities.util";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {PermissionActionBadge} from "@sentients/sdk/presentation/permission-action-badge";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
-import {Skeleton} from "@sentients/sdk/presentation/ui/skeleton";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@sentients/sdk/presentation/ui/select";
-import {Tabs, TabsList, TabsTrigger} from "@sentients/sdk/presentation/ui/tabs";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+} from "@liorian/sdk/presentation/reui/timeline";
+import {ActivityDescriptor, explainActivityAction} from "@liorian/sdk/infrastructure/utilities/activities.util";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {PermissionActionBadge} from "@liorian/sdk/presentation/permission-action-badge";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
+import {Skeleton} from "@liorian/sdk/presentation/ui/skeleton";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@liorian/sdk/presentation/ui/select";
+import {Tabs, TabsList, TabsTrigger} from "@liorian/sdk/presentation/ui/tabs";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
 
 const HTTP_ACTIONS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'] as const;
 type Scope = 'all' | 'mine';

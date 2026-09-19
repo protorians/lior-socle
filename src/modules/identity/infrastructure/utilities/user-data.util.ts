@@ -1,4 +1,4 @@
-import {UserInterface} from "@sentients/sdk/domain/entities/user.interface";
+import {UserInterface} from "@liorian/sdk/domain/entities/user.interface";
 import {UserGenderEnum} from "@/modules/identity/domain/enums/user-gender.enum";
 import {CreateUserInterface} from "@/modules/identity/domain/users.interface";
 

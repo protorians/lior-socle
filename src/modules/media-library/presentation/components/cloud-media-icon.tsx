@@ -9,7 +9,7 @@ import {
     FileVideoIcon,
     LucideProps,
 } from "lucide-react";
-import {MediaLabelService} from "@sentients/sdk/infrastructure/utilities/media-label.service";
+import {MediaLabelService} from "@liorian/sdk/infrastructure/utilities/media-label.service";
 
 function extensionOf(filename?: string): string {
     return (filename?.split(".").pop() ?? "").toLowerCase();

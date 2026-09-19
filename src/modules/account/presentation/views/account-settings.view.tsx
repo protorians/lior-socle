@@ -4,21 +4,21 @@ import React from "react";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {toast} from "sonner";
 import {Trash2} from "lucide-react";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
-import {AuthUserService} from "@sentients/sdk/application/service/auth-user.service";
-import {useUploadStore} from "@sentients/sdk/infrastructure/stores/upload.store";
-import type {MediaStorageInterface} from "@sentients/sdk/domain/entities/media";
-import {StorageMedia} from "@sentients/sdk/presentation/uploading/storage-media";
-import {Progress} from "@sentients/sdk/presentation/ui/progress";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
+import {AuthUserService} from "@liorian/sdk/application/service/auth-user.service";
+import {useUploadStore} from "@liorian/sdk/infrastructure/stores/upload.store";
+import type {MediaStorageInterface} from "@liorian/sdk/domain/entities/media";
+import {StorageMedia} from "@liorian/sdk/presentation/uploading/storage-media";
+import {Progress} from "@liorian/sdk/presentation/ui/progress";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
 import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout";
-import {Input} from "@sentients/sdk/presentation/ui/input";
-import {Label} from "@sentients/sdk/presentation/ui/label";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card";
-import {Avatar, AvatarFallback} from "@sentients/sdk/presentation/ui/avatar";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {Input} from "@liorian/sdk/presentation/ui/input";
+import {Label} from "@liorian/sdk/presentation/ui/label";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";
+import {Avatar, AvatarFallback} from "@liorian/sdk/presentation/ui/avatar";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 export function AccountSettingsView() {
     const {user} = useAuth();
@@ -190,7 +190,7 @@ export function AccountSettingsView() {
                                         >
                                             {isUploadingAvatar ? (
                                                 <>
-                                                    <WaitingActivity size={16}/>
+                                                    <Activity.Loader size={16}/>
                                                     Téléversement...
                                                 </>
                                             ) : user?.avatar?.id ? "Changer l'avatar" : "Ajouter un avatar"}
@@ -205,7 +205,7 @@ export function AccountSettingsView() {
                                                 onClick={handleRemoveAvatar}
                                                 disabled={isUploadingAvatar || isRemovingAvatar}
                                             >
-                                                {isRemovingAvatar ? <WaitingActivity size={16}/> : <Trash2 className="size-4"/>}
+                                                {isRemovingAvatar ? <Activity.Loader size={16}/> : <Trash2 className="size-4"/>}
                                             </Button>
                                         )}
                                     </div>
@@ -272,7 +272,7 @@ export function AccountSettingsView() {
                                 <Button type="submit" disabled={updateProfileMutation.isPending}>
                                     {updateProfileMutation.isPending ? (
                                         <>
-                                            <WaitingActivity size={16} />
+                                            <Activity.Loader size={16} />
                                             Enregistrement...
                                         </>
                                     ) : (

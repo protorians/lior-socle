@@ -2,12 +2,12 @@
 
 import {useRouter} from "next/navigation";
 import {DownloadIcon, ExternalLinkIcon, SparklesIcon} from "lucide-react";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Card, CardContent} from "@sentients/sdk/presentation/ui/card";
-import {DynamicIcon} from "@sentients/sdk/presentation/components/dynamic-icon";
-import {MODULE_CATEGORY_LABELS} from "@sentients/sdk/domain/enums/module-category.enum";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Card, CardContent} from "@liorian/sdk/presentation/ui/card";
+import {DynamicIcon} from "@liorian/sdk/presentation/components/dynamic-icon";
+import {MODULE_CATEGORY_LABELS} from "@liorian/sdk/domain/enums/module-category.enum";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 
 interface ModuleStoreSpotlightProps {
     module: ModuleDeclarationInterface;

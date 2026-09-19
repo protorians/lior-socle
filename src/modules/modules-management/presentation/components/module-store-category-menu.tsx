@@ -5,7 +5,7 @@ import {
     ModuleCategory,
     MODULE_CATEGORY_LABELS,
     MODULE_CATEGORY_ICONS,
-} from "@sentients/sdk/domain/enums/module-category.enum";
+} from "@liorian/sdk/domain/enums/module-category.enum";
 
 interface ModuleStoreCategoryMenuProps {
     categories: ModuleCategory[];

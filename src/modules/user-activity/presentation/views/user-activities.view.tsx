@@ -1,13 +1,10 @@
 "use client"
 
 import {ActivityIcon} from "lucide-react";
-import {Footer} from "@/core/presentation/themes/katon/footer";
-import {View} from "@sentients/sdk/presentation/themes/katon/view";
-import {Header} from "@sentients/sdk/presentation/themes/katon/header";
-import {Main} from "@sentients/sdk/presentation/themes/katon/main";
-import {Wrapper} from "@/core/presentation/themes/katon/wrapper";
-import {MainWrapper} from "@sentients/sdk/presentation/themes/katon/main-wrapper";
-import {AnimatedContent} from "@sentients/sdk/presentation/components/animated-content";
+import {View} from "@liorian/sdk/presentation/themes/katon/view";
+import {AutoBreadcrumb} from "@/core/presentation/components/auto-breadcrumb";
+import {MainWrapper} from "@liorian/sdk/presentation/themes/katon/main-wrapper";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 import {
     UserActivitiesAnalyticsData
 } from "@/modules/user-activity/presentation/components/user-activities-analytics-data";
@@ -26,27 +23,14 @@ import {UserActivitiesFeed} from "@/modules/user-activity/presentation/component
 export function UserActivitiesView() {
     return (
         <View>
-            <Wrapper>
-                <Header/>
-                <Main className="flex flex-col md:flex-row p-6 gap-6">
-                    <AnimatedContent variant="enter" className={"w-auto! flex-auto"}>
-                        <div className="gap-6 flex flex-col">
-
-                            <div className="flex flex-row items-center">
-                                <div className="flex flex-row flex-auto overflow-hidden items-center gap-3">
-                                    <span
-                                        className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                                        <ActivityIcon/>
-                                    </span>
-                                    <div>
-                                        <h1 className="text-2xl font-bold truncate text-ellipsis">Journal
-                                            d'activité</h1>
-                                        <p className="text-sm text-muted-foreground">Traçabilité et analytiques des
-                                            actions
-                                            de votre organisation</p>
-                                    </div>
-                                </div>
-                            </div>
+            <View.Wrapper>
+                <View.Helmet/>
+                <View.Frame className="flex flex-col md:flex-row p-6 gap-6">
+                    <Activity.Container variant="enter" className={"w-auto! flex-auto"}>
+                        <Activity.Content>
+                            <Activity.Header>
+                                <Activity.Title label="Journal d'activité" description="Traçabilité et analytiques des actions de votre organisation" icon={<ActivityIcon/>}/>
+                            </Activity.Header>
 
                             <UserActivitiesAnalyticsData/>
 
@@ -58,17 +42,17 @@ export function UserActivitiesView() {
                             </div>
 
                             <UserActivitiesTopUsers/>
-                        </div>
-                    </AnimatedContent>
+                        </Activity.Content>
+                    </Activity.Container>
 
-                    <AnimatedContent variant="scale" className={"max-w-2xl"}>
+                    <Activity.Container variant="scale" className={"max-w-2xl"}>
                         <UserActivitiesFeed/>
 
-                    </AnimatedContent>
+                    </Activity.Container>
 
-                </Main>
-            </Wrapper>
-            <Footer/>
+                </View.Frame>
+            </View.Wrapper>
+            <View.Status breadcrumb={<AutoBreadcrumb/>}/>
         </View>
     )
 }

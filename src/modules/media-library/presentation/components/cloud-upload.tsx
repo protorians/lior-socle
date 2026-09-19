@@ -2,8 +2,8 @@
 
 import {useRef, useState} from "react";
 import {CloudUploadIcon} from "lucide-react";
-import {useUploadStore} from "@sentients/sdk/infrastructure/stores/upload.store";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+import {useUploadStore} from "@liorian/sdk/infrastructure/stores/upload.store";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
 
 export function CloudUploadDropzone() {
     const inputRef = useRef<HTMLInputElement>(null);

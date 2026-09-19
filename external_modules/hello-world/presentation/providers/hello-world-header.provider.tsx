@@ -1,8 +1,8 @@
 "use client"
 
 import * as React from "react";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
-import {routines} from "@sentients/sdk/infrastructure/routines/routine.hook";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
+import {routines} from "@liorian/sdk/infrastructure/routines/routine.hook";
 import {helloWorldAnalyticsRoutine} from "../../infrastructure/routines/hello-world-analytics.routine";
 
 /**
@@ -18,7 +18,7 @@ import {helloWorldAnalyticsRoutine} from "../../infrastructure/routines/hello-wo
  */
 export function HelloWorldHeaderProvider() {
     const helloWorldEnabled = useModuleStore(
-        (state) => state.modules.find((module) => module.identifier === "mod.sentients.helloworld")?.isEnabled ?? false,
+        (state) => state.modules.find((module) => module.identifier === "mod.liorian.helloworld")?.isEnabled ?? false,
     );
 
     React.useEffect(() => {

@@ -6,13 +6,13 @@ import {toast} from "sonner";
 import {RefreshCwIcon, SearchIcon, Trash2Icon} from "lucide-react";
 import {CloudApiService} from "@/modules/media-library/application/service/cloud-api-service";
 import {MediaLibraryInterface, MediaSectionFilter} from "@/modules/media-library/domain/cloud.interface";
-import {useUploadStore} from "@sentients/sdk/infrastructure/stores/upload.store";
-import {MediaLabelService} from "@sentients/sdk/infrastructure/utilities/media-label.service";
-import {Input} from "@sentients/sdk/presentation/ui/input";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Empty, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
-import {Skeleton} from "@sentients/sdk/presentation/ui/skeleton";
+import {useUploadStore} from "@liorian/sdk/infrastructure/stores/upload.store";
+import {MediaLabelService} from "@liorian/sdk/infrastructure/utilities/media-label.service";
+import {Input} from "@liorian/sdk/presentation/ui/input";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Empty, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
+import {Skeleton} from "@liorian/sdk/presentation/ui/skeleton";
 import {
     Pagination,
     PaginationContent,
@@ -20,7 +20,7 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-} from "@sentients/sdk/presentation/ui/pagination";
+} from "@liorian/sdk/presentation/ui/pagination";
 import {
     Dialog,
     DialogContent,
@@ -28,12 +28,12 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "@sentients/sdk/presentation/ui/dialog";
+} from "@liorian/sdk/presentation/ui/dialog";
 import {CloudIcon} from "lucide-react";
 import {CloudMediaCard} from "@/modules/media-library/presentation/components/cloud-media-card";
 import {CloudMediaDetailSheet} from "@/modules/media-library/presentation/components/cloud-media-detail-sheet";
 import {CloudSummary} from "@/modules/media-library/presentation/components/cloud-summary";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
 
 const PAGE_SIZE = 12;
 

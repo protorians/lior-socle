@@ -3,26 +3,25 @@
 import * as React from "react";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {toast} from "sonner";
-import {ModuleStoreApiService} from "@sentients/sdk/application/service/module-store-api.service";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {ModuleStoreCatalogItemInterface} from "@sentients/sdk/domain/entities/module-activation.interface";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle} from "@sentients/sdk/presentation/ui/dialog";
-import {Input} from "@sentients/sdk/presentation/ui/input";
-import {Label} from "@sentients/sdk/presentation/ui/label";
-import {Separator} from "@sentients/sdk/presentation/ui/separator";
-import {Switch} from "@sentients/sdk/presentation/ui/switch";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@sentients/sdk/presentation/ui/select";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {StorefrontApiService} from "@liorian/sdk/application/service/storefront-api.service";
+import {CatalogModuleInterface} from "@liorian/sdk/domain/entities/catalog.interface";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle} from "@liorian/sdk/presentation/ui/dialog";
+import {Input} from "@liorian/sdk/presentation/ui/input";
+import {Label} from "@liorian/sdk/presentation/ui/label";
+import {Separator} from "@liorian/sdk/presentation/ui/separator";
+import {Switch} from "@liorian/sdk/presentation/ui/switch";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@liorian/sdk/presentation/ui/select";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 import {ImageIcon, Trash2Icon} from "lucide-react";
 import {MediaPickerDialog, PickedMediaInterface} from "@/core/presentation/components/media-picker-dialog";
-import {cn} from "@sentients/sdk";
+import {cn} from "@liorian/sdk/index";
 
 interface ModuleStorePublishDialogProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
     /** Fiche produit existante : mode édition (sinon création). */
-    catalogItem?: ModuleStoreCatalogItemInterface | null;
+    catalogItem?: CatalogModuleInterface | null;
 }
 
 const SUPER_ADMIN_MIN_LEVEL = 90;
@@ -97,7 +96,6 @@ function MediaField({
  * Mode création (Publier) ou édition (Éditer la fiche).
  */
 export function ModuleStorePublishDialog({open, onOpenChange, catalogItem}: ModuleStorePublishDialogProps) {
-    const {user} = useAuth();
     const queryClient = useQueryClient();
     const isEdit = !!catalogItem;
 
@@ -123,17 +121,14 @@ export function ModuleStorePublishDialog({open, onOpenChange, catalogItem}: Modu
         setType(catalogItem?.type ?? "INTERNAL");
         setIsEnabled(catalogItem?.isEnabled ?? true);
         setIsDefault(catalogItem?.isDefault ?? false);
-        setLogo(catalogItem?.logoId ? {id: catalogItem.logoId, filename: "Icône actuelle", type: "image/", url: catalogItem.logoUrl} : null);
-        setBanner(catalogItem?.bannerId ? {id: catalogItem.bannerId, filename: "Bannière actuelle", type: "image/", url: catalogItem.bannerUrl} : null);
+        setLogo(catalogItem?.logoUrl ? {id: catalogItem.id, filename: "Icône actuelle", type: "image/", url: catalogItem.logoUrl} : null);
+        setBanner(catalogItem?.bannerUrl ? {id: catalogItem.id, filename: "Bannière actuelle", type: "image/", url: catalogItem.bannerUrl} : null);
     }, [open, catalogItem]);
 
     const canSubmit = name.trim().length > 0 && url.trim().length > 0 && (isEdit || identifier.trim().length > 0);
 
     const mutation = useMutation({
         mutationFn: async () => {
-            const auditId = user?.auditId;
-            if (!auditId) throw new Error("Identifiant de piste d'audit introuvable");
-
             const basePayload = {
                 name: name.trim(),
                 url: url.trim(),
@@ -142,15 +137,14 @@ export function ModuleStorePublishDialog({open, onOpenChange, catalogItem}: Modu
                 type,
                 isEnabled,
                 isDefault,
-                logoId: logo?.id ?? null,
-                bannerId: banner?.id ?? null,
-                auditId,
+                logoUrl: logo?.url ?? null,
+                bannerUrl: banner?.url ?? null,
             };
 
             if (isEdit && catalogItem) {
-                await ModuleStoreApiService.updateCatalogModule(catalogItem.id, basePayload);
+                await StorefrontApiService.updateCatalogModule(catalogItem.id, basePayload);
             } else {
-                await ModuleStoreApiService.createCatalogModule({
+                await StorefrontApiService.createCatalogModule({
                     ...basePayload,
                     identifier: identifier.trim(),
                 });
@@ -199,7 +193,7 @@ export function ModuleStorePublishDialog({open, onOpenChange, catalogItem}: Modu
                                     <Input
                                         value={identifier}
                                         onChange={(event) => setIdentifier(event.target.value)}
-                                        placeholder="mod.sentients.inventory"
+                                        placeholder="mod.liorian.inventory"
                                         className="font-mono"
                                     />
                                     <p className="text-xs text-muted-foreground">
@@ -281,7 +275,7 @@ export function ModuleStorePublishDialog({open, onOpenChange, catalogItem}: Modu
                             Annuler
                         </Button>
                         <Button onClick={() => mutation.mutate()} disabled={!canSubmit || mutation.isPending}>
-                            {mutation.isPending ? <WaitingActivity size={14}/> : isEdit ? "Enregistrer" : "Publier le module"}
+                            {mutation.isPending ? <Activity.Loader size={14}/> : isEdit ? "Enregistrer" : "Publier le module"}
                         </Button>
                     </DialogFooter>
                 </DialogContent>

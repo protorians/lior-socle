@@ -1,10 +1,10 @@
 "use client"
 
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {PermissionActionBadge} from "@sentients/sdk/presentation/permission-action-badge";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {PermissionActionBadge} from "@liorian/sdk/presentation/permission-action-badge";
 import {userActivitiesAnalyticsRoutine} from "@/modules/user-activity/infrastructure/routines/user-activities-analytics.routine";
-import {Empty, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
+import {Empty, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
 import {ActivityIcon} from "lucide-react";
 
 export function UserActivitiesByActionList() {

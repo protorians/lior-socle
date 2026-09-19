@@ -2,17 +2,14 @@
 
 import {SettingsLayout} from "../../../external_modules/pos-management/presentation/components/settings-layout";
 import React from "react";
-import {View} from "@sentients/sdk/presentation/themes/katon/view";
-import {Wrapper} from "@/core/presentation/themes/katon/wrapper";
-import {Header} from "@sentients/sdk/presentation/themes/katon/header";
-import {Main} from "@sentients/sdk/presentation/themes/katon/main";
+import {View} from "@liorian/sdk/presentation/themes/katon/view";
 
 export default function AccountLayout({children}: { children: React.ReactNode }) {
     return (
         <View>
-            <Wrapper>
-                <Header/>
-                <Main className="flex flex-col lg:flex-row px-6 gap-6">
+            <View.Wrapper>
+                <View.Helmet/>
+                <View.Frame className="flex flex-col lg:flex-row px-6 gap-6">
                     <div className="container mx-auto py-6">
                         <SettingsLayout>
                             <SettingsLayout.Menu className={"flex flex-col gap-6"}>
@@ -37,8 +34,8 @@ export default function AccountLayout({children}: { children: React.ReactNode })
                             </SettingsLayout.Container>
                         </SettingsLayout>
                     </div>
-                </Main>
-            </Wrapper>
+                </View.Frame>
+            </View.Wrapper>
         </View>
     );
 }

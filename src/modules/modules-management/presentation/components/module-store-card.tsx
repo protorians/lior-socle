@@ -2,14 +2,14 @@
 
 import * as React from "react";
 import Link from "next/link";
-import {DynamicIcon} from "@sentients/sdk/presentation/components/dynamic-icon";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {ModuleStoreStateType} from "@sentients/sdk/domain/entities/module-activation.interface";
-import {MODULE_CATEGORY_LABELS, MODULE_CATEGORY_ICONS, ModuleCategory} from "@sentients/sdk/domain/enums/module-category.enum";
-import {Card, CardContent, CardTitle} from "@sentients/sdk/presentation/ui/card";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Switch} from "@sentients/sdk/presentation/ui/switch";
+import {DynamicIcon} from "@liorian/sdk/presentation/components/dynamic-icon";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
+import {ModuleStoreStateType} from "@liorian/sdk/domain/entities/module-activation.interface";
+import {MODULE_CATEGORY_LABELS, MODULE_CATEGORY_ICONS, ModuleCategory} from "@liorian/sdk/domain/enums/module-category.enum";
+import {Card, CardContent, CardTitle} from "@liorian/sdk/presentation/ui/card";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Switch} from "@liorian/sdk/presentation/ui/switch";
 import {
     DownloadIcon,
     SettingsIcon,

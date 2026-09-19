@@ -3,8 +3,8 @@
 import * as React from "react";
 import {usePathname} from "next/navigation";
 import {useIsFetching} from "@tanstack/react-query";
-import {WaitingBar} from "@sentients/sdk/presentation/components/waiting-bar";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+import {WaitingBar} from "@liorian/sdk/presentation/components/waiting-bar";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
 
 // Délai avant affichage : évite tout flash sur les navigations instantanées
 const SHOW_DELAY_MS = 150;

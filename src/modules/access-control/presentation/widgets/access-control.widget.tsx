@@ -2,17 +2,17 @@
 
 import * as React from "react"
 import {LayersIcon, ShieldIcon} from "lucide-react"
-import {ModuleWidget} from "@sentients/sdk/presentation/module-widget"
+import {ModuleWidget} from "@liorian/sdk/presentation/module-widget"
 import {RolesSummaryType} from "../../domain/entities/roles.interface";
 import accessControlModule from "@/modules/access-control";
 import {useQuery} from "@tanstack/react-query";
 import {AccessControlApiService} from "@/modules/access-control/application/service/access-control-api.service";
-import {getRoleLabel} from "@sentients/sdk/infrastructure/utilities/access-label.util";
+import {getRoleLabel} from "@liorian/sdk/infrastructure/utilities/access-label.util";
 import {Fragment, ReactNode, useEffect, useState} from "react";
-import {StatisticalProps} from "@sentients/sdk/domain/typing/statisticals";
-import {WaitingBar} from "@sentients/sdk/presentation/components/waiting-bar";
-import {Waiting} from "@sentients/sdk/presentation/components/waiting";
-import {ChartConfig} from "@sentients/sdk/presentation/ui/chart";
+import {StatisticalProps} from "@liorian/sdk/domain/typing/statisticals";
+import {WaitingBar} from "@liorian/sdk/presentation/components/waiting-bar";
+import {Waiting} from "@liorian/sdk/presentation/components/waiting";
+import {ChartConfig} from "@liorian/sdk/presentation/ui/chart";
 
 export interface AccessControlWidgetProps {
     data?: RolesSummaryType

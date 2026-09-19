@@ -1,36 +1,33 @@
 "use client"
 
 import * as React from "react"
-import {DataGrid, type RowAction} from "@sentients/sdk/presentation/data-grid/data-grid"
-import {DataGridSearchEngine} from "@sentients/sdk/presentation/data-grid/data-grid-search-engine"
-import {DashboardLayout} from "@sentients/sdk/presentation/themes/katon/dashboard-layout"
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@sentients/sdk/presentation/ui/tabs"
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
+import {DataGrid, type RowAction} from "@liorian/sdk/presentation/data-grid/data-grid"
+import {DataGridSearchEngine} from "@liorian/sdk/presentation/data-grid/data-grid-search-engine"
+import {DashboardLayout} from "@liorian/sdk/presentation/themes/katon/dashboard-layout"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@liorian/sdk/presentation/ui/tabs"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
 import {PlusIcon, ShieldIcon, UsersIcon, KeyIcon, LockIcon, LayersIcon} from "lucide-react"
-import {Label} from "@sentients/sdk/presentation/ui/label"
-import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@sentients/sdk/presentation/ui/select"
-import {Button} from "@sentients/sdk/presentation/ui/button"
+import {Label} from "@liorian/sdk/presentation/ui/label"
+import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@liorian/sdk/presentation/ui/select"
+import {Button} from "@liorian/sdk/presentation/ui/button"
 import {toast} from "sonner"
 
 import {AccessControlApiService} from "../../application/service/access-control-api.service"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
 import {UserActivitiesApiService} from "@/modules/user-activity/application/service/user-activities-api-service"
 import {useQuery, useQueryClient} from "@tanstack/react-query"
-import {useModalStepper} from "@sentients/sdk/presentation/modals/components/ModalStepper"
+import {useModalStepper} from "@liorian/sdk/presentation/modals/components/ModalStepper"
 import {handleCreateRoleFromDefault} from "../components/create-role-from-default-stepper"
 import type {CreateRoleFromDefaultInterface} from "../components/create-role-from-default-stepper"
 import {accessControlColumns, type AccessControlRow} from "../components/access-control-columns"
-import {getRoleLabel} from "@sentients/sdk/infrastructure/utilities/access-label.util"
+import {getRoleLabel} from "@liorian/sdk/infrastructure/utilities/access-label.util"
 import {AccessPermissionsDataGrid} from "../components/access-control-permissions-data-grid"
 import {AccessAssignmentsDataGrid} from "../components/access-control-assignments-data-grid"
 import {AccessAuditDataGrid} from "../components/access-control-audit-data-grid"
 import {RolesSummaryType} from "../../domain/entities/roles.interface";
-import {View} from "@sentients/sdk/presentation/themes/katon/view";
-import {Header} from "@sentients/sdk/presentation/themes/katon/header";
-import {Main} from "@sentients/sdk/presentation/themes/katon/main";
-import {Footer} from "@/core/presentation/themes/katon/footer";
-import {Wrapper} from "@/core/presentation/themes/katon/wrapper";
-import {Waiting} from "@sentients/sdk/presentation/components/waiting";
+import {View} from "@liorian/sdk/presentation/themes/katon/view";
+import {Waiting} from "@liorian/sdk/presentation/components/waiting";
+import {AutoBreadcrumb} from "@/core/presentation/components/auto-breadcrumb";
 
 export function AccessControlView() {
     const [roles, setRoles] = React.useState<AccessControlRow[]>([])
@@ -218,9 +215,9 @@ export function AccessControlView() {
 
     return (
         <View>
-            <Wrapper>
-                <Header/>
-                <Main className="">
+            <View.Wrapper>
+                <View.Helmet/>
+                <View.Frame className="">
                     <DashboardLayout maxWidth={'full'} className="flex-1 min-h-0">
                         <DashboardLayout.Header>
                             <DashboardLayout.HeaderTop>
@@ -382,11 +379,11 @@ export function AccessControlView() {
                             </DashboardLayout.Section>
                         </DashboardLayout.Body>
                     </DashboardLayout>
-                </Main>
-                <Footer>
+                </View.Frame>
+                <View.Status breadcrumb={<AutoBreadcrumb/>}>
 
-                </Footer>
-            </Wrapper>
+                </View.Status>
+            </View.Wrapper>
         </View>
     )
 }

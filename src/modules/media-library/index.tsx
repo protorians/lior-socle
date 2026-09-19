@@ -1,9 +1,9 @@
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {CloudApiService} from "@/modules/media-library/application/service/cloud-api-service";
 import {CloudWidget} from "@/modules/media-library/presentation/widgets/cloud.widget";
 
 const cloudModule: ModuleDeclarationInterface = {
-    identifier: 'mod.sentients.media-library',
+    identifier: 'mod.liorian.media-library',
     key: 'MEDIA_LIBRARY',
     version: '1.0.0',
     name: 'Fichiers',
@@ -21,9 +21,6 @@ const cloudModule: ModuleDeclarationInterface = {
     isDefault: false,
     type: 'INTERNAL',
     category: 'DATA',
-    requirements: {
-        'organization': '>=1.0.0',
-    },
 }
 
 export default cloudModule

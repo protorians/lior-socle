@@ -4,15 +4,15 @@ import {toast} from 'sonner';
 import {useQueryClient} from '@tanstack/react-query';
 import {ShieldCheckIcon, Settings2Icon, XIcon, CheckIcon} from 'lucide-react';
 
-import {ModalStepperStep, useModalStepper} from '@sentients/sdk/presentation/modals/components/ModalStepper';
-import {LegacyInput} from '@sentients/sdk/presentation/ui/legacy-input';
-import {FieldGroup} from '@sentients/sdk/presentation/ui/field';
-import {Checkbox} from '@sentients/sdk/presentation/ui/checkbox';
-import {Badge} from '@sentients/sdk/presentation/ui/badge';
-import {Button} from '@sentients/sdk/presentation/ui/button';
-import {cn} from '@sentients/sdk/infrastructure/utilities/utils';
-import {getDomainLabel, getRoleLabel} from '@sentients/sdk/infrastructure/utilities/access-label.util';
-import {DomainsEnum} from '@sentients/sdk/domain/enums/domains.enum';
+import {ModalStepperStep, useModalStepper} from '@liorian/sdk/presentation/modals/components/ModalStepper';
+import {LegacyInput} from '@liorian/sdk/presentation/ui/legacy-input';
+import {FieldGroup} from '@liorian/sdk/presentation/ui/field';
+import {Checkbox} from '@liorian/sdk/presentation/ui/checkbox';
+import {Badge} from '@liorian/sdk/presentation/ui/badge';
+import {Button} from '@liorian/sdk/presentation/ui/button';
+import {cn} from '@liorian/sdk/infrastructure/utilities/utils';
+import {getDomainLabel, getRoleLabel} from '@liorian/sdk/infrastructure/utilities/access-label.util';
+import {DomainsEnum} from '@liorian/sdk/domain/enums/domains.enum';
 
 import {AccessControlApiService} from '@/modules/access-control/application/service/access-control-api.service';
 import {PermissionsCapabilitiesInterface} from '@/modules/access-control/domain/entities/roles.interface';

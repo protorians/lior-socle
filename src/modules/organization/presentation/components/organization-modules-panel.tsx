@@ -1,14 +1,14 @@
 "use client"
 
 import * as React from "react"
-import {Switch} from "@sentients/sdk/presentation/ui/switch"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card"
-import {DynamicIcon} from "@sentients/sdk/presentation/components/dynamic-icon"
-import {MODULE_OPTIONS, ModuleEnum} from "@sentients/sdk/domain/enums/module.enum"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
+import {Switch} from "@liorian/sdk/presentation/ui/switch"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card"
+import {DynamicIcon} from "@liorian/sdk/presentation/components/dynamic-icon"
+import {MODULE_OPTIONS, ModuleEnum} from "@liorian/sdk/domain/enums/module.enum"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
 import {useMutation, useQueryClient} from "@tanstack/react-query"
 import {toast} from "sonner"
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils"
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils"
 
 export function OrganizationModulesPanel({organizationId, enabledModules}: {
     organizationId: string

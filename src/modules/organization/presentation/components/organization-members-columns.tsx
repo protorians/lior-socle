@@ -1,8 +1,8 @@
 "use client"
 
 import {type ColumnDef} from "@tanstack/react-table"
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
-import {Avatar, AvatarFallback, AvatarImage} from "@sentients/sdk/presentation/ui/avatar"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
+import {Avatar, AvatarFallback, AvatarImage} from "@liorian/sdk/presentation/ui/avatar"
 import {OrganizationMemberRow} from "@/modules/organization/presentation/components/organization-members-data-grid"
 import {getFullName} from "@/modules/identity/infrastructure/utilities/users-name.util"
 import {CrownIcon, UserIcon} from "lucide-react"

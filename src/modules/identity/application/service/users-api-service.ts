@@ -1,9 +1,9 @@
-import {ApiService} from "@sentients/sdk/infrastructure/utilities/api-service";
+import {ApiService} from "@liorian/sdk/infrastructure/utilities/api-service";
 import {CreateUserInterface, UserAnalyticsInterface} from "@/modules/identity/domain/users.interface";
-import {FetchResponseInterface, FetchResponseWithMetaInterface, PaginationWithSearchOptions} from "@sentients/sdk/domain/typing/response";
-import {ActivitiesType} from "@sentients/sdk/domain/entities/activities.interface";
-import {GetAllUsersFilterOptions, UserFilter, UserInterface} from "@sentients/sdk/domain/entities/user.interface";
-import type {MediaStorageInterface} from "@sentients/sdk/domain/entities/media";
+import {FetchResponseInterface, FetchResponseWithMetaInterface, PaginationWithSearchOptions} from "@liorian/sdk/domain/typing/response";
+import {ActivitiesType} from "@liorian/sdk/domain/entities/activities.interface";
+import {GetAllUsersFilterOptions, UserFilter, UserInterface} from "@liorian/sdk/domain/entities/user.interface";
+import type {MediaStorageInterface} from "@liorian/sdk/domain/entities/media";
 import {CreateUserPayloadInterface} from "@/modules/identity/domain/payload.interface";
 
 export class UsersApiService extends ApiService {

@@ -1,9 +1,9 @@
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {StoreAnalyticsWidget} from "@/modules/modules-management/presentation/widgets/store-analytics.widget";
 import {storeSyncRoutine} from "@/modules/modules-management/infrastructure/routines/store-sync.routine";
 
 const storeModule: ModuleDeclarationInterface = {
-    identifier: 'mod.sentients.store',
+    identifier: 'mod.liorian.store',
     key: 'STORE',
     version: '1.0.0',
     name: 'Store',
@@ -24,7 +24,6 @@ const storeModule: ModuleDeclarationInterface = {
     isDefault: false,
     type: 'INTERNAL',
     category: 'SYSTEM',
-    requirements: {},
     menu: {
         items: [
             {

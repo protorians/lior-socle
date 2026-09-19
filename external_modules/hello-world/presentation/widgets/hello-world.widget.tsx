@@ -1,10 +1,10 @@
 "use client"
 import * as React from "react"
 import {WandSparklesIcon} from "lucide-react"
-import {ModuleWidget} from "@sentients/sdk/presentation/module-widget"
+import {ModuleWidget} from "@liorian/sdk/presentation/module-widget"
 import {useQuery} from "@tanstack/react-query"
 import {HelloWorldApiService} from "../../application/service/hello-world-api-service"
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth"
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth"
 
 export function HelloWorldWidget() {
     const {currentOrganization} = useAuth()

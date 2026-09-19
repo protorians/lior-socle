@@ -3,20 +3,20 @@
 import * as React from "react";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {toast} from "sonner";
-import {ModuleStoreApiService} from "@sentients/sdk/application/service/module-store-api.service";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {ModuleConfigSettingsFieldInterface, ModuleConfigSettingsFieldType} from "@sentients/sdk/domain/entities/module-activation.interface";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle} from "@sentients/sdk/presentation/ui/dialog";
-import {Input} from "@sentients/sdk/presentation/ui/input";
-import {Label} from "@sentients/sdk/presentation/ui/label";
-import {Separator} from "@sentients/sdk/presentation/ui/separator";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@sentients/sdk/presentation/ui/select";
-import {Switch} from "@sentients/sdk/presentation/ui/switch";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service";
+import {ModuleActivationApiService} from "@liorian/sdk/application/service/module-activation-api.service";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
+import {ModuleConfigSettingsFieldInterface, ModuleConfigSettingsFieldType} from "@liorian/sdk/domain/entities/module-activation.interface";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle} from "@liorian/sdk/presentation/ui/dialog";
+import {Input} from "@liorian/sdk/presentation/ui/input";
+import {Label} from "@liorian/sdk/presentation/ui/label";
+import {Separator} from "@liorian/sdk/presentation/ui/separator";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@liorian/sdk/presentation/ui/select";
+import {Switch} from "@liorian/sdk/presentation/ui/switch";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service";
 
 const INPUT_TYPES: Record<ModuleConfigSettingsFieldType, string> = {
     TEXT: "text",
@@ -74,8 +74,8 @@ export function ModuleStoreInstallDialog({open, onOpenChange, module}: ModuleSto
             if (!organizationId) throw new Error("Organisation introuvable");
 
             // 1. Activer le module via clé série
-            await ModuleStoreApiService.activateModule(organizationId, {
-                moduleId,
+            await ModuleActivationApiService.activateModule(organizationId, {
+                moduleIdentifier: module.identifier,
                 serialKey,
                 auditId: user?.auditId,
             });
@@ -202,7 +202,7 @@ export function ModuleStoreInstallDialog({open, onOpenChange, module}: ModuleSto
                         disabled={!canSubmit}
                         onClick={() => installMutation.mutate()}
                     >
-                        {installMutation.isPending ? <WaitingActivity size={16}/> : "Installer et activer"}
+                        {installMutation.isPending ? <Activity.Loader size={16}/> : "Installer et activer"}
                     </Button>
                 </DialogFooter>
             </DialogContent>

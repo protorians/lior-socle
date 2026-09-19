@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import {Button} from '@sentients/sdk/presentation/ui/button';
-import {ModalStepperStep, useModalStepper} from '@sentients/sdk/presentation/modals/components/ModalStepper';
+import {Button} from '@liorian/sdk/presentation/ui/button';
+import {ModalStepperStep, useModalStepper} from '@liorian/sdk/presentation/modals/components/ModalStepper';
 import {toast} from 'sonner';
 import {KeyRoundIcon, PlusIcon} from 'lucide-react';
-import {OrganizationsApiService} from '@sentients/sdk/application/service/organizations-api-service';
-import {LegacyInput} from '@sentients/sdk/presentation/ui/legacy-input';
-import {FieldGroup} from '@sentients/sdk/presentation/ui/field';
+import {OrganizationsApiService} from '@liorian/sdk/application/service/organizations-api-service';
+import {LegacyInput} from '@liorian/sdk/presentation/ui/legacy-input';
+import {FieldGroup} from '@liorian/sdk/presentation/ui/field';
 import {QueryClient, useQueryClient} from '@tanstack/react-query';
 
 interface CreateApiKeyFormData {

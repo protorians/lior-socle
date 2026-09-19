@@ -1,12 +1,12 @@
 [package]
-name = "sentient-manager"
+name = "liorian-socle"
 version = "0.13.0"
-description = "Sentients Socle desktop/mobile application"
-authors = ["Sentient"]
+description = "Liorian Manager desktop/mobile application"
+authors = ["Liorian"]
 edition = "2021"
 
 [lib]
-name = "sentient_manager_lib"
+name = "liorian_socle_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

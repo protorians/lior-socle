@@ -2,18 +2,18 @@
 
 import * as React from "react"
 import {useQuery} from "@tanstack/react-query"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
-import {OrganizationInterface} from "@sentients/sdk/domain/entities/organization.interface"
-import {ModuleEnum} from "@sentients/sdk/domain/enums/module.enum"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
+import {OrganizationInterface} from "@liorian/sdk/domain/entities/organization.interface"
+import {ModuleEnum} from "@liorian/sdk/domain/enums/module.enum"
 import {EditOrganizationStepper} from "@/modules/organization/presentation/components/create-organization-stepper"
 import {OrganizationModulesPanel} from "@/modules/organization/presentation/components/organization-modules-panel"
 import {OrganizationMembersDataGrid} from "@/modules/organization/presentation/components/organization-members-data-grid"
 import {OrganizationApiKeysDataGrid} from "@/modules/organization/presentation/components/organization-api-keys-data-grid"
 import {CreateApiKeyStepper} from "@/modules/organization/presentation/components/create-api-key-stepper"
-import {AnimatedContent} from "@sentients/sdk/presentation/components/animated-content"
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@sentients/sdk/presentation/ui/tabs"
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card"
+import {Activity} from "@liorian/sdk/presentation/components/activity"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@liorian/sdk/presentation/ui/tabs"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card"
 import {
     Building2Icon,
     KeyRoundIcon,
@@ -22,9 +22,8 @@ import {
     ShieldAlertIcon,
     UsersIcon,
 } from "lucide-react"
-import {DashboardLayout, Header, Main, View} from "@sentients/sdk/presentation/themes/katon"
-import {Wrapper} from "@/core/presentation/themes/katon/wrapper"
-import {Waiting} from "@sentients/sdk/presentation/components/waiting"
+import {DashboardLayout, View} from "@liorian/sdk/presentation/themes/katon"
+import {Waiting} from "@liorian/sdk/presentation/components/waiting"
 
 export function OrganizationDetailsView({organizationId}: { organizationId: string }) {
     const {data: organization, isLoading} = useQuery<OrganizationInterface | null>({
@@ -62,9 +61,9 @@ export function OrganizationDetailsView({organizationId}: { organizationId: stri
 
     return (
         <View>
-            <Wrapper>
-                <Header/>
-                <Main className="px-6">
+            <View.Wrapper>
+                <View.Helmet/>
+                <View.Frame className="px-6">
                     <DashboardLayout maxWidth="full">
                         <DashboardLayout.Header>
                             <DashboardLayout.HeaderTop>
@@ -109,8 +108,8 @@ export function OrganizationDetailsView({organizationId}: { organizationId: stri
                                     Organisation introuvable
                                 </div>
                             ) : (
-                                <AnimatedContent variant="container" className="contents">
-                                    <div className="flex-auto flex flex-col gap-6">
+                                <Activity.Container variant="container" className="contents">
+                                    <Activity.Content>
                                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                                             <StatCard label="Membres" value={members?.length ?? 0} icon={<UsersIcon className="size-4"/>}/>
                                             <StatCard label="Clés API" value={apiKeys?.length ?? 0} icon={<KeyRoundIcon className="size-4"/>}/>
@@ -193,13 +192,13 @@ export function OrganizationDetailsView({organizationId}: { organizationId: stri
                                                 <OrganizationApiKeysDataGrid organizationId={organizationId}/>
                                             </TabsContent>
                                         </Tabs>
-                                    </div>
-                                </AnimatedContent>
+                                    </Activity.Content>
+                                </Activity.Container>
                             )}
                         </DashboardLayout.Body>
                     </DashboardLayout>
-                </Main>
-            </Wrapper>
+                </View.Frame>
+            </View.Wrapper>
         </View>
     )
 }

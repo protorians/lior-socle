@@ -3,11 +3,11 @@
 import {DownloadIcon, EyeIcon, GlobeIcon, Trash2Icon} from "lucide-react";
 import {MediaLibraryInterface} from "@/modules/media-library/domain/cloud.interface";
 import {CloudMediaIcon} from "@/modules/media-library/presentation/components/cloud-media-icon";
-import {formatFileSize} from "@sentients/sdk/infrastructure/utilities/format.util";
-import {MediaLabelService} from "@sentients/sdk/infrastructure/utilities/media-label.service";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+import {formatFileSize} from "@liorian/sdk/infrastructure/utilities/format.util";
+import {MediaLabelService} from "@liorian/sdk/infrastructure/utilities/media-label.service";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
 
 export interface CloudMediaCardProps {
     media: MediaLibraryInterface;

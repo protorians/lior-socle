@@ -1,7 +1,7 @@
 "use client"
 
 import {SearchIcon} from "lucide-react";
-import {Input} from "@sentients/sdk/presentation/ui/input";
+import {Input} from "@liorian/sdk/presentation/ui/input";
 
 interface ModuleStoreSearchProps {
     value: string;

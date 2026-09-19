@@ -1,4 +1,4 @@
-import {UserPreferencesApiService} from "@sentients/sdk/application/service/user-preferences-api.service";
+import {UserPreferencesApiService} from "@liorian/sdk/application/service/user-preferences-api.service";
 import {
     DashboardLayoutConfig,
     DASHBOARD_LAYOUT_LABEL

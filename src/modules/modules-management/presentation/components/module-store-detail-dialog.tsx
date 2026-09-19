@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {Dialog, DialogContent, DialogHeader, DialogTitle} from "@sentients/sdk/presentation/ui/dialog";
-import {DynamicIcon} from "@sentients/sdk/presentation/components/dynamic-icon";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
+import {Dialog, DialogContent, DialogHeader, DialogTitle} from "@liorian/sdk/presentation/ui/dialog";
+import {DynamicIcon} from "@liorian/sdk/presentation/components/dynamic-icon";
 import {ModuleStoreDetailContent} from "./module-store-detail-content";
 
 interface ModuleStoreDetailDialogProps {

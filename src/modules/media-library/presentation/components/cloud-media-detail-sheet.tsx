@@ -8,13 +8,13 @@ import {
     SheetFooter,
     SheetHeader,
     SheetTitle,
-} from "@sentients/sdk/presentation/ui/sheet";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Separator} from "@sentients/sdk/presentation/ui/separator";
-import {StorageMedia} from "@sentients/sdk/presentation/uploading/storage-media";
-import {formatFileSize} from "@sentients/sdk/infrastructure/utilities/format.util";
-import {MediaLabelService} from "@sentients/sdk/infrastructure/utilities/media-label.service";
+} from "@liorian/sdk/presentation/ui/sheet";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Separator} from "@liorian/sdk/presentation/ui/separator";
+import {StorageMedia} from "@liorian/sdk/presentation/uploading/storage-media";
+import {formatFileSize} from "@liorian/sdk/infrastructure/utilities/format.util";
+import {MediaLabelService} from "@liorian/sdk/infrastructure/utilities/media-label.service";
 import {MediaLibraryInterface} from "@/modules/media-library/domain/cloud.interface";
 
 export interface CloudMediaDetailSheetProps {

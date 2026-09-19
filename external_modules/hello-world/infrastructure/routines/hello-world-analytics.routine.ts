@@ -1,4 +1,4 @@
-import {Routine} from "@sentients/sdk/infrastructure/routines/routine";
+import {Routine} from "@liorian/sdk/infrastructure/routines/routine";
 import {HelloWorldApiService} from "../../application/service/hello-world-api-service";
 import {HelloWorldAnalyticsInterface} from "../../domain/hello-world.interface";
 

@@ -1,9 +1,9 @@
-import {Routine} from "@sentients/sdk/infrastructure/routines/routine";
-import {ModuleStoreApiService} from "@sentients/sdk/application/service/module-store-api.service";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
-import {ModuleStoreSyncResultInterface} from "@sentients/sdk/domain/entities/module-activation.interface";
-import {RoutineInterface} from "@sentients/sdk/domain/typing/routine.types";
+import {Routine} from "@liorian/sdk/infrastructure/routines/routine";
+import {ModuleActivationApiService} from "@liorian/sdk/application/service/module-activation-api.service";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
+import {ModuleStoreSyncResultInterface} from "@liorian/sdk/domain/entities/module-activation.interface";
+import {RoutineInterface} from "@liorian/sdk/domain/typing/routine.types";
 
 export interface StoreSyncDataRoutine {
     syncedAt?: string;
@@ -32,7 +32,7 @@ export class StoreSyncRoutine extends Routine<StoreSyncDataRoutine>
                 return;
             }
 
-            const response = await ModuleStoreApiService.syncModules(organizationId, {
+            const response = await ModuleActivationApiService.syncModules(organizationId, {
                 managerVersion: "1.0.0",
                 modules: modules.map(m => ({
                     id: m.identifier,

@@ -1,16 +1,14 @@
-import {View} from "@sentients/sdk/presentation/themes/katon/view";
-import {Header} from "@sentients/sdk/presentation/themes/katon/header";
-import {Main} from "@sentients/sdk/presentation/themes/katon/main";
+import {View} from "@liorian/sdk/presentation/themes/katon/view";
 
 
 export default function Page() {
 
     return (
         <View>
-            <Header/>
-            <Main className="">
+            <View.Helmet/>
+            <View.Frame className="">
                 main
-            </Main>
+            </View.Frame>
             <footer>
                 footer
             </footer>

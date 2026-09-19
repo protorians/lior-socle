@@ -2,20 +2,20 @@
 
 import * as React from "react"
 import {useQuery, useMutation, useQueryClient} from "@tanstack/react-query"
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
-import {OrganizationInterface} from "@sentients/sdk/domain/entities/organization.interface"
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
+import {OrganizationInterface} from "@liorian/sdk/domain/entities/organization.interface"
 import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card"
-import {Button} from "@sentients/sdk/presentation/ui/button"
-import {Input} from "@sentients/sdk/presentation/ui/input"
-import {Switch} from "@sentients/sdk/presentation/ui/switch"
-import {Label} from "@sentients/sdk/presentation/ui/label"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card"
+import {Button} from "@liorian/sdk/presentation/ui/button"
+import {Input} from "@liorian/sdk/presentation/ui/input"
+import {Switch} from "@liorian/sdk/presentation/ui/switch"
+import {Label} from "@liorian/sdk/presentation/ui/label"
 import {toast} from "sonner"
-import {AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger} from "@sentients/sdk/presentation/ui/alert-dialog"
+import {AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger} from "@liorian/sdk/presentation/ui/alert-dialog"
 import {Building2Icon, Trash2Icon} from "lucide-react"
 import {useRouter} from "next/navigation"
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 export function OrganizationGeneralSettingsView() {
     const {currentOrganization} = useAuth()
@@ -81,7 +81,7 @@ export function OrganizationGeneralSettingsView() {
     if (isLoading) {
         return (
             <div className="flex items-center justify-center min-h-[40dvh]">
-                <WaitingActivity size={24} />
+                <Activity.Loader size={24} />
             </div>
         )
     }
@@ -104,7 +104,7 @@ export function OrganizationGeneralSettingsView() {
                         onClick={() => updateMutation.mutate()}
                         disabled={updateMutation.isPending || !name.trim()}
                     >
-                        {updateMutation.isPending && <WaitingActivity size={16}/>}
+                        {updateMutation.isPending && <Activity.Loader size={16}/>}
                         Enregistrer
                     </Button>
                 }

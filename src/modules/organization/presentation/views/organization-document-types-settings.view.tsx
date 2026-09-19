@@ -2,17 +2,17 @@
 
 import * as React from "react"
 import {useQuery, useMutation, useQueryClient} from "@tanstack/react-query"
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
 import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card"
-import {Button} from "@sentients/sdk/presentation/ui/button"
-import {Input} from "@sentients/sdk/presentation/ui/input"
-import {Label} from "@sentients/sdk/presentation/ui/label"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card"
+import {Button} from "@liorian/sdk/presentation/ui/button"
+import {Input} from "@liorian/sdk/presentation/ui/input"
+import {Label} from "@liorian/sdk/presentation/ui/label"
 import {toast} from "sonner"
-import {AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger} from "@sentients/sdk/presentation/ui/alert-dialog"
+import {AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger} from "@liorian/sdk/presentation/ui/alert-dialog"
 import {PlusIcon, PencilIcon, Trash2Icon, FileTextIcon} from "lucide-react"
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity"
+import {Activity} from "@liorian/sdk/presentation/components/activity"
 import {
     Dialog,
     DialogContent,
@@ -20,7 +20,7 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "@sentients/sdk/presentation/ui/dialog"
+} from "@liorian/sdk/presentation/ui/dialog"
 
 interface DocumentType {
     id: string
@@ -168,7 +168,7 @@ export function OrganizationDocumentTypesSettingsView() {
                     <CardContent>
                         {isLoading ? (
                             <div className="flex items-center justify-center py-8">
-                                <WaitingActivity size={24}/>
+                                <Activity.Loader size={24}/>
                             </div>
                         ) : !documentTypes?.length ? (
                             <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
@@ -277,7 +277,7 @@ export function OrganizationDocumentTypesSettingsView() {
                             onClick={handleSubmit}
                             disabled={isPending || !typeName.trim() || !typeSlug.trim()}
                         >
-                            {isPending && <WaitingActivity size={16}/>}
+                            {isPending && <Activity.Loader size={16}/>}
                             {editingType ? 'Enregistrer' : 'Créer'}
                         </Button>
                     </DialogFooter>

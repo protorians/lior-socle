@@ -14,10 +14,10 @@ import {SettingsLayout} from "@/external_modules/pos-management/presentation/com
 import {
     ModuleCategory,
     MODULE_CATEGORY_LABELS,
-} from "@sentients/sdk/domain/enums/module-category.enum";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+} from "@liorian/sdk/domain/enums/module-category.enum";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
 import {StoreTab, StoreTypeFilter} from "@/modules/modules-management/presentation/components/module-store-apps-section";
 import {storeSyncRoutine} from "@/modules/modules-management/infrastructure/routines/store-sync.routine";
 import {
@@ -25,7 +25,7 @@ import {
     mergeCatalogIntoModules,
     useModuleCatalog,
 } from "@/modules/modules-management/infrastructure/hooks/use-module-catalog.hook";
-import {ModuleStoreCatalogItemInterface} from "@sentients/sdk/domain/entities/module-activation.interface";
+import {CatalogModuleInterface} from "@liorian/sdk/domain/entities/catalog.interface";
 import {StoreIcon} from "lucide-react";
 
 const SUPER_ADMIN_MIN_LEVEL = 90;
@@ -47,7 +47,7 @@ export function ModuleStoreExplorerView() {
     const [installModule, setInstallModule] = React.useState<ModuleDeclarationInterface | null>(null);
     const [detailModule, setDetailModule] = React.useState<ModuleDeclarationInterface | null>(null);
     const [publishOpen, setPublishOpen] = React.useState(false);
-    const [editItem, setEditItem] = React.useState<ModuleStoreCatalogItemInterface | null>(null);
+    const [editItem, setEditItem] = React.useState<CatalogModuleInterface | null>(null);
     const [isSyncing, setIsSyncing] = React.useState(false);
     const appsRef = React.useRef<HTMLDivElement>(null);
 

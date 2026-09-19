@@ -1,9 +1,9 @@
 "use client"
 
 import {type ColumnDef} from "@tanstack/react-table"
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
 import {PermissionCapabilityInterface} from "@/modules/access-control/domain/entities/roles.interface"
-import {getDomainLabel, getRoleLabel} from "@sentients/sdk/infrastructure/utilities/access-label.util"
+import {getDomainLabel, getRoleLabel} from "@liorian/sdk/infrastructure/utilities/access-label.util"
 
 export interface AccessPermissionRow {
     id: string

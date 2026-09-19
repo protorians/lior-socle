@@ -2,11 +2,11 @@
 
 import * as React from "react"
 import {type ColumnDef} from "@tanstack/react-table"
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
-import {OrganizationInterface} from "@sentients/sdk/domain/entities/organization.interface"
-import {MODULE_LABELS, ModuleEnum} from "@sentients/sdk/domain/enums/module.enum"
-import {getDataGridAction} from "@sentients/sdk/presentation/data-grid/data-grid"
-import {Clickable} from "@sentients/sdk/presentation/ui/clickable"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
+import {OrganizationInterface} from "@liorian/sdk/domain/entities/organization.interface"
+import {MODULE_LABELS, ModuleEnum} from "@liorian/sdk/domain/enums/module.enum"
+import {getDataGridAction} from "@liorian/sdk/presentation/data-grid/data-grid"
+import {Clickable} from "@liorian/sdk/presentation/ui/clickable"
 import {Building2Icon, ShieldCheckIcon, ShieldAlertIcon, LayersIcon} from "lucide-react"
 
 export const getOrganizationColumns = (): ColumnDef<OrganizationInterface>[] => [

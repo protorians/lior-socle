@@ -7,7 +7,7 @@ import {
   TimelineItem,
   TimelineSeparator,
   TimelineTitle,
-} from "@sentients/sdk/presentation/reui/timeline"
+} from "@liorian/sdk/presentation/reui/timeline"
 
 export function Pattern() {
   return (

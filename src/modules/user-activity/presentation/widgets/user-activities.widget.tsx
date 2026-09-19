@@ -3,7 +3,7 @@
 import * as React from "react"
 import {ActivityIcon} from "lucide-react"
 import {useQuery} from "@tanstack/react-query"
-import {ModuleWidget} from "@sentients/sdk/presentation/module-widget"
+import {ModuleWidget} from "@liorian/sdk/presentation/module-widget"
 import {UserActivitiesApiService} from "@/modules/user-activity/application/service/user-activities-api-service";
 import {UserActivitiesAnalyticsAdapter} from "@/modules/user-activity/infrastructure/adapters/user-activities-analytics.adapter";
 import {UserActivitiesAnalyticsInterface} from "@/modules/user-activity/domain/user-activities.interface";

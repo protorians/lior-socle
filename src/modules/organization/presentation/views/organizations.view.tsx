@@ -2,15 +2,14 @@
 
 import * as React from "react"
 import {useQuery} from "@tanstack/react-query"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
-import {OrganizationInterface} from "@sentients/sdk/domain/entities/organization.interface"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
+import {OrganizationInterface} from "@liorian/sdk/domain/entities/organization.interface"
 import {OrganizationsDataGrid} from "@/modules/organization/presentation/components/organizations-data-grid"
 import {CreateOrganizationStepper} from "@/modules/organization/presentation/components/create-organization-stepper"
-import {AnimatedContent} from "@sentients/sdk/presentation/components/animated-content"
-import {Card, CardContent, CardDescription, CardHeader} from "@sentients/sdk/presentation/ui/card"
+import {Activity} from "@liorian/sdk/presentation/components/activity"
+import {Card, CardContent, CardDescription, CardHeader} from "@liorian/sdk/presentation/ui/card"
 import {Building2Icon, LayersIcon, ShieldCheckIcon, UsersIcon} from "lucide-react"
-import {DashboardLayout, Header, Main, View} from "@sentients/sdk/presentation/themes/katon"
-import {Wrapper} from "@/core/presentation/themes/katon/wrapper"
+import {DashboardLayout, View} from "@liorian/sdk/presentation/themes/katon"
 
 export function OrganizationsView() {
     const {data: organizations} = useQuery<OrganizationInterface[]>({
@@ -30,9 +29,9 @@ export function OrganizationsView() {
 
     return (
         <View>
-            <Wrapper>
-                <Header/>
-                <Main className="px-6">
+            <View.Wrapper>
+                <View.Helmet/>
+                <View.Frame className="px-6">
                     <DashboardLayout maxWidth="full">
                         <DashboardLayout.Header>
                             <DashboardLayout.HeaderTop>
@@ -54,8 +53,8 @@ export function OrganizationsView() {
                         </DashboardLayout.Header>
 
                         <DashboardLayout.Body>
-                            <AnimatedContent variant="container" className="contents">
-                                <div className="flex-auto flex flex-col gap-6">
+                            <Activity.Container variant="container" className="contents">
+                                <Activity.Content>
                                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                                         <KpiCard
                                             label="Total"
@@ -88,12 +87,12 @@ export function OrganizationsView() {
                                     </div>
 
                                     <OrganizationsDataGrid/>
-                                </div>
-                            </AnimatedContent>
+                                </Activity.Content>
+                            </Activity.Container>
                         </DashboardLayout.Body>
                     </DashboardLayout>
-                </Main>
-            </Wrapper>
+                </View.Frame>
+            </View.Wrapper>
         </View>
     )
 }

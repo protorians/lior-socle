@@ -1,6 +1,6 @@
 "use client";
 
-import {SsoCallbackView} from "@sentients/sdk/presentation/components/auth/sso-callback.view";
+import {SsoCallbackView} from "@liorian/sdk/presentation/components/auth/sso-callback.view";
 
 export default function SsoCallbackPage() {
     return <SsoCallbackView successRedirect="/dashboard"/>;

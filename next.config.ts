@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
     allowedDevOrigins,
     output: 'export',
     images: {unoptimized: true},
-    transpilePackages: ['@sentients/sdk'],
+    transpilePackages: ['@liorian/sdk'],
     turbopack: {
         root: workspaceRoot,
     },

@@ -1,6 +1,6 @@
 import * as React from "react"
 import {BellIcon} from "lucide-react"
-import {ModuleWidget} from "@sentients/sdk/presentation/module-widget"
+import {ModuleWidget} from "@liorian/sdk/presentation/module-widget"
 
 export interface NotificationsWidgetProps {
     data?: {

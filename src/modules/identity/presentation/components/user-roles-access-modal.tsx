@@ -2,21 +2,21 @@
 
 import * as React from "react";
 import {useEffect, useState} from "react";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Switch} from "@sentients/sdk/presentation/ui/switch";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Switch} from "@liorian/sdk/presentation/ui/switch";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
 import {AccessControlApiService} from "@/modules/access-control/application/service/access-control-api.service";
 import {
     PermissionCapabilityInterface,
     PermissionsCapabilitiesInterface,
     RoleInterface,
     UserInterface,
-} from "@sentients/sdk/domain/entities/user.interface";
-import {OrganizationInterface} from "@sentients/sdk/domain/entities/organization.interface";
+} from "@liorian/sdk/domain/entities/user.interface";
+import {OrganizationInterface} from "@liorian/sdk/domain/entities/organization.interface";
 import {toast} from "sonner";
 import {useQueryClient} from "@tanstack/react-query";
 import {KeyRoundIcon, LoaderIcon, SaveIcon, ShieldIcon} from "lucide-react";
-import {getDomainLabel, getRoleLabel} from "@sentients/sdk/infrastructure/utilities/access-label.util";
+import {getDomainLabel, getRoleLabel} from "@liorian/sdk/infrastructure/utilities/access-label.util";
 
 type CapabilityKey = "read" | "create" | "update" | "delete";
 

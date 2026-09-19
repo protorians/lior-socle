@@ -1,21 +1,21 @@
 "use client"
 
 import {useQuery} from "@tanstack/react-query";
-import {ModuleStoreApiService} from "@sentients/sdk/application/service/module-store-api.service";
-import {ModuleStoreCatalogItemInterface} from "@sentients/sdk/domain/entities/module-activation.interface";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {IconKey} from "@sentients/sdk/presentation/icons/types";
+import {StorefrontApiService} from "@liorian/sdk/application/service/storefront-api.service";
+import {CatalogModuleInterface} from "@liorian/sdk/domain/entities/catalog.interface";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
+import {IconKey} from "@liorian/sdk/presentation/icons/types";
 
 /**
- * Catalogue des modules publiés (fiches produit du backend).
+ * Catalogue des modules publiés (fiches produit du storefront).
  * Les images (logo + bannière) définies à la publication sont
  * fusionnées dans les modules déclarés localement pour l'affichage.
  */
 export function useModuleCatalog() {
-    return useQuery<ModuleStoreCatalogItemInterface[]>({
+    return useQuery<CatalogModuleInterface[]>({
         queryKey: ["module-catalog"],
         queryFn: async () => {
-            const response = await ModuleStoreApiService.getCatalog();
+            const response = await StorefrontApiService.getCatalogModules();
             const list = response.data?.data;
             return Array.isArray(list) ? list : [];
         },
@@ -24,14 +24,14 @@ export function useModuleCatalog() {
 }
 
 /**
- * Fusionne les fiches produits du catalogue dans les modules déclarés
+ * Fusionne les fiches produit du catalogue dans les modules déclarés
  * localement (par identifiant technique), puis complète avec les fiches du
  * catalogue absentes des modules locaux — notamment celles retirées par la
  * vérification des accès ou non déclarées localement.
  */
 export function mergeCatalogIntoModules(
     modules: ModuleDeclarationInterface[],
-    catalog: ModuleStoreCatalogItemInterface[] | undefined,
+    catalog: CatalogModuleInterface[] | undefined,
 ): ModuleDeclarationInterface[] {
     if (!catalog || catalog.length === 0) return modules;
 
@@ -46,7 +46,7 @@ export function mergeCatalogIntoModules(
             logo: item.logoUrl ?? module.logo,
             banner: item.bannerUrl ?? module.banner,
             description: module.description || item.description || module.description,
-            category: module.category ?? item.category,
+            category: module.category ?? (item.category ?? undefined),
         } satisfies ModuleDeclarationInterface;
     });
 
@@ -66,7 +66,7 @@ export function mergeCatalogIntoModules(
             isEnabled: item.isEnabled,
             isDefault: item.isDefault,
             type: item.type,
-            category: item.category,
+            category: item.category ?? undefined,
             storeState: 'available' as const,
             isInstalled: false,
         } satisfies ModuleDeclarationInterface));
@@ -76,8 +76,8 @@ export function mergeCatalogIntoModules(
 
 export function findCatalogItem(
     module: ModuleDeclarationInterface,
-    catalog: ModuleStoreCatalogItemInterface[] | undefined,
-): ModuleStoreCatalogItemInterface | undefined {
+    catalog: CatalogModuleInterface[] | undefined,
+): CatalogModuleInterface | undefined {
     if (!catalog) return undefined;
     return catalog.find((item) =>
         item.identifier === module.identifier || item.identifier === (module.key ?? "")

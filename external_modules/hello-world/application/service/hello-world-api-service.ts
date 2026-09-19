@@ -1,5 +1,5 @@
-import {ApiService} from "@sentients/sdk/infrastructure/utilities/api-service";
-import {FetchResponseWithMetaInterface} from "@sentients/sdk/domain/typing/response";
+import {ApiService} from "@liorian/sdk/infrastructure/utilities/api-service";
+import {FetchResponseWithMetaInterface} from "@liorian/sdk/domain/typing/response";
 import {
     CreateHelloWorldInterface,
     HelloWorldAnalyticsInterface,

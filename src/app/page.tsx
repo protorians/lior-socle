@@ -2,9 +2,9 @@
 
 import {useEffect} from "react";
 import {useRouter} from "next/navigation";
-import {AuthUserService} from "@sentients/sdk/application/service/auth-user.service";
-import {AuthConfig} from "@sentients/sdk/domain/config/auth.config";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {AuthUserService} from "@liorian/sdk/application/service/auth-user.service";
+import {AuthConfig} from "@liorian/sdk/domain/config/auth.config";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 export default function HomePage() {
     const router = useRouter();
@@ -22,7 +22,7 @@ export default function HomePage() {
 
     return (
         <div className="flex min-h-svh flex-col items-center justify-center gap-4 bg-background">
-            <WaitingActivity/>
+            <Activity.Loader/>
         </div>
     );
 }

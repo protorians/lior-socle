@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react"
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
-import {Waiting} from "@sentients/sdk/presentation/components/waiting";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
+import {Waiting} from "@liorian/sdk/presentation/components/waiting";
 import {useDashboardLayoutStore} from "@/modules/dashboard/infrastructure/dashboard-layout.store";
 import {DashboardWidgetGrid} from "@/modules/dashboard/presentation/components/dashboard-widget-grid";
 import {DashboardAddWidgetPanel} from "@/modules/dashboard/presentation/components/dashboard-add-widget-panel";

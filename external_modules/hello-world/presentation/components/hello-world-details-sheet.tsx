@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import {LegacySheet} from "@sentients/sdk/presentation/sheets/legacy-sheet";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Separator} from "@sentients/sdk/presentation/ui/separator";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+import {LegacySheet} from "@liorian/sdk/presentation/sheets/legacy-sheet";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Separator} from "@liorian/sdk/presentation/ui/separator";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
 import {CalendarDaysIcon, ClockIcon, MessageCircleIcon, SendIcon, UserIcon} from "lucide-react";
 import {format} from "date-fns";
 import {fr} from "date-fns/locale";

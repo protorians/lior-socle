@@ -1,9 +1,9 @@
 "use client"
 
 import {useRouter} from "next/navigation"
-import {Button} from "@sentients/sdk/presentation/ui/button"
-import {Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty"
-import {DynamicIcon} from "@sentients/sdk/presentation/components/dynamic-icon"
+import {Button} from "@liorian/sdk/presentation/ui/button"
+import {Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty"
+import {DynamicIcon} from "@liorian/sdk/presentation/components/dynamic-icon"
 
 export default function NotFound() {
     const router = useRouter()

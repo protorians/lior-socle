@@ -1,23 +1,23 @@
 "use client"
 
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils"
-import {Button} from "@sentients/sdk/presentation/ui/button"
-import {FieldGroup} from "@sentients/sdk/presentation/ui/field"
-import {LegacyInput} from "@sentients/sdk/presentation/ui/legacy-input"
-import {LegacyPhoneInput} from "@sentients/sdk/presentation/ui/legacy-phone-input"
-import {Tabs, TabsList, TabsTrigger, TabsContent} from "@sentients/sdk/presentation/ui/tabs"
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils"
+import {Button} from "@liorian/sdk/presentation/ui/button"
+import {FieldGroup} from "@liorian/sdk/presentation/ui/field"
+import {LegacyInput} from "@liorian/sdk/presentation/ui/legacy-input"
+import {LegacyPhoneInput} from "@liorian/sdk/presentation/ui/legacy-phone-input"
+import {Tabs, TabsList, TabsTrigger, TabsContent} from "@liorian/sdk/presentation/ui/tabs"
 import {User, Mail, Phone, Eye, EyeOff} from "lucide-react"
 import Link from "next/link"
 import {useRouter} from "next/navigation"
 import {useState} from "react"
-import {SignInDataset} from "@sentients/sdk/infrastructure/dataset/sign-in.dataset"
-import {Motion} from "@sentients/sdk/infrastructure/library/motion"
-import {elasticEnter} from "@sentients/sdk/infrastructure/library/motion-utils"
-import {AuthApiService} from "@sentients/sdk/application/service/auth-api-service";
-import {AuthUserService} from "@sentients/sdk/application/service/auth-user.service";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
+import {SignInDataset} from "@liorian/sdk/infrastructure/dataset/sign-in.dataset"
+import {Motion} from "@liorian/sdk/infrastructure/library/motion"
+import {elasticEnter} from "@liorian/sdk/infrastructure/library/motion-utils"
+import {AuthApiService} from "@liorian/sdk/application/service/auth-api-service";
+import {AuthUserService} from "@liorian/sdk/application/service/auth-user.service";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
 import {toast} from "sonner";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 export function LoginForm({className, ...props}: React.ComponentProps<"form">) {
     const {setter, getter, dataset, consolidate} = SignInDataset()
@@ -182,7 +182,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"form">) {
                             disabled={isLoading}
                             className="flex-1 rounded-full text-white font-bold border-none transition-all py-5 shadow-lg shadow-primary/20 cursor-pointer"
                         >
-                            {isLoading ? <WaitingActivity size={16}/> : "Se connecter"}
+                            {isLoading ? <Activity.Loader size={16}/> : "Se connecter"}
                         </Button>
                     </div>
                 </FieldGroup>

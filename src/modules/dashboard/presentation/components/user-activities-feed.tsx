@@ -1,17 +1,17 @@
 "use client"
 
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card";
-import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
-import {Button} from "@sentients/sdk/presentation/ui/button";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";
+import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
+import {Button} from "@liorian/sdk/presentation/ui/button";
 import {BoxesIcon} from "lucide-react";
 import {QueryFunction, useQuery} from "@tanstack/react-query";
 import {Fragment, useState} from "react";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
-import {WaitingBar} from "@sentients/sdk/presentation/components/waiting-bar";
-import {hasPermissions} from "@sentients/sdk/infrastructure/utilities/permission.util";
-import {DomainsEnum} from "@sentients/sdk/domain/enums/domains.enum";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
+import {WaitingBar} from "@liorian/sdk/presentation/components/waiting-bar";
+import {hasPermissions} from "@liorian/sdk/infrastructure/utilities/permission.util";
+import {DomainsEnum} from "@liorian/sdk/domain/enums/domains.enum";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
-import {ActivitiesType} from "@sentients/sdk/domain/entities/activities.interface";
+import {ActivitiesType} from "@liorian/sdk/domain/entities/activities.interface";
 import {
     Timeline,
     TimelineContent,
@@ -21,12 +21,12 @@ import {
     TimelineItem,
     TimelineSeparator,
     TimelineTitle
-} from "@sentients/sdk/presentation/reui/timeline";
-import {ActivityDescriptor, explainActivityAction} from "@sentients/sdk/infrastructure/utilities/activities.util";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {PermissionActionBadge} from "@sentients/sdk/presentation/permission-action-badge";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
-import {Waiting} from "@sentients/sdk/presentation/components/waiting";
+} from "@liorian/sdk/presentation/reui/timeline";
+import {ActivityDescriptor, explainActivityAction} from "@liorian/sdk/infrastructure/utilities/activities.util";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {PermissionActionBadge} from "@liorian/sdk/presentation/permission-action-badge";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
+import {Waiting} from "@liorian/sdk/presentation/components/waiting";
 
 
 export interface UserActivitiesFeedProps {

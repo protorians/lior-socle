@@ -1,7 +1,7 @@
-import {Routine} from "@sentients/sdk/infrastructure/routines/routine";
+import {Routine} from "@liorian/sdk/infrastructure/routines/routine";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
 import {UserAnalyticsInterface} from "@/modules/identity/domain/users.interface";
-import {RoutineInterface} from "@sentients/sdk/domain/typing/routine.types";
+import {RoutineInterface} from "@liorian/sdk/domain/typing/routine.types";
 
 export interface UsersAnalyticsDataRoutine extends UserAnalyticsInterface {
 

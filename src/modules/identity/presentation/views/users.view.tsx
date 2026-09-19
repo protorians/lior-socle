@@ -1,34 +1,27 @@
-import {Footer} from "@/core/presentation/themes/katon/footer";
-import {View} from "@sentients/sdk/presentation/themes/katon/view";
-import {Header} from "@sentients/sdk/presentation/themes/katon/header";
-import {Main} from "@sentients/sdk/presentation/themes/katon/main";
+import {View} from "@liorian/sdk/presentation/themes/katon/view";
+import {AutoBreadcrumb} from "@/core/presentation/components/auto-breadcrumb";
 import {UsersSidePanel} from "@/modules/identity/presentation/components/users-side.panel";
 import {UsersDataGrid} from "@/modules/identity/presentation/components/users-data-grid";
 import {UsersAnalyticsChart} from "@/modules/identity/presentation/components/users-analytics-chart";
-import {Wrapper} from "@/core/presentation/themes/katon/wrapper";
-import {Button} from "@sentients/sdk/presentation/ui/button";
+import {Button} from "@liorian/sdk/presentation/ui/button";
 import {PlusIcon} from "lucide-react";
 import {CreateUserStepper} from "@/modules/identity/presentation/components/create-user-stepper";
-import {AnimatedContent} from "@sentients/sdk/presentation/components/animated-content";
-
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 export function UsersView() {
     return (
         <View>
-            <Wrapper>
-                <Header/>
-                <Main className="flex flex-col lg:flex-row p-6 gap-6">
-                    <AnimatedContent variant="container" animateChildren className="contents">
-                        <div className="flex-auto flex flex-col">
-
-                            <div className="flex flex-row items-center">
-                                <div className="flex flex-row flex-auto overflow-hidden">
-                                    <h1 className="text-2xl font-bold truncate text-ellipsis">Gestion des utilisateurs</h1>
-                                </div>
-                                <div className="flex flex-row items-center">
+            <View.Wrapper>
+                <View.Helmet/>
+                <View.Frame className="flex flex-col lg:flex-row p-6 gap-6">
+                    <Activity.Container variant="container" animateChildren className="contents">
+                        <Activity.Content>
+                            <Activity.Header>
+                                <Activity.Title label="Gestion des utilisateurs"/>
+                                <Activity.Actions>
                                     <CreateUserStepper/>
-                                </div>
-                            </div>
+                                </Activity.Actions>
+                            </Activity.Header>
 
                             <div className="flex flex-col gap-4 min-h-[40dvh]">
                                 <UsersAnalyticsChart/>
@@ -37,12 +30,12 @@ export function UsersView() {
                             <div className="flex-auto">
                                 <UsersDataGrid/>
                             </div>
-                        </div>
+                        </Activity.Content>
                         <UsersSidePanel/>
-                    </AnimatedContent>
-                </Main>
-            </Wrapper>
-            <Footer/>
+                    </Activity.Container>
+                </View.Frame>
+            </View.Wrapper>
+            <View.Status breadcrumb={<AutoBreadcrumb/>}/>
         </View>
     )
 }

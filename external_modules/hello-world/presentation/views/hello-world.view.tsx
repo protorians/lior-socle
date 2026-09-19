@@ -1,8 +1,8 @@
 "use client"
 
-import {View} from "@sentients/sdk/presentation/themes/katon/view";
+import {View} from "@liorian/sdk/presentation/themes/katon/view";
 import {AutoBreadcrumb} from "@/core/presentation/components/auto-breadcrumb";
-import {Activity} from "@sentients/sdk/presentation/components/activity";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 import {HelloWorldDataGrid} from "../components/hello-world-data-grid";
 import {CreateHelloWorldDialog} from "../components/create-hello-world-dialog";
 

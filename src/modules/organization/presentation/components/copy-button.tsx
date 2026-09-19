@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {Button} from '@sentients/sdk/presentation/ui/button';
+import {Button} from '@liorian/sdk/presentation/ui/button';
 import {toast} from 'sonner';
 import {CheckIcon, CopyIcon} from 'lucide-react';
 

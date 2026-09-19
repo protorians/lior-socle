@@ -1,12 +1,12 @@
 "use client"
 
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Card, CardContent} from "@sentients/sdk/presentation/ui/card";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Card, CardContent} from "@liorian/sdk/presentation/ui/card";
 import {StoreIcon} from "lucide-react";
-import {Tabs, TabsList, TabsTrigger} from "@sentients/sdk/presentation/ui/tabs";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@sentients/sdk/presentation/ui/select";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {Tabs, TabsList, TabsTrigger} from "@liorian/sdk/presentation/ui/tabs";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@liorian/sdk/presentation/ui/select";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {ModuleStoreCard} from "@/modules/modules-management/presentation/components/module-store-card";
 
 export type StoreTab = 'all' | 'installed' | 'available' | 'enabled' | 'disabled';

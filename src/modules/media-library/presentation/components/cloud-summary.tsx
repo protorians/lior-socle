@@ -1,9 +1,9 @@
 "use client"
 
 import {useMemo} from "react";
-import {AnalyticsSection} from "@sentients/sdk/presentation/analytics-section";
-import {MediaLabelService} from "@sentients/sdk/infrastructure/utilities/media-label.service";
-import {formatFileSize} from "@sentients/sdk/infrastructure/utilities/format.util";
+import {AnalyticsSection} from "@liorian/sdk/presentation/analytics-section";
+import {MediaLabelService} from "@liorian/sdk/infrastructure/utilities/media-label.service";
+import {formatFileSize} from "@liorian/sdk/infrastructure/utilities/format.util";
 import {MediaLibraryInterface} from "@/modules/media-library/domain/cloud.interface";
 
 export interface CloudSummaryProps {

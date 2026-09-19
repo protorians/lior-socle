@@ -1,6 +1,6 @@
-name: sentient-manager
+name: liorian-socle
 options:
-  bundleIdPrefix: com.protorians.sentient.manager
+  bundleIdPrefix: com.protorians.liorian.manager
   deploymentTarget:
     iOS: 14.0
 fileGroups: [../../src]
@@ -10,8 +10,8 @@ configs:
 settingGroups:
   app:
     base:
-      PRODUCT_NAME: Sentients Socle
-      PRODUCT_BUNDLE_IDENTIFIER: com.protorians.sentient.manager
+      PRODUCT_NAME: Liorian Manager
+      PRODUCT_BUNDLE_IDENTIFIER: com.protorians.liorian.manager
 targetTemplates:
   app:
     type: application
@@ -24,20 +24,20 @@ targetTemplates:
     settings:
       groups: [app]
 targets:
-  sentient-manager_iOS:
+  liorian-socle_iOS:
     type: application
     platform: iOS
     sources:
       - path: Sources
       - path: Assets.xcassets
       - path: Externals
-      - path: sentient-manager_iOS
+      - path: liorian-socle_iOS
       - path: assets
         buildPhase: resources
         type: folder
       - path: LaunchScreen.storyboard
     info:
-      path: sentient-manager_iOS/Info.plist
+      path: liorian-socle_iOS/Info.plist
       properties:
         LSRequiresIPhoneOS: true
         UILaunchStoryboardName: LaunchScreen
@@ -54,7 +54,7 @@ targets:
         CFBundleShortVersionString: 0.13.0
         CFBundleVersion: "0.13.0"
     entitlements:
-      path: sentient-manager_iOS/sentient-manager_iOS.entitlements
+      path: liorian-socle_iOS/liorian-socle_iOS.entitlements
     scheme:
       environmentVariables:
         RUST_BACKTRACE: full

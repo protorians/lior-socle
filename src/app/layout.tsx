@@ -1,28 +1,28 @@
 import {Manrope} from "next/font/google";
 
 import "./globals.css";
-import {Toaster} from "@sentients/sdk/presentation/ui/sonner";
-import {AuthProvider} from "@sentients/sdk/infrastructure/providers/auth.provider";
+import {Toaster} from "@liorian/sdk/presentation/ui/sonner";
+import {AuthProvider} from "@liorian/sdk/infrastructure/providers/auth.provider";
 import {ModulesDefinition} from "@/modules";
-import {QueryProvider} from "@sentients/sdk/infrastructure/providers/query.provider";
-import {AuthGuard} from "@sentients/sdk/infrastructure/providers/auth-guard.provider";
-import {PushNotificationsProvider} from "@sentients/sdk/presentation/components/push-notifications.provider";
-import {ModulesSwitcherProvider} from "@sentients/sdk/infrastructure/providers/modules-switcher.provider";
-import {ModulesRoutinesProvider} from "@sentients/sdk/infrastructure/providers/modules-routines.provider";
-import {ModulesGuardProvider} from "@sentients/sdk/infrastructure/providers/modules-guard.provider";
-import {ModuleUsageProvider} from "@sentients/sdk/infrastructure/providers/module-usage.provider";
+import {QueryProvider} from "@liorian/sdk/infrastructure/providers/query.provider";
+import {AuthGuard} from "@liorian/sdk/infrastructure/providers/auth-guard.provider";
+import {PushNotificationsProvider} from "@liorian/sdk/presentation/components/push-notifications.provider";
+import {ModulesSwitcherProvider} from "@liorian/sdk/infrastructure/providers/modules-switcher.provider";
+import {ModulesRoutinesProvider} from "@liorian/sdk/infrastructure/providers/modules-routines.provider";
+import {ModulesGuardProvider} from "@liorian/sdk/infrastructure/providers/modules-guard.provider";
+import {ModuleUsageProvider} from "@liorian/sdk/infrastructure/providers/module-usage.provider";
 import {ModulesLayoutProviders} from "@/core/presentation/components/modules-layout-providers";
-import ModalPortal from "@sentients/sdk/presentation/modals/components/ModalPortal";
-import {FloatingUpload} from "@sentients/sdk/presentation/components/floating-upload";
-import {cn, ThemePreferColorSchemeProvider} from "@sentients/sdk";
-import {TooltipProvider} from "@sentients/sdk/presentation/ui/tooltip";
+import ModalPortal from "@liorian/sdk/presentation/modals/components/ModalPortal";
+import {FloatingUpload} from "@liorian/sdk/presentation/components/floating-upload";
+import {cn, ThemePreferColorSchemeProvider} from "@liorian/sdk/index";
+import {TooltipProvider} from "@liorian/sdk/presentation/ui/tooltip";
 import {NavigationProgress} from "@/components/navigation-progress";
 
 const manrope = Manrope({subsets: ['latin'], variable: '--font-sans'});
 
 export const metadata = {
-    title: 'Sentient',
-    description: 'CMS frontend for Sentient dashboard',
+    title: 'Liorian',
+    description: 'CMS frontend for Liorian dashboard',
 };
 
 export default function RootLayout({children}: { children: React.ReactNode }) {

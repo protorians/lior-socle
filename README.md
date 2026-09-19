@@ -1,13 +1,13 @@
-# Sentient Socle
+# Liorian Socle
 
-Interface de gestion (manager) de la plateforme **Sentient**. Elle permet d'administrer des organisations, leurs utilisateurs, accès, médiathèque, notifications et modules métiers, sur le web comme en application de bureau (Tauri).
+Interface de gestion (manager) de la plateforme **Liorian**. Elle permet d'administrer des organisations, leurs utilisateurs, accès, médiathèque, notifications et modules métiers, sur le web comme en application de bureau (Tauri).
 
 Périmètre du projet : le code applicatif sous `src/`. Les modules métiers livrés séparément sont dans `external_modules/` (voir plus bas).
 
 ## Stack
 
 - **Next.js 16** (App Router) + **React 19** + **TypeScript** (strict).
-- **Tailwind CSS 4** + design system `@sentients/sdk`.
+- **Tailwind CSS 4** + design system `@liorian/sdk`.
 - Données : `@tanstack/react-query` + `@tanstack/react-table`.
 - État : `zustand`.
 - Desktop & mobile : **Tauri 2** (export statique).
@@ -27,7 +27,7 @@ Application modulaire : chaque fonctionnalité métier est un module à 4 couche
 ```
 
 - Enregistrement des modules : `src/modules.ts` (`ModulesDefinition`).
-- Navigation : pilotée par le store `useModuleStore` (`@sentients/sdk/infrastructure/stores/module.store`) à partir des modules activés.
+- Navigation : pilotée par le store `useModuleStore` (`@liorian/sdk/infrastructure/stores/module.store`) à partir des modules activés.
 - Routes publiques : déclarées dans `src/bootstrapper.ts` (`/intl`), authentification gérée par les providers du SDK (`AuthProvider`, `AuthGuard`, routes `/auth/*`).
 
 ### Modules internes (`src/modules/`)
@@ -47,7 +47,7 @@ Application modulaire : chaque fonctionnalité métier est un module à 4 couche
 
 ### Modules externalisés (`external_modules/`)
 
-Modules métiers fournis à part, branchés via des alias `@sentients/module-*` et le store de modules : `accounting`, `billing`, `blogging`, `calendar`, `crm`, `customer`, `ecommerce`, `messenger`, `pos-management`, `project-management`, `restaurant`, `stock-management`.
+Modules métiers fournis à part, branchés via des alias `@liorian/module-*` et le store de modules : `accounting`, `billing`, `blogging`, `calendar`, `crm`, `customer`, `ecommerce`, `messenger`, `pos-management`, `project-management`, `restaurant`, `stock-management`.
 
 ## Démarrage
 
@@ -57,7 +57,7 @@ Application servie sur `https://localhost:5010` (HTTPS de dev via mkcert).
 
 ## Configuration `.env`
 
-Le fichier de configuration de l'application vit dans `frontend/sentient-socle/.env` (non versionné — `.env` est ignoré par git). Les variables `NEXT_PUBLIC_*` y sont définies localement et exposées au navigateur.
+Le fichier de configuration de l'application vit dans `frontend/liorian-socle/.env` (non versionné — `.env` est ignoré par git). Les variables `NEXT_PUBLIC_*` y sont définies localement et exposées au navigateur.
 
 | Variable | Rôle | Valeur par défaut |
 |---|---|---|
@@ -66,9 +66,9 @@ Le fichier de configuration de l'application vit dans `frontend/sentient-socle/.
 | `NEXT_PUBLIC_CORE_SOCKET_HOST` | Hôte WebSocket | `wss://localhost:5010` |
 | `NEXT_PUBLIC_API_TIMEOUT` | Timeout des appels API (ms) | `30000` |
 | `NEXT_PUBLIC_AUTH_HOST` | Hôte d'authentification SSO | `https://localhost:5050` |
-| `NEXT_PUBLIC_AUTH_CLIENT_ID` | Client OAuth de l'app (défaut SDK : `sentient-socle`) | `sentient-socle` |
+| `NEXT_PUBLIC_AUTH_CLIENT_ID` | Client OAuth de l'app (défaut SDK : `liorian-socle`) | `liorian-socle` |
 | `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | Clé publique Web Push (VAPID) — générer via `npx web-push generate-vapid-keys` | — |
-| `NEXT_PUBLIC_APP_SLUG`, `NEXT_PUBLIC_APP_NAME` | Identité de l'application | `app.sentient.manager`, `Sentient` |
+| `NEXT_PUBLIC_APP_SLUG`, `NEXT_PUBLIC_APP_NAME` | Identité de l'application | `app.liorian.manager`, `Liorian` |
 | `NEXT_PUBLIC_APP_HOST` | Hôte public de l'application | `https://localhost:5010` |
 | `NEXT_PUBLIC_APP_VERSION`, `NEXT_PUBLIC_APP_VERSION_NUMBER` | Version affichée | `0.0.1`, `1` |
 | `NEXT_PUBLIC_UI_REFRESH_TIMEOUT`, `NEXT_PUBLIC_APP_REFRESH_UI` | Cadence de rafraîchissement de l'UI (ms) | `30000` |
@@ -129,7 +129,7 @@ Le build Tauri repose sur l'**export statique** Next.js (`output: 'export'`, dos
   Les flux `POST /storages/upload` et `PUT /storages/:id` exposent `module` (obligatoire pour la génération automatique) et `type` (optionnel). Un `label` explicite transmis par le client reste prioritaire.
 
 - **Lecteur multimédia** : `MediaPlayer` unifié du SDK (audio, vidéo, note vocale). Voir `docs/conventions/media-player.md`.
-- **Commits** : commits logiques par domaine/objectif ; le format est défini dans le skill `sentient-commit`. Après changement de code, exécuter `bun run version:sync`.
+- **Commits** : commits logiques par domaine/objectif ; le format est défini dans le skill `liorian-commit`. Après changement de code, exécuter `bun run version:sync`.
 - **Documentation** : toute ajout ou modification de fonctionnalité doit maintenir `docs/` à jour.
 
 ## Documentation complémentaire

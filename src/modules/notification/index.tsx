@@ -1,9 +1,9 @@
-import {NotificationsApiService} from "@sentients/sdk/application/service/notifications-api-service";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {NotificationsApiService} from "@liorian/sdk/application/service/notifications-api-service";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {NotificationsWidget} from "@/modules/notification/presentation/widgets/notifications.widget";
 
 const notificationsModule: ModuleDeclarationInterface = {
-    identifier: 'mod.sentients.notification',
+    identifier: 'mod.liorian.notification',
     key: 'NOTIFICATION',
     version: '1.0.0',
     name: 'Notifications',
@@ -21,10 +21,6 @@ const notificationsModule: ModuleDeclarationInterface = {
     isDefault: true,
     type: 'INTERNAL',
     category: 'COMMUNICATION',
-    requirements: {
-        'organization': '>=1.0.0',
-        'identity': '>=1.0.0',
-    },
 }
 
 export default notificationsModule

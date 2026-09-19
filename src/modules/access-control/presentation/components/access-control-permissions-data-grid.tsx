@@ -1,7 +1,7 @@
 "use client"
 
-import {DataGrid} from "@sentients/sdk/presentation/data-grid/data-grid"
-import {DataGridSearchEngine} from "@sentients/sdk/presentation/data-grid/data-grid-search-engine"
+import {DataGrid} from "@liorian/sdk/presentation/data-grid/data-grid"
+import {DataGridSearchEngine} from "@liorian/sdk/presentation/data-grid/data-grid-search-engine"
 import {useQuery} from "@tanstack/react-query"
 import {useMemo, useState} from "react"
 import {

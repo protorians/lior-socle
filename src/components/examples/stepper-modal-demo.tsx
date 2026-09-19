@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@sentients/sdk/presentation/ui/button';
-import { Input } from '@sentients/sdk/presentation/ui/input';
-import { useModalStepper, ModalStepperStep } from '@sentients/sdk/presentation/modals/components/ModalStepper';
+import { Button } from '@liorian/sdk/presentation/ui/button';
+import { Input } from '@liorian/sdk/presentation/ui/input';
+import { useModalStepper, ModalStepperStep } from '@liorian/sdk/presentation/modals/components/ModalStepper';
 import { toast } from 'sonner';
 
 export function StepperModalDemo() {

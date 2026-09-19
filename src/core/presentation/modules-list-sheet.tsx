@@ -1,8 +1,8 @@
 "use client"
 
 import React from "react";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
-import {DynamicIcon} from "@sentients/sdk/presentation/components/dynamic-icon";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
+import {DynamicIcon} from "@liorian/sdk/presentation/components/dynamic-icon";
 import {
     Item,
     ItemActions,
@@ -11,8 +11,8 @@ import {
     ItemGroup,
     ItemMedia,
     ItemTitle
-} from "@sentients/sdk/presentation/ui/item";
-import {Button} from "@sentients/sdk/presentation/ui/button";
+} from "@liorian/sdk/presentation/ui/item";
+import {Button} from "@liorian/sdk/presentation/ui/button";
 import {ExternalLink} from "lucide-react";
 import Link from "next/link";
 

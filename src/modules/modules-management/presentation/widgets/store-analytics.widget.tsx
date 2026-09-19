@@ -3,14 +3,14 @@
 import * as React from "react"
 import {StoreIcon} from "lucide-react"
 import {useShallow} from "zustand/react/shallow"
-import {ModuleWidget} from "@sentients/sdk/presentation/module-widget"
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store"
-import {ModuleStoreApiService} from "@sentients/sdk/application/service/module-store-api.service"
-import {ModuleUsageAnalyticsInterface} from "@sentients/sdk/domain/entities/module-activation.interface"
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth"
+import {ModuleWidget} from "@liorian/sdk/presentation/module-widget"
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store"
+import {ModuleActivationApiService} from "@liorian/sdk/application/service/module-activation-api.service"
+import {ModuleUsageAnalyticsInterface} from "@liorian/sdk/domain/entities/module-activation.interface"
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth"
 import {useQuery} from "@tanstack/react-query"
-import {MODULE_CATEGORY_LABELS} from "@sentients/sdk/domain/enums/module-category.enum"
-import {ModuleCategory} from "@sentients/sdk/domain/enums/module-category.enum"
+import {MODULE_CATEGORY_LABELS} from "@liorian/sdk/domain/enums/module-category.enum"
+import {ModuleCategory} from "@liorian/sdk/domain/enums/module-category.enum"
 
 export interface StoreAnalyticsWidgetProps {
     loading?: boolean
@@ -58,7 +58,7 @@ export function StoreAnalyticsWidget({loading}: StoreAnalyticsWidgetProps) {
         enabled: !!currentOrganization?.id,
         queryFn: async () => {
             if (!currentOrganization?.id) return null
-            const response = await ModuleStoreApiService.getModuleUsageAnalytics(currentOrganization.id, 'organization')
+            const response = await ModuleActivationApiService.getModuleUsageAnalytics(currentOrganization.id, 'organization')
             return response?.data?.data ?? null
         },
     })

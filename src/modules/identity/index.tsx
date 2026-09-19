@@ -1,12 +1,12 @@
 import {UsersAnalyticsWidget} from "@/modules/identity/presentation/widgets/users-analytics.widget";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {
     usersAnalyticsRoutine,
 } from "@/modules/identity/infrastructure/routines/users-analytics.routine";
 
 const usersModule: ModuleDeclarationInterface = {
-    identifier: 'mod.sentients.identity',
+    identifier: 'mod.liorian.identity',
     key: 'IDENTITY',
     version: '1.0.0',
     name: 'Utilisateurs',
@@ -27,10 +27,6 @@ const usersModule: ModuleDeclarationInterface = {
     isDefault: false,
     type: 'INTERNAL',
     category: 'ADMINISTRATION',
-    requirements: {
-        'organization': '>=1.0.0',
-        'access-control': '>=1.0.0',
-    },
     // menu: {
     //     items: [
     //         {

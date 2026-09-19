@@ -2,18 +2,18 @@
 
 import * as React from "react"
 import {useQuery, useMutation, useQueryClient} from "@tanstack/react-query"
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
 import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card"
-import {Button} from "@sentients/sdk/presentation/ui/button"
-import {Input} from "@sentients/sdk/presentation/ui/input"
-import {Label} from "@sentients/sdk/presentation/ui/label"
-import {Switch} from "@sentients/sdk/presentation/ui/switch"
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card"
+import {Button} from "@liorian/sdk/presentation/ui/button"
+import {Input} from "@liorian/sdk/presentation/ui/input"
+import {Label} from "@liorian/sdk/presentation/ui/label"
+import {Switch} from "@liorian/sdk/presentation/ui/switch"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
 import {toast} from "sonner"
 import {PaletteIcon} from "lucide-react"
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 const AVAILABLE_THEMES = [
     {id: 'default', label: 'Par défaut', description: 'Thème standard du système'},
@@ -91,7 +91,7 @@ export function OrganizationThemesSettingsView() {
     if (isLoading) {
         return (
             <div className="flex items-center justify-center min-h-[40dvh]">
-                <WaitingActivity size={24} />
+                <Activity.Loader size={24} />
             </div>
         )
     }

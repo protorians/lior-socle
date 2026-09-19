@@ -17,7 +17,7 @@ import {
     sortableKeyboardCoordinates,
 } from "@dnd-kit/sortable";
 
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {DashboardWidgetEntry} from "@/modules/dashboard/domain/dashboard-layout.interface";
 import {SortableDashboardWidget} from "@/modules/dashboard/presentation/components/sortable-dashboard-widget";
 import {useDashboardLayoutStore} from "@/modules/dashboard/infrastructure/dashboard-layout.store";

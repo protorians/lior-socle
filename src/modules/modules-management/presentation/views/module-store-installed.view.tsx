@@ -7,14 +7,14 @@ import {ModuleStoreCategoryMenu} from "@/modules/modules-management/presentation
 import {ModuleStoreCard} from "@/modules/modules-management/presentation/components/module-store-card";
 import {ModuleStoreDetailDialog} from "@/modules/modules-management/presentation/components/module-store-detail-dialog";
 import {SettingsLayout} from "@/external_modules/pos-management/presentation/components/settings-layout";
-import {Card, CardContent} from "@sentients/sdk/presentation/ui/card";
+import {Card, CardContent} from "@liorian/sdk/presentation/ui/card";
 import {CheckCircle2Icon, PackageIcon} from "lucide-react";
 import {
     ModuleCategory,
     MODULE_CATEGORY_LABELS,
-} from "@sentients/sdk/domain/enums/module-category.enum";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+} from "@liorian/sdk/domain/enums/module-category.enum";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
 import {ModuleStoreHeader} from "@/modules/modules-management/presentation/components/module-store-header";
 
 export function ModuleStoreInstalledView() {

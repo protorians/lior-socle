@@ -2,9 +2,9 @@
 
 import {useEffect, useState} from "react";
 import {userActivitiesAnalyticsRoutine} from "@/modules/user-activity/infrastructure/routines/user-activities-analytics.routine";
-import {AnalyticsSection} from "@sentients/sdk/presentation/analytics-section";
-import {WaitingSection} from "@sentients/sdk/presentation/components/waiting-section";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
+import {AnalyticsSection} from "@liorian/sdk/presentation/analytics-section";
+import {WaitingSection} from "@liorian/sdk/presentation/components/waiting-section";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
 
 export function UserActivitiesAnalyticsData() {
     const [isLoading, setIsLoading] = useState<boolean>(true)

@@ -3,22 +3,22 @@
 import * as React from "react";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {toast} from "sonner";
-import {ModuleStoreApiService} from "@sentients/sdk/application/service/module-store-api.service";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {ModuleConfigSettingsFieldInterface, ModuleConfigSettingsFieldType} from "@sentients/sdk/domain/entities/module-activation.interface";
-import {MODULE_CATEGORY_LABELS, MODULE_CATEGORY_ICONS, ModuleCategory} from "@sentients/sdk/domain/enums/module-category.enum";
-import {DynamicIcon} from "@sentients/sdk/presentation/components/dynamic-icon";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Input} from "@sentients/sdk/presentation/ui/input";
-import {Label} from "@sentients/sdk/presentation/ui/label";
-import {Separator} from "@sentients/sdk/presentation/ui/separator";
-import {Switch} from "@sentients/sdk/presentation/ui/switch";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@sentients/sdk/presentation/ui/select";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service";
+import {ModuleActivationApiService} from "@liorian/sdk/application/service/module-activation-api.service";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
+import {ModuleConfigSettingsFieldInterface, ModuleConfigSettingsFieldType} from "@liorian/sdk/domain/entities/module-activation.interface";
+import {MODULE_CATEGORY_LABELS, MODULE_CATEGORY_ICONS, ModuleCategory} from "@liorian/sdk/domain/enums/module-category.enum";
+import {DynamicIcon} from "@liorian/sdk/presentation/components/dynamic-icon";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Input} from "@liorian/sdk/presentation/ui/input";
+import {Label} from "@liorian/sdk/presentation/ui/label";
+import {Separator} from "@liorian/sdk/presentation/ui/separator";
+import {Switch} from "@liorian/sdk/presentation/ui/switch";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@liorian/sdk/presentation/ui/select";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service";
 import {getModuleConfigSettingsPreferenceLabel} from "./module-store-install-dialog";
 import {formatModuleSerialKey} from "./module-store-install-dialog";
 import {ModuleStoreInstallDialog} from "./module-store-install-dialog";
@@ -97,7 +97,7 @@ export function ModuleStoreDetailContent({module, onChanged, onEditFiche}: Modul
     const deactivateMutation = useMutation({
         mutationFn: async () => {
             if (!organizationId) throw new Error("Organisation introuvable");
-            await ModuleStoreApiService.deactivateModule(organizationId, moduleId);
+            await ModuleActivationApiService.deactivateModule(organizationId, module.identifier);
         },
         onSuccess: async () => {
             setModuleInstalled(module.identifier, false);
@@ -218,7 +218,7 @@ export function ModuleStoreDetailContent({module, onChanged, onEditFiche}: Modul
                                     disabled={deactivateMutation.isPending}
                                 >
                                     {deactivateMutation.isPending
-                                        ? <WaitingActivity size={14}/>
+                                        ? <Activity.Loader size={14}/>
                                         : "Désactiver"
                                     }
                                 </Button>
@@ -305,7 +305,7 @@ export function ModuleStoreDetailContent({module, onChanged, onEditFiche}: Modul
                                         disabled={!hasChanges || saveSettingsMutation.isPending}
                                     >
                                         {saveSettingsMutation.isPending
-                                            ? <WaitingActivity size={14}/>
+                                            ? <Activity.Loader size={14}/>
                                             : "Sauvegarder les paramètres"
                                         }
                                     </Button>

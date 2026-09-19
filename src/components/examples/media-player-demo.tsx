@@ -1,6 +1,6 @@
 "use client"
 
-import {MediaPlayer} from "@sentients/sdk/presentation/ui/media-player";
+import {MediaPlayer} from "@liorian/sdk/presentation/ui/media-player";
 
 /** Banc d'essai visuel du MediaPlayer : les trois apparences + un flux HLS. */
 export function MediaPlayerDemo() {

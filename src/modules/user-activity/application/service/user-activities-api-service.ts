@@ -1,6 +1,6 @@
-import {ApiService} from "@sentients/sdk/infrastructure/utilities/api-service";
-import {ActivitiesType} from "@sentients/sdk/domain/entities/activities.interface";
-import {FetchResponseInterface} from "@sentients/sdk/domain/typing/response";
+import {ApiService} from "@liorian/sdk/infrastructure/utilities/api-service";
+import {ActivitiesType} from "@liorian/sdk/domain/entities/activities.interface";
+import {FetchResponseInterface} from "@liorian/sdk/domain/typing/response";
 import {UserActivitiesAnalyticsInterface} from "@/modules/user-activity/domain/user-activities.interface";
 
 export class UserActivitiesApiService extends ApiService {

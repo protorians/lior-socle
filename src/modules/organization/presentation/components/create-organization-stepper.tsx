@@ -1,28 +1,28 @@
 'use client';
 
 import React, {useEffect, useRef} from 'react';
-import {Button, buttonVariants} from '@sentients/sdk/presentation/ui/button';
-import {ModalStepperStep, useModalStepper} from '@sentients/sdk/presentation/modals/components/ModalStepper';
+import {Button, buttonVariants} from '@liorian/sdk/presentation/ui/button';
+import {ModalStepperStep, useModalStepper} from '@liorian/sdk/presentation/modals/components/ModalStepper';
 import {toast} from 'sonner';
 import {Building2Icon, PencilIcon, PlusIcon} from 'lucide-react';
 import {VariantProps} from 'class-variance-authority';
-import {OrganizationsApiService} from '@sentients/sdk/application/service/organizations-api-service';
-import {LegacyInput} from '@sentients/sdk/presentation/ui/legacy-input';
-import {FieldGroup} from '@sentients/sdk/presentation/ui/field';
+import {OrganizationsApiService} from '@liorian/sdk/application/service/organizations-api-service';
+import {LegacyInput} from '@liorian/sdk/presentation/ui/legacy-input';
+import {FieldGroup} from '@liorian/sdk/presentation/ui/field';
 import {QueryClient, useQueryClient} from '@tanstack/react-query';
 import {
     MODULE_ICONS,
     MODULE_LABELS,
     MODULE_OPTIONS,
     ModuleEnum,
-} from '@sentients/sdk/domain/enums/module.enum';
+} from '@liorian/sdk/domain/enums/module.enum';
 import {
     CreateOrganizationPayload,
     OrganizationInterface,
-} from '@sentients/sdk/domain/entities/organization.interface';
-import {DynamicIcon} from '@sentients/sdk/presentation/components/dynamic-icon';
-import {Badge} from '@sentients/sdk/presentation/ui/badge';
-import {cn} from '@sentients/sdk/infrastructure/utilities/utils';
+} from '@liorian/sdk/domain/entities/organization.interface';
+import {DynamicIcon} from '@liorian/sdk/presentation/components/dynamic-icon';
+import {Badge} from '@liorian/sdk/presentation/ui/badge';
+import {cn} from '@liorian/sdk/infrastructure/utilities/utils';
 
 type OrganizationFormData = CreateOrganizationPayload & { enabledModules: ModuleEnum[] };
 
@@ -99,7 +99,7 @@ async function handleOpen(
                         input={{
                             required: true,
                             type: 'text',
-                            placeholder: 'Sentient Core',
+                            placeholder: 'Liorian Core',
                             value: data.name || '',
                             onChange: e => updateData({name: e.target.value}),
                         }}

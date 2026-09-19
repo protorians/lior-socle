@@ -6,14 +6,14 @@ import {
     ShieldAlertIcon, ShieldCheckIcon, UsersIcon,
 } from "lucide-react"
 
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {UserInterface} from "@sentients/sdk/domain/entities/user.interface";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {UserInterface} from "@liorian/sdk/domain/entities/user.interface";
 import {getFullName} from "@/modules/identity/infrastructure/utilities/users-name.util";
-import {UserStatusEnum} from "@sentients/sdk/domain/enums/user-status.enum";
+import {UserStatusEnum} from "@liorian/sdk/domain/enums/user-status.enum";
 import {Fragment} from "react";
-import {getDataGridAction} from "@sentients/sdk/presentation/data-grid/data-grid";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Clickable} from "@sentients/sdk/presentation/ui/clickable";
+import {getDataGridAction} from "@liorian/sdk/presentation/data-grid/data-grid";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Clickable} from "@liorian/sdk/presentation/ui/clickable";
 
 export const getUsersColumns = (): ColumnDef<UserInterface>[] => [
     {

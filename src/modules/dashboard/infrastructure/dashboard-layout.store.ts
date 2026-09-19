@@ -2,7 +2,7 @@
 
 import {create} from "zustand";
 import {toast} from "sonner";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {
     createWidgetId,
     DashboardLayoutConfig,
@@ -32,7 +32,7 @@ function buildConfig(widgets: DashboardWidgetEntry[]): DashboardLayoutConfig {
     return {version: 1, widgets};
 }
 
-const DEFAULT_USER_MODULE_ID = 'mod.sentients.identity';
+const DEFAULT_USER_MODULE_ID = 'mod.liorian.identity';
 
 function initFromModules(modules: ModuleDeclarationInterface[]): DashboardWidgetEntry[] {
     const entries: DashboardWidgetEntry[] = [];

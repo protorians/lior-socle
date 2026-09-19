@@ -1,5 +1,5 @@
 {
-  "name": "@sentients/module-hello-world",
+  "name": "@liorian/module-hello-world",
   "version": "1.0.0",
   "private": true,
   "description": "Module d'exemple pour l'onboarding des développeurs",
@@ -12,7 +12,7 @@
     "./*": "./*"
   },
   "dependencies": {
-    "@sentients/sdk": "workspace:*",
+    "@liorian/sdk": "workspace:*",
     "@tanstack/react-query": "^5.101.2",
     "@tanstack/react-table": "^8.21.3",
     "date-fns": "^4.4.0",

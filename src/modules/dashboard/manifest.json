@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "dashboard",
+  "domain": "mod.liorian.dashboard",
+  "key": "DASHBOARD",
+  "name": "Tableau de board",
+  "description": "Tableau de bord principal",
+  "version": "1.0.0",
+  "icon": "LayoutDashboardIcon",
+  "type": "INTERNAL",
+  "entry": "index.tsx",
+  "uri": "/dashboard",
+  "publisher": {
+    "id": "liorian",
+    "name": "Liorian Workspace"
+  },
+  "platforms": {
+    "web": {
+      "supported": true,
+      "modes": ["web"]
+    },
+    "desktop": {
+      "supported": true,
+      "modes": ["local-webview"],
+      "os": ["windows", "macos", "linux"]
+    },
+    "mobile": {
+      "supported": true,
+      "modes": ["local-webview"],
+      "os": ["android"],
+      "iosSupported": false
+    }
+  },
+  "managerCompatibility": {
+    "min": "0.17.1",
+    "max": "0.17.x"
+  },
+  "apiCompatibility": {
+    "min": "0.27.0",
+    "max": "0.27.x"
+  },
+  "permissions": ["dashboard.read", "dashboard.write", "dashboard.manage"],
+  "apiScopes": ["dashboard.read", "dashboard.write"],
+  "capabilities": {
+    "needsNetwork": true,
+    "supportsOffline": false,
+    "requiresOrganization": true,
+    "requiresAuthenticatedUser": true
+  },
+  "isEnabled": true,
+  "isDefault": true,
+  "requirements": {},
+  "optionalRequirements": {},
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@liorian/sdk": "workspace:*",
+    "@tanstack/react-query": "^5.101.2",
+    "@tanstack/react-table": "^8.21.3",
+    "lucide-react": "^1.21.0",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "3.8.0",
+    "sonner": "^2.0.7",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.3"
+  },
+  "widgets": [],
+  "routines": []
+}

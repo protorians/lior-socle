@@ -2,10 +2,10 @@
 
 import * as React from "react"
 import { format } from "date-fns"
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Popover, PopoverContent, PopoverTrigger} from "@sentients/sdk/presentation/ui/popover";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Popover, PopoverContent, PopoverTrigger} from "@liorian/sdk/presentation/ui/popover";
 import {CalendarIcon} from "lucide-react";
-import {Calendar} from "@sentients/sdk/presentation/ui/calendar";
+import {Calendar} from "@liorian/sdk/presentation/ui/calendar";
 
 export function DatePickerDemo() {
   const [date, setDate] = React.useState<Date>()

@@ -1,5 +1,5 @@
-import {StorageApiService as CoreStorageApiService} from "@sentients/sdk/application/service/storage-api-service";
-import {FetchResponseInterface} from "@sentients/sdk/domain/typing/response";
+import {StorageApiService as CoreStorageApiService} from "@liorian/sdk/application/service/storage-api-service";
+import {FetchResponseInterface} from "@liorian/sdk/domain/typing/response";
 import {MediaListResultInterface, MediaLibraryInterface} from "@/modules/media-library/domain/cloud.interface";
 
 export class CloudApiService extends CoreStorageApiService {

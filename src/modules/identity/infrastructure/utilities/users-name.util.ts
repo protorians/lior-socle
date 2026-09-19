@@ -1,4 +1,4 @@
-import {UserInterface} from "@sentients/sdk/domain/entities/user.interface";
+import {UserInterface} from "@liorian/sdk/domain/entities/user.interface";
 
 
 export function getFullName(user: UserInterface): string {

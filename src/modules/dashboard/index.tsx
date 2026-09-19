@@ -1,7 +1,7 @@
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 
 const dashboardModule: ModuleDeclarationInterface = {
-    identifier: 'mod.sentients.dashboard',
+    identifier: 'mod.liorian.dashboard',
     key: 'DASHBOARD',
     version: '1.0.0',
     name: 'Tableau de board',
@@ -13,7 +13,6 @@ const dashboardModule: ModuleDeclarationInterface = {
     isDefault: true,
     type: 'INTERNAL',
     category: 'SYSTEM',
-    requirements: {},
 }
 
 export default dashboardModule

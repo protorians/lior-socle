@@ -1,5 +1,5 @@
 import {UserGenderEnum} from "@/modules/identity/domain/enums/user-gender.enum";
-import {MediaStorageInterface} from "@sentients/sdk/domain/entities/media";
+import {MediaStorageInterface} from "@liorian/sdk/domain/entities/media";
 
 export interface UserStatsSummaryInterface {
     totalUsers: number;

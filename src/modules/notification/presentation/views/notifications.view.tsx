@@ -3,14 +3,11 @@
 import {useQueryClient} from "@tanstack/react-query";
 import {BellIcon, InboxIcon, RefreshCwIcon} from "lucide-react";
 import {toast} from "sonner";
-import {Footer} from "@/core/presentation/themes/katon/footer";
-import {View} from "@sentients/sdk/presentation/themes/katon/view";
-import {Header} from "@sentients/sdk/presentation/themes/katon/header";
-import {Main} from "@sentients/sdk/presentation/themes/katon/main";
-import {Wrapper} from "@/core/presentation/themes/katon/wrapper";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Card} from "@sentients/sdk/presentation/ui/card";
-import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
+import {View} from "@liorian/sdk/presentation/themes/katon/view";
+import {AutoBreadcrumb} from "@/core/presentation/components/auto-breadcrumb";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Card} from "@liorian/sdk/presentation/ui/card";
+import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
 import {
     Pagination,
     PaginationContent,
@@ -19,15 +16,15 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-} from "@sentients/sdk/presentation/ui/pagination";
-import {Skeleton} from "@sentients/sdk/presentation/ui/skeleton";
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@sentients/sdk/presentation/ui/tabs";
-import {NotificationItem} from "@sentients/sdk/presentation/components/notification-item";
-import {NotificationCategory, useNotifications} from "@sentients/sdk/infrastructure/hooks/use-notifications";
-import {NotificationsApiService} from "@sentients/sdk/application/service/notifications-api-service";
-import {NotificationInterface} from "@sentients/sdk/domain/entities/notification.interface";
-import {MainWrapper} from "@sentients/sdk/presentation/themes/katon/main-wrapper";
-import {AnimatedContent} from "@sentients/sdk/presentation/components/animated-content";
+} from "@liorian/sdk/presentation/ui/pagination";
+import {Skeleton} from "@liorian/sdk/presentation/ui/skeleton";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@liorian/sdk/presentation/ui/tabs";
+import {NotificationItem} from "@liorian/sdk/presentation/components/notification-item";
+import {NotificationCategory, useNotifications} from "@liorian/sdk/infrastructure/hooks/use-notifications";
+import {NotificationsApiService} from "@liorian/sdk/application/service/notifications-api-service";
+import {NotificationInterface} from "@liorian/sdk/domain/entities/notification.interface";
+import {MainWrapper} from "@liorian/sdk/presentation/themes/katon/main-wrapper";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 function NotificationsPagination({
                                      pageCount,
@@ -114,9 +111,6 @@ function NotificationsList({category}: { category: NotificationCategory }) {
         return (
             <div className="flex flex-col gap-3">
                 <Skeleton className="h-16 w-full"/>
-                <Skeleton className="h-16 w-full"/>
-                <Skeleton className="h-16 w-full"/>
-                <Skeleton className="h-16 w-full"/>
             </div>
         );
     }
@@ -173,25 +167,15 @@ function NotificationsList({category}: { category: NotificationCategory }) {
 export function NotificationsView() {
     return (
         <View>
-            <Wrapper>
-                <Header/>
-                <Main className="flex flex-col p-6 gap-6">
-                    <AnimatedContent variant="enter">
+            <View.Wrapper>
+                <View.Helmet/>
+                <View.Frame className="flex flex-col p-6 gap-6">
+                    <Activity.Container variant="enter">
                         <MainWrapper>
 
-                            <div className="flex flex-row items-center">
-                                <div className="flex flex-row flex-auto overflow-hidden items-center gap-3">
-                                <span
-                                    className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                                    <BellIcon/>
-                                </span>
-                                    <div>
-                                        <h1 className="text-2xl font-bold truncate text-ellipsis">Notifications</h1>
-                                        <p className="text-sm text-muted-foreground">Vos notifications et celles de votre
-                                            organisation</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <Activity.Header>
+                                <Activity.Title label="Notifications" description="Vos notifications et celles de votre organisation" icon={<BellIcon/>}/>
+                            </Activity.Header>
 
                             <Tabs defaultValue="user">
                                 <TabsList>
@@ -210,10 +194,10 @@ export function NotificationsView() {
                             </Tabs>
 
                         </MainWrapper>
-                    </AnimatedContent>
-                </Main>
-            </Wrapper>
-            <Footer/>
+                    </Activity.Container>
+                </View.Frame>
+            </View.Wrapper>
+            <View.Status breadcrumb={<AutoBreadcrumb/>}/>
         </View>
     )
 }

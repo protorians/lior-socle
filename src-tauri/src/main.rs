@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    sentient_manager_lib::run()
+    liorian_socle_lib::run()
 }

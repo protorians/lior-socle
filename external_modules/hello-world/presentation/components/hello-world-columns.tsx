@@ -1,7 +1,7 @@
 "use client"
 
 import {type ColumnDef} from "@tanstack/react-table";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
 import {SmileIcon, UserIcon} from "lucide-react";
 import {HelloWorldInterface} from "../../domain/hello-world.interface";
 import {HelloWorldStatus} from "../../domain/enums/hello-world-status.enum";

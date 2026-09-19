@@ -9,7 +9,7 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-} from "@sentients/sdk/presentation/ui/alert-dialog";
+} from "@liorian/sdk/presentation/ui/alert-dialog";
 import {TrashIcon} from "lucide-react";
 
 interface DashboardRemoveDialogProps {

@@ -5,18 +5,18 @@ import {useQuery, useMutation, useQueryClient} from "@tanstack/react-query";
 import {toast} from "sonner";
 import {ModuleStoreLayout} from "@/modules/modules-management/presentation/views/module-store-layout.view";
 import {SettingsLayout} from "@/external_modules/pos-management/presentation/components/settings-layout";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Switch} from "@sentients/sdk/presentation/ui/switch";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@sentients/sdk/presentation/ui/select";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Switch} from "@liorian/sdk/presentation/ui/switch";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@liorian/sdk/presentation/ui/select";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service";
 import {DownloadIcon, SettingsIcon, ShieldCheckIcon, RotateCwIcon, LockIcon} from "lucide-react";
 
-const STORE_SETTING_LABEL = "sentient:store:settings";
-const ANALYTICS_SHARE_LABEL = "sentient:analytics:share";
+const STORE_SETTING_LABEL = "liorian:store:settings";
+const ANALYTICS_SHARE_LABEL = "liorian:analytics:share";
 
 interface StoreSettingsData {
     autoSync: boolean;
@@ -165,7 +165,7 @@ export function ModuleStoreSettingsView() {
                         <CardContent className="flex flex-col gap-5">
                             {isLoading ? (
                                 <div className="flex items-center justify-center py-8">
-                                    <WaitingActivity size={24}/>
+                                    <Activity.Loader size={24}/>
                                 </div>
                             ) : (
                                 <>
@@ -337,7 +337,7 @@ export function ModuleStoreSettingsView() {
                         onClick={() => saveMutation.mutate()}
                         disabled={!hasChanges || saveMutation.isPending}
                     >
-                        {saveMutation.isPending ? <WaitingActivity size={14}/> : "Enregistrer les paramètres"}
+                        {saveMutation.isPending ? <Activity.Loader size={14}/> : "Enregistrer les paramètres"}
                     </Button>
                 </div>
                     </div>

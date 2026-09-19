@@ -1,4 +1,4 @@
-import {PublicRouteAccess} from "@sentients/sdk/infrastructure/utilities/route-access";
+import {PublicRouteAccess} from "@liorian/sdk/infrastructure/utilities/route-access";
 
 export default function bootstrapper() {
     PublicRouteAccess.add('/intl')

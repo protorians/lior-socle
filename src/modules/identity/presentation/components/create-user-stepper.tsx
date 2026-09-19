@@ -1,8 +1,8 @@
 'use client';
 
 import React, {Fragment} from 'react';
-import {Button} from '@sentients/sdk/presentation/ui/button';
-import {ModalStepperStep, useModalStepper} from '@sentients/sdk/presentation/modals/components/ModalStepper';
+import {Button} from '@liorian/sdk/presentation/ui/button';
+import {ModalStepperStep, useModalStepper} from '@liorian/sdk/presentation/modals/components/ModalStepper';
 import {toast} from 'sonner';
 import {
     PlusIcon,
@@ -12,17 +12,17 @@ import {
     MapPinIcon,
     FlagIcon
 } from "lucide-react";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
 import {CreateUserInterface} from "@/modules/identity/domain/users.interface";
 import {UserGenderEnum} from "@/modules/identity/domain/enums/user-gender.enum";
-import {LegacyBirthDateInput} from "@sentients/sdk/presentation/ui/legacy-birth-date-input";
-import {LegacyInput} from "@sentients/sdk/presentation/ui/legacy-input";
-import {FieldGroup} from "@sentients/sdk/presentation/ui/field";
-import {Textarea} from "@sentients/sdk/presentation/ui/textarea";
-import {LegacyPhoneInput} from "@sentients/sdk/presentation/ui/legacy-phone-input";
-import {LegacyGenderInput} from "@sentients/sdk/presentation/ui/legacy-gender-input";
-import {LegacyCountryInput} from "@sentients/sdk/presentation/ui/legacy-country-input";
+import {LegacyBirthDateInput} from "@liorian/sdk/presentation/ui/legacy-birth-date-input";
+import {LegacyInput} from "@liorian/sdk/presentation/ui/legacy-input";
+import {FieldGroup} from "@liorian/sdk/presentation/ui/field";
+import {Textarea} from "@liorian/sdk/presentation/ui/textarea";
+import {LegacyPhoneInput} from "@liorian/sdk/presentation/ui/legacy-phone-input";
+import {LegacyGenderInput} from "@liorian/sdk/presentation/ui/legacy-gender-input";
+import {LegacyCountryInput} from "@liorian/sdk/presentation/ui/legacy-country-input";
 import {MediaUploadStep} from "@/modules/identity/presentation/components/media-upload-step";
 
 

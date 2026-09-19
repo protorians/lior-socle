@@ -9,7 +9,7 @@ import {
   StepperPanel,
   StepperSeparator,
   StepperTrigger,
-} from "@sentients/sdk/presentation/reui/stepper"
+} from "@liorian/sdk/presentation/reui/stepper"
 
 const steps = [1, 2, 3, 4]
 

@@ -1,12 +1,12 @@
 "use client"
 
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
 import {Fragment} from "react";
-import {Waiting} from "@sentients/sdk/presentation/components/waiting";
-import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
+import {Waiting} from "@liorian/sdk/presentation/components/waiting";
+import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
 import {BoxesIcon, LayersIcon} from "lucide-react";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {AnalyticsSection} from "@sentients/sdk/presentation/analytics-section";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {AnalyticsSection} from "@liorian/sdk/presentation/analytics-section";
 
 export function DashboardModulesWidgets() {
     const {modules} = useModuleStore();

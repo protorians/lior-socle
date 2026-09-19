@@ -1,18 +1,18 @@
 "use client";
 
 import React from "react";
-import {LegacySheet} from "@sentients/sdk/presentation/sheets/legacy-sheet";
-import {UserInterface} from "@sentients/sdk/domain/entities/user.interface";
-import {Avatar, AvatarFallback} from "@sentients/sdk/presentation/ui/avatar";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Separator} from "@sentients/sdk/presentation/ui/separator";
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@sentients/sdk/presentation/ui/tabs";
+import {LegacySheet} from "@liorian/sdk/presentation/sheets/legacy-sheet";
+import {UserInterface} from "@liorian/sdk/domain/entities/user.interface";
+import {Avatar, AvatarFallback} from "@liorian/sdk/presentation/ui/avatar";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Separator} from "@liorian/sdk/presentation/ui/separator";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@liorian/sdk/presentation/ui/tabs";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@sentients/sdk/presentation/ui/accordion";
+} from "@liorian/sdk/presentation/ui/accordion";
 import {
     MailIcon,
     PhoneIcon,
@@ -29,16 +29,16 @@ import {
     ShieldPlusIcon, ShieldCogIcon
 } from "lucide-react";
 import {getFullName} from "@/modules/identity/infrastructure/utilities/users-name.util";
-import {UserStatusEnum} from "@sentients/sdk/domain/enums/user-status.enum";
+import {UserStatusEnum} from "@liorian/sdk/domain/enums/user-status.enum";
 import {format} from "date-fns";
 import {fr} from "date-fns/locale";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
-import {getDomainLabel, getRoleLabel} from "@sentients/sdk/infrastructure/utilities/access-label.util";
-import {PermissionActionBadge} from "@sentients/sdk/presentation/permission-action-badge";
-import {StorageMedia} from "@sentients/sdk/presentation/uploading/storage-media";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {useModal} from "@sentients/sdk/presentation/modals/hooks/useModal";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
+import {getDomainLabel, getRoleLabel} from "@liorian/sdk/infrastructure/utilities/access-label.util";
+import {PermissionActionBadge} from "@liorian/sdk/presentation/permission-action-badge";
+import {StorageMedia} from "@liorian/sdk/presentation/uploading/storage-media";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {useModal} from "@liorian/sdk/presentation/modals/hooks/useModal";
 import {
     UserRolesAccessModal,
     UserRolesAccessModalProps,

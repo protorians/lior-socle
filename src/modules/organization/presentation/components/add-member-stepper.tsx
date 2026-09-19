@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import {Button} from '@sentients/sdk/presentation/ui/button';
-import {ModalStepperStep, useModalStepper} from '@sentients/sdk/presentation/modals/components/ModalStepper';
+import {Button} from '@liorian/sdk/presentation/ui/button';
+import {ModalStepperStep, useModalStepper} from '@liorian/sdk/presentation/modals/components/ModalStepper';
 import {toast} from 'sonner';
 import {UserPlusIcon} from 'lucide-react';
-import {OrganizationsApiService} from '@sentients/sdk/application/service/organizations-api-service';
+import {OrganizationsApiService} from '@liorian/sdk/application/service/organizations-api-service';
 import {QueryClient, useQueryClient} from '@tanstack/react-query';
-import {UserInterface} from '@sentients/sdk/domain/entities/user.interface';
+import {UserInterface} from '@liorian/sdk/domain/entities/user.interface';
 import {getFullName} from '@/modules/identity/infrastructure/utilities/users-name.util';
 
 interface AddMemberFormData {

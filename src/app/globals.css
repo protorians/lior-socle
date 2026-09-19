@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@sentients/sdk/styles.css";
+@import "@liorian/sdk/styles.css";
 @import "./themes.css";
 
-@source "../../node_modules/@sentients/sdk/src";
+@source "../../node_modules/@liorian/sdk/src";

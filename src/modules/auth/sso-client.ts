@@ -1,7 +1,7 @@
 "use client";
 
-// Client SSO de sentient-socle vers `sentient-auth`.
-// La logique est centralisée dans le SDK (@sentients/sdk) pour être partagée
+// Client SSO de liorian-socle vers `liorian-auth`.
+// La logique est centralisée dans le SDK (@liorian/sdk) pour être partagée
 // avec le composant `AuthLockScreen` ; ce fichier en expose l'API publique.
 export {
     startSsoLogin,
@@ -12,4 +12,4 @@ export {
     SSO_CLIENT_ID,
     SSO_REDIRECT_PATH,
     SSO_CALLBACK_MESSAGE,
-} from "@sentients/sdk/infrastructure/utilities/sso-auth.util";
+} from "@liorian/sdk/infrastructure/utilities/sso-auth.util";

@@ -2,11 +2,11 @@
 
 import * as React from "react";
 import {useRouter} from "next/navigation";
-import {Main} from "@sentients/sdk/presentation/themes/katon/main";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Card, CardContent} from "@sentients/sdk/presentation/ui/card";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Card, CardContent} from "@liorian/sdk/presentation/ui/card";
+import {View} from "@liorian/sdk/presentation/themes/katon/view";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 import {ModuleStoreDetailContent} from "@/modules/modules-management/presentation/components/module-store-detail-content";
 import {ModuleStoreLayout} from "@/modules/modules-management/presentation/views/module-store-layout.view";
 import {ArrowLeftIcon, PackageIcon} from "lucide-react";
@@ -30,9 +30,9 @@ export function ModuleStoreDetailView({moduleId}: ModuleStoreDetailViewProps) {
     if (!mounted) {
         return (
             <ModuleStoreLayout>
-                <Main className="flex items-center justify-center p-6 min-h-[60vh]">
-                    <WaitingActivity size={40}/>
-                </Main>
+                <View.Frame className="flex items-center justify-center p-6 min-h-[60vh]">
+                    <Activity.Loader size={40}/>
+                </View.Frame>
             </ModuleStoreLayout>
         );
     }

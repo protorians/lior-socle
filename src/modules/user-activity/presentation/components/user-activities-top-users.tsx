@@ -1,10 +1,10 @@
 "use client"
 
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card";
-import {Avatar, AvatarFallback} from "@sentients/sdk/presentation/ui/avatar";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";
+import {Avatar, AvatarFallback} from "@liorian/sdk/presentation/ui/avatar";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
 import {userActivitiesAnalyticsRoutine} from "@/modules/user-activity/infrastructure/routines/user-activities-analytics.routine";
-import {Empty, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
+import {Empty, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
 import {UsersIcon} from "lucide-react";
 
 function initials(username?: string): string {

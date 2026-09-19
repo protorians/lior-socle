@@ -11,7 +11,7 @@ import usersActivitiesModule from "@/modules/user-activity";
 import accountModule from "@/modules/account";
 import storeModule from "@/modules/modules-management";
 import {useEffect} from "react";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
 
 export function ModulesDefinition() {
     const {addModules} = useModuleStore()

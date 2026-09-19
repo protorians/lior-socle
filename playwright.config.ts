@@ -1,7 +1,7 @@
 import {defineConfig, devices} from "@playwright/test";
 
 /**
- * S-032 — Tests E2E du module CRM (frontend `sentient-socle`).
+ * S-032 — Tests E2E du module CRM (frontend `liorian-socle`).
  *
  * Le serveur Web (`next dev`) est lancé automatiquement sur le port 5010.
  * Les spécifications se connectent à l'application avec une session injectée

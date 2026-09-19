@@ -1,5 +1,5 @@
-import {Routine} from "@sentients/sdk/infrastructure/routines/routine";
-import {RoutineInterface} from "@sentients/sdk/domain/typing/routine.types";
+import {Routine} from "@liorian/sdk/infrastructure/routines/routine";
+import {RoutineInterface} from "@liorian/sdk/domain/typing/routine.types";
 import {UserActivitiesApiService} from "@/modules/user-activity/application/service/user-activities-api-service";
 import {UserActivitiesAnalyticsInterface} from "@/modules/user-activity/domain/user-activities.interface";
 

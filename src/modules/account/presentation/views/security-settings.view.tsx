@@ -2,20 +2,20 @@
 
 import React from "react";
 import {toast} from "sonner";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {ActivityLockService} from "@sentients/sdk/infrastructure/utilities/activity-lock.service";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {ActivityLockService} from "@liorian/sdk/infrastructure/utilities/activity-lock.service";
 import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout";
-import {Input} from "@sentients/sdk/presentation/ui/input";
-import {Label} from "@sentients/sdk/presentation/ui/label";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card";
+import {Input} from "@liorian/sdk/presentation/ui/input";
+import {Label} from "@liorian/sdk/presentation/ui/label";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@sentients/sdk/presentation/ui/select";
+} from "@liorian/sdk/presentation/ui/select";
 
 const AUTO_LOCK_OPTIONS: Array<{label: string; value: number}> = [
     {label: "1 minute", value: 60 * 1000},

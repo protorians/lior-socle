@@ -1,12 +1,12 @@
 "use client"
 
 import {useQuery, useQueryClient} from "@tanstack/react-query";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {DataGrid, RowAction} from "@sentients/sdk/presentation/data-grid/data-grid";
-import {DataGridSearchEngine} from "@sentients/sdk/presentation/data-grid/data-grid-search-engine";
-import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Activity} from "@sentients/sdk/presentation/components/activity";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {DataGrid, RowAction} from "@liorian/sdk/presentation/data-grid/data-grid";
+import {DataGridSearchEngine} from "@liorian/sdk/presentation/data-grid/data-grid-search-engine";
+import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 import {PaginationState, Table} from "@tanstack/react-table";
 import {useRouter} from "next/navigation";
 import {ArchiveIcon, EyeIcon, PencilIcon, WandSparklesIcon} from "lucide-react";

@@ -12,10 +12,10 @@ import {
 } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
-import { Badge } from "@sentients/sdk/presentation/ui/badge"
-import { Button } from "@sentients/sdk/presentation/ui/button"
-import { Input } from "@sentients/sdk/presentation/ui/input"
-import { Label } from "@sentients/sdk/presentation/ui/label"
+import { Badge } from "@liorian/sdk/presentation/ui/badge"
+import { Button } from "@liorian/sdk/presentation/ui/button"
+import { Input } from "@liorian/sdk/presentation/ui/input"
+import { Label } from "@liorian/sdk/presentation/ui/label"
 import {
   Select,
   SelectContent,
@@ -23,14 +23,14 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@sentients/sdk/presentation/ui/select"
+} from "@liorian/sdk/presentation/ui/select"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@sentients/sdk/presentation/ui/dropdown-menu"
+} from "@liorian/sdk/presentation/ui/dropdown-menu"
 import {
   Drawer,
   DrawerClose,
@@ -40,15 +40,15 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@sentients/sdk/presentation/ui/drawer"
-import { Separator } from "@sentients/sdk/presentation/ui/separator"
+} from "@liorian/sdk/presentation/ui/drawer"
+import { Separator } from "@liorian/sdk/presentation/ui/separator"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@sentients/sdk/presentation/ui/chart"
-import { useIsMobile } from "@sentients/sdk/infrastructure/hooks/use-mobile"
+} from "@liorian/sdk/presentation/ui/chart"
+import { useIsMobile } from "@liorian/sdk/infrastructure/hooks/use-mobile"
 
 export const schema = z.object({
   id: z.number(),

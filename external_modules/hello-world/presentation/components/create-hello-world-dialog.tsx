@@ -1,16 +1,16 @@
 "use client";
 
 import React from 'react';
-import {Button} from '@sentients/sdk/presentation/ui/button';
-import {ModalStepperStep, useModalStepper} from '@sentients/sdk/presentation/modals/components/ModalStepper';
-import {LegacyInput} from '@sentients/sdk/presentation/ui/legacy-input';
-import {LegacySelectInput} from '@sentients/sdk/presentation/ui/legacy-select-input';
-import {FieldGroup} from '@sentients/sdk/presentation/ui/field';
-import {Textarea} from '@sentients/sdk/presentation/ui/textarea';
+import {Button} from '@liorian/sdk/presentation/ui/button';
+import {ModalStepperStep, useModalStepper} from '@liorian/sdk/presentation/modals/components/ModalStepper';
+import {LegacyInput} from '@liorian/sdk/presentation/ui/legacy-input';
+import {LegacySelectInput} from '@liorian/sdk/presentation/ui/legacy-select-input';
+import {FieldGroup} from '@liorian/sdk/presentation/ui/field';
+import {Textarea} from '@liorian/sdk/presentation/ui/textarea';
 import {toast} from 'sonner';
 import {MessageCircleIcon, PlusIcon, SendIcon, UserIcon} from 'lucide-react';
 import {useQueryClient} from '@tanstack/react-query';
-import {useAuth} from '@sentients/sdk/infrastructure/hooks/use-auth';
+import {useAuth} from '@liorian/sdk/infrastructure/hooks/use-auth';
 import {HelloWorldApiService} from '../../application/service/hello-world-api-service';
 import {CreateHelloWorldInterface, HelloWorldInterface} from '../../domain/hello-world.interface';
 import {HelloWorldStatus} from '../../domain/enums/hello-world-status.enum';

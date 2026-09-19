@@ -1,11 +1,11 @@
 "use client"
 
 import {Fragment, useCallback, useEffect, useState} from "react";
-import {AreaWidgetChart} from "@sentients/sdk/presentation/charts/area-widget.chart";
-import {AreaWidgetChartSkeleton} from "@sentients/sdk/presentation/charts/area-widget.chart-skeleton";
-import {ChartConfig} from "@sentients/sdk/presentation/ui/chart";
+import {AreaWidgetChart} from "@liorian/sdk/presentation/charts/area-widget.chart";
+import {AreaWidgetChartSkeleton} from "@liorian/sdk/presentation/charts/area-widget.chart-skeleton";
+import {ChartConfig} from "@liorian/sdk/presentation/ui/chart";
 import {usersAnalyticsRoutine} from "@/modules/identity/infrastructure/routines/users-analytics.routine";
-import {GranularitySelector, GranularityValue} from "@sentients/sdk/presentation/ui/granularity-selector";
+import {GranularitySelector, GranularityValue} from "@liorian/sdk/presentation/ui/granularity-selector";
 
 const chartConfig = {
     count: {

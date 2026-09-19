@@ -4,12 +4,12 @@ import {
     CardFooter,
     CardHeader,
     CardTitle
-} from "@sentients/sdk/presentation/ui/card";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
+} from "@liorian/sdk/presentation/ui/card";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
 import {TrendingDownIcon, TrendingUpIcon} from "lucide-react";
 import {Fragment, ReactNode} from "react";
-import {StatisticalProps} from "@sentients/sdk/domain/typing/statisticals";
-import {ListItems} from "@sentients/sdk/presentation/ui/list-items";
+import {StatisticalProps} from "@liorian/sdk/domain/typing/statisticals";
+import {ListItems} from "@liorian/sdk/presentation/ui/list-items";
 
 
 export interface SectionModuleDetailsProps {

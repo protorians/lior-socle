@@ -2,11 +2,11 @@
 
 import * as React from "react"
 import {BuildingIcon} from "lucide-react"
-import {ModuleWidget} from "@sentients/sdk/presentation/module-widget"
+import {ModuleWidget} from "@liorian/sdk/presentation/module-widget"
 import {useQuery} from "@tanstack/react-query"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
-import {OrganizationInterface} from "@sentients/sdk/domain/entities/organization.interface"
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
+import {OrganizationInterface} from "@liorian/sdk/domain/entities/organization.interface"
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth"
 
 export interface OrganizationsWidgetProps {
     data?: {

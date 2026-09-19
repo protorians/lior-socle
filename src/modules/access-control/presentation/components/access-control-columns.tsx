@@ -3,9 +3,9 @@
 import {type ColumnDef} from "@tanstack/react-table"
 import {ShieldCheckIcon} from "lucide-react"
 
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
 import {PermissionsCapabilitiesInterface} from "@/modules/access-control/domain/entities/roles.interface"
-import {getRoleLabel} from "@sentients/sdk/infrastructure/utilities/access-label.util"
+import {getRoleLabel} from "@liorian/sdk/infrastructure/utilities/access-label.util"
 
 export interface AccessControlRow {
     id: string

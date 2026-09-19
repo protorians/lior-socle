@@ -1,19 +1,19 @@
 "use client"
 
-import {AuthConfig} from "@sentients/sdk/domain/config/auth.config";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils"
-import {Button} from "@sentients/sdk/presentation/ui/button"
+import {AuthConfig} from "@liorian/sdk/domain/config/auth.config";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils"
+import {Button} from "@liorian/sdk/presentation/ui/button"
 import {Building2, CheckCircle2} from "lucide-react"
 import {useRouter, useSearchParams} from "next/navigation"
 import {useState} from "react"
-import {Motion} from "@sentients/sdk/infrastructure/library/motion"
-import {elasticEnter} from "@sentients/sdk/infrastructure/library/motion-utils"
-import {AuthUserService} from "@sentients/sdk/application/service/auth-user.service";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
+import {Motion} from "@liorian/sdk/infrastructure/library/motion"
+import {elasticEnter} from "@liorian/sdk/infrastructure/library/motion-utils"
+import {AuthUserService} from "@liorian/sdk/application/service/auth-user.service";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
 import {toast} from "sonner";
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service";
-import {OrganizationInterface} from "@sentients/sdk/domain/entities/organization.interface";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service";
+import {OrganizationInterface} from "@liorian/sdk/domain/entities/organization.interface";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 export function SelectOrganizationForm({className, ...props}: React.ComponentProps<"div">) {
     const [isLoading, setIsLoading] = useState(false)
@@ -108,7 +108,7 @@ export function SelectOrganizationForm({className, ...props}: React.ComponentPro
                         {selectedId === org.id ? (
                             <CheckCircle2 className="size-5 text-primary"/>
                         ) : (
-                            isLoading && selectedId === org.id ? <WaitingActivity size={20}/> : null
+                            isLoading && selectedId === org.id ? <Activity.Loader size={20}/> : null
                         )}
                     </button>
                 ))}

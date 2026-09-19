@@ -3,7 +3,7 @@
 import * as React from "react"
 import {useQuery} from "@tanstack/react-query"
 import {CloudIcon} from "lucide-react"
-import {ModuleWidget} from "@sentients/sdk/presentation/module-widget"
+import {ModuleWidget} from "@liorian/sdk/presentation/module-widget"
 import {CloudApiService} from "@/modules/media-library/application/service/cloud-api-service";
 
 export function CloudWidget() {

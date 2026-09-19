@@ -1,11 +1,11 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Sentients Socle",
+  "productName": "Liorian Manager",
   "version": "0.13.0",
-  "identifier": "com.protorians.sentient.manager",
+  "identifier": "com.protorians.liorian.manager",
   "build": {
     "beforeDevCommand": "bun run dev",
-    "devUrl": "http://localhost:5880",
+    "devUrl": "http://localhost:5010",
     "beforeBuildCommand": "bun run build:tauri",
     "frontendDist": "../out"
   },
@@ -13,13 +13,13 @@
     "windows": [
       {
         "label": "main",
-        "title": "Sentients Socle",
+        "title": "Liorian Manager",
         "width": 1280,
         "height": 800,
         "minWidth": 800,
         "minHeight": 600,
         "resizable": true,
-        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:153.0) Sentients/0.0.1 Protorians/0.0.1 Gecko/20100101 Firefox/153.0",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:153.0) Liorian/0.0.1 Protorians/0.0.1 Gecko/20100101 Firefox/153.0",
         "fullscreen": true
       }
     ],

@@ -1,12 +1,12 @@
 "use client"
 
 import * as React from "react"
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
-import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger} from "@sentients/sdk/presentation/ui/sheet";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Badge} from "@sentients/sdk/presentation/ui/badge";
-import {Input} from "@sentients/sdk/presentation/ui/input";
-import {LucideIcon} from "@sentients/sdk/presentation/icons/lucide";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger} from "@liorian/sdk/presentation/ui/sheet";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Badge} from "@liorian/sdk/presentation/ui/badge";
+import {Input} from "@liorian/sdk/presentation/ui/input";
+import {LucideIcon} from "@liorian/sdk/presentation/icons/lucide";
 import {PlusIcon, SearchIcon, CheckIcon, LayoutDashboardIcon, EyeIcon} from "lucide-react";
 import {useDashboardLayoutStore} from "@/modules/dashboard/infrastructure/dashboard-layout.store";
 

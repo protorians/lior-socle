@@ -1,23 +1,23 @@
 "use client"
 
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils"
-import {Button} from "@sentients/sdk/presentation/ui/button"
-import {FieldGroup} from "@sentients/sdk/presentation/ui/field"
-import {LegacyInput} from "@sentients/sdk/presentation/ui/legacy-input"
-import {LegacyPhoneInput} from "@sentients/sdk/presentation/ui/legacy-phone-input"
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils"
+import {Button} from "@liorian/sdk/presentation/ui/button"
+import {FieldGroup} from "@liorian/sdk/presentation/ui/field"
+import {LegacyInput} from "@liorian/sdk/presentation/ui/legacy-input"
+import {LegacyPhoneInput} from "@liorian/sdk/presentation/ui/legacy-phone-input"
 import {User, Mail, Eye, EyeOff, Building} from "lucide-react"
 import Link from "next/link"
 import {useRouter} from "next/navigation"
 import {useEffect, useState} from "react"
-import {SignUpDataset} from "@sentients/sdk/infrastructure/dataset/sign-up.dataset"
-import {Motion} from "@sentients/sdk/infrastructure/library/motion"
-import {elasticEnter} from "@sentients/sdk/infrastructure/library/motion-utils"
-import {AuthApiService} from "@sentients/sdk/application/service/auth-api-service";
-import {AuthUserService} from "@sentients/sdk/application/service/auth-user.service";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
+import {SignUpDataset} from "@liorian/sdk/infrastructure/dataset/sign-up.dataset"
+import {Motion} from "@liorian/sdk/infrastructure/library/motion"
+import {elasticEnter} from "@liorian/sdk/infrastructure/library/motion-utils"
+import {AuthApiService} from "@liorian/sdk/application/service/auth-api-service";
+import {AuthUserService} from "@liorian/sdk/application/service/auth-user.service";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
 import { toast } from "sonner";
-import {AuthConfig} from "@sentients/sdk/domain/config/auth.config";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {AuthConfig} from "@liorian/sdk/domain/config/auth.config";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 export function RegisterForm({className, ...props}: React.ComponentProps<"form">) {
     const {setter, getter, consolidate} = SignUpDataset()
@@ -226,7 +226,7 @@ export function RegisterForm({className, ...props}: React.ComponentProps<"form">
                             disabled={isLoading}
                             className="flex-1 rounded-full text-white font-bold border-none transition-all py-5 shadow-lg shadow-primary/20 cursor-pointer"
                         >
-                            {isLoading ? <WaitingActivity size={16}/> : "Créer un compte"}
+                            {isLoading ? <Activity.Loader size={16}/> : "Créer un compte"}
                         </Button>
                     </div>
                 </FieldGroup>

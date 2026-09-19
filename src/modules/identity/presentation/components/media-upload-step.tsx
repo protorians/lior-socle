@@ -2,15 +2,15 @@
 
 import React, {useEffect, useRef, useState} from 'react';
 import {CheckCircle2, FileText, ImageIcon, Trash2, Upload, X} from 'lucide-react';
-import {Button} from '@sentients/sdk/presentation/ui/button';
-import {Progress} from '@sentients/sdk/presentation/ui/progress';
-import {StorageApiService} from '@sentients/sdk/application/service/storage-api-service';
-import {AppConfig} from '@sentients/sdk/domain/config/app.config';
-import type {MediaStorageInterface, MediaUploadOptions} from '@sentients/sdk/domain/entities/media';
+import {Button} from '@liorian/sdk/presentation/ui/button';
+import {Progress} from '@liorian/sdk/presentation/ui/progress';
+import {StorageApiService} from '@liorian/sdk/application/service/storage-api-service';
+import {AppConfig} from '@liorian/sdk/domain/config/app.config';
+import type {MediaStorageInterface, MediaUploadOptions} from '@liorian/sdk/domain/entities/media';
 import type {CreateUserInterface} from '@/modules/identity/domain/users.interface';
-import {formatFileSize} from '@sentients/sdk/infrastructure/utilities/format.util';
-import {MediaUploadField} from "@sentients/sdk/presentation/uploading/media-upload-field";
-import {UserMediaFieldConfig, UserMediaFieldKey} from "@sentients/sdk/domain/typing/user-media-upload";
+import {formatFileSize} from '@liorian/sdk/infrastructure/utilities/format.util';
+import {MediaUploadField} from "@liorian/sdk/presentation/uploading/media-upload-field";
+import {UserMediaFieldConfig, UserMediaFieldKey} from "@liorian/sdk/domain/typing/user-media-upload";
 
 export const USER_MEDIA_FIELDS: UserMediaFieldConfig[] = [
     {key: 'avatar', label: 'Avatar', description: 'Photo de profil de l\'utilisateur', type: 'avatar'},

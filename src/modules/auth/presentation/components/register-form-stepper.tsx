@@ -1,11 +1,11 @@
 "use client"
 
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils"
-import {Button} from "@sentients/sdk/presentation/ui/button"
-import {FieldGroup} from "@sentients/sdk/presentation/ui/field"
-import {LegacyBirthDateInput} from "@sentients/sdk/presentation/ui/legacy-birth-date-input"
-import {LegacyInput} from "@sentients/sdk/presentation/ui/legacy-input"
-import {LegacyPhoneInput} from "@sentients/sdk/presentation/ui/legacy-phone-input"
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils"
+import {Button} from "@liorian/sdk/presentation/ui/button"
+import {FieldGroup} from "@liorian/sdk/presentation/ui/field"
+import {LegacyBirthDateInput} from "@liorian/sdk/presentation/ui/legacy-birth-date-input"
+import {LegacyInput} from "@liorian/sdk/presentation/ui/legacy-input"
+import {LegacyPhoneInput} from "@liorian/sdk/presentation/ui/legacy-phone-input"
 import {
     User,
     Mail,
@@ -23,10 +23,10 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import {useEffect, useState} from "react"
-import {SignUpDataset} from "@sentients/sdk/infrastructure/dataset/sign-up.dataset"
-import {Motion} from "@sentients/sdk/infrastructure/library/motion"
-import {AuthApiService} from "@sentients/sdk/application/service/auth-api-service"
-import {ApiService} from "@sentients/sdk/infrastructure/utilities/api-service"
+import {SignUpDataset} from "@liorian/sdk/infrastructure/dataset/sign-up.dataset"
+import {Motion} from "@liorian/sdk/infrastructure/library/motion"
+import {AuthApiService} from "@liorian/sdk/application/service/auth-api-service"
+import {ApiService} from "@liorian/sdk/infrastructure/utilities/api-service"
 import {toast} from "sonner"
 import {
     Stepper,
@@ -39,9 +39,9 @@ import {
     StepperContent,
     StepperTitle,
     StepperDescription,
-} from "@sentients/sdk/presentation/reui/stepper"
-import {AuthConfig} from "@sentients/sdk/domain/config/auth.config";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+} from "@liorian/sdk/presentation/reui/stepper"
+import {AuthConfig} from "@liorian/sdk/domain/config/auth.config";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 interface OTPResponse {
     id: string
@@ -603,7 +603,7 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                             >
                                                 {otpLoading ? (
                                                     <>
-                                                        <WaitingActivity size={16}/>
+                                                        <Activity.Loader size={16}/>
                                                         Génération...
                                                     </>
                                                 ) : (
@@ -691,7 +691,7 @@ export function RegisterFormStepper({className, ...props}: React.ComponentProps<
                                 >
                                     {loading ? (
                                         <>
-                                            <WaitingActivity size={16}/>
+                                            <Activity.Loader size={16}/>
                                             Création...
                                         </>
                                     ) : (

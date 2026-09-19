@@ -2,8 +2,8 @@
 
 import * as React from "react"
 import {type ColumnDef} from "@tanstack/react-table"
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
-import {OrganizationApiAccessKeyInterface} from "@sentients/sdk/domain/entities/organization.interface"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
+import {OrganizationApiAccessKeyInterface} from "@liorian/sdk/domain/entities/organization.interface"
 import {KeyRoundIcon, ShieldCheckIcon, ShieldAlertIcon, ClockIcon} from "lucide-react"
 import {format} from "date-fns"
 import {fr} from "date-fns/locale"

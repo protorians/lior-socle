@@ -1,14 +1,14 @@
 "use client"
 
 import {useMemo} from "react";
-import {PieWidgetChart} from "@sentients/sdk/presentation/charts/pie-widget.chart";
-import {PieWidgetChartSkeleton} from "@sentients/sdk/presentation/charts/pie-widget.chart-skeleton";
-import {ChartConfig} from "@sentients/sdk/presentation/ui/chart";
+import {PieWidgetChart} from "@liorian/sdk/presentation/charts/pie-widget.chart";
+import {PieWidgetChartSkeleton} from "@liorian/sdk/presentation/charts/pie-widget.chart-skeleton";
+import {ChartConfig} from "@liorian/sdk/presentation/ui/chart";
 import {
     userActivitiesAnalyticsRoutine
 } from "@/modules/user-activity/infrastructure/routines/user-activities-analytics.routine";
-import {retrieveModule} from "@sentients/sdk/infrastructure/utilities/modules";
-import {capitalizeFirstLetter} from "@sentients/sdk/infrastructure/utilities/strings.util";
+import {retrieveModule} from "@liorian/sdk/infrastructure/utilities/modules";
+import {capitalizeFirstLetter} from "@liorian/sdk/infrastructure/utilities/strings.util";
 
 const CHART_COLORS = [
     'var(--chart-1)',

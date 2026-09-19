@@ -10,8 +10,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@sentients/sdk/presentation/ui/breadcrumb"
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+} from "@liorian/sdk/presentation/ui/breadcrumb"
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
 
 export function AutoBreadcrumb() {
   const pathname = usePathname()

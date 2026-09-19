@@ -3,15 +3,15 @@
 import React from "react";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {toast} from "sonner";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
-import {requestPushPermission} from "@sentients/sdk/infrastructure/utilities/push-permission.util";
-import {NotificationsPushService} from "@sentients/sdk/application/service/notifications-push.service";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
+import {requestPushPermission} from "@liorian/sdk/infrastructure/utilities/push-permission.util";
+import {NotificationsPushService} from "@liorian/sdk/application/service/notifications-push.service";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
 import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout";
-import {Label} from "@sentients/sdk/presentation/ui/label";
-import {Switch} from "@sentients/sdk/presentation/ui/switch";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@sentients/sdk/presentation/ui/card";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {Label} from "@liorian/sdk/presentation/ui/label";
+import {Switch} from "@liorian/sdk/presentation/ui/switch";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 
 interface NotificationSettingItem {
     key: string;
@@ -172,7 +172,7 @@ export function NotificationSettingsView() {
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
                 <div className="flex items-center gap-2">
-                    {isPending && <WaitingActivity size={16} />}
+                    {isPending && <Activity.Loader size={16} />}
                     <Switch
                         id={item.key}
                         checked={getValue(item)}

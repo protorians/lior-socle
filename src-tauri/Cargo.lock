@@ -2969,7 +2969,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "sentient-manager"
+name = "liorian-socle"
 version = "0.13.0"
 dependencies = [
  "serde",

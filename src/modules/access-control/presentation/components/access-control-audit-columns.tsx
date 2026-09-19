@@ -1,7 +1,7 @@
 "use client"
 
 import {type ColumnDef} from "@tanstack/react-table"
-import {Badge} from "@sentients/sdk/presentation/ui/badge"
+import {Badge} from "@liorian/sdk/presentation/ui/badge"
 import {AccessAuditRow} from "@/modules/access-control/presentation/components/access-control-audit-data-grid"
 
 export const accessAuditColumns: ColumnDef<AccessAuditRow>[] = [

@@ -1,12 +1,12 @@
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {OrganizationsWidget} from "@/modules/organization/presentation/widgets/organizations.widget";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
 import {useRouter} from "next/navigation";
 import {toast} from "sonner";
 
 const organizationsModule: ModuleDeclarationInterface = {
-    identifier: 'mod.sentients.organization',
+    identifier: 'mod.liorian.organization',
     key: 'ORGANIZATION',
     version: '1.0.0',
     name: 'Organisations',
@@ -24,7 +24,6 @@ const organizationsModule: ModuleDeclarationInterface = {
     isDefault: false,
     type: 'INTERNAL',
     category: 'ADMINISTRATION',
-    requirements: {},
     menu: {
         items: [
             {

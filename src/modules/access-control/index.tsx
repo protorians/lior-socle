@@ -1,9 +1,9 @@
 import {AccessControlApiService} from "@/modules/access-control/application/service/access-control-api.service";
-import {ModuleDeclarationInterface} from "@sentients/sdk/domain/entities/module.interface";
+import {ModuleDeclarationInterface} from "@liorian/sdk/domain/entities/module.interface";
 import {AccessControlWidget} from "@/modules/access-control/presentation/widgets/access-control.widget";
 
 const accessControlModule: ModuleDeclarationInterface = {
-    identifier: 'mod.sentients.access-control',
+    identifier: 'mod.liorian.access-control',
     key: 'ACCESS_CONTROL',
     version: '1.0.0',
     name: "Contrôle d'accès",
@@ -21,10 +21,6 @@ const accessControlModule: ModuleDeclarationInterface = {
     isDefault: false,
     type: 'INTERNAL',
     category: 'ADMINISTRATION',
-    requirements: {
-        'organization': '>=1.0.0',
-        'identity': '>=1.0.0',
-    },
 }
 
 export default accessControlModule

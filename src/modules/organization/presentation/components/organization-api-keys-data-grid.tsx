@@ -1,19 +1,19 @@
 "use client"
 
-import {DataGrid, RowAction} from "@sentients/sdk/presentation/data-grid/data-grid"
+import {DataGrid, RowAction} from "@liorian/sdk/presentation/data-grid/data-grid"
 import {useQuery, useQueryClient} from "@tanstack/react-query"
-import {OrganizationsApiService} from "@sentients/sdk/application/service/organizations-api-service"
-import {OrganizationApiAccessKeyInterface} from "@sentients/sdk/domain/entities/organization.interface"
-import {AppConfig} from "@sentients/sdk/domain/config/app.config"
-import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty"
+import {OrganizationsApiService} from "@liorian/sdk/application/service/organizations-api-service"
+import {OrganizationApiAccessKeyInterface} from "@liorian/sdk/domain/entities/organization.interface"
+import {AppConfig} from "@liorian/sdk/domain/config/app.config"
+import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty"
 import {KeyRoundIcon, TrashIcon} from "lucide-react"
-import {Button} from "@sentients/sdk/presentation/ui/button"
+import {Button} from "@liorian/sdk/presentation/ui/button"
 import {useRouter} from "next/navigation"
 import {Fragment, useEffect, useMemo, useState} from "react"
-import {DataGridSearchEngine} from "@sentients/sdk/presentation/data-grid/data-grid-search-engine"
+import {DataGridSearchEngine} from "@liorian/sdk/presentation/data-grid/data-grid-search-engine"
 import {Table} from "@tanstack/react-table"
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity"
-import {Waiting} from "@sentients/sdk/presentation/components/waiting"
+import {Activity} from "@liorian/sdk/presentation/components/activity"
+import {Waiting} from "@liorian/sdk/presentation/components/waiting"
 import {
     AlertDialog,
     AlertDialogAction,
@@ -23,7 +23,7 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-} from "@sentients/sdk/presentation/ui/alert-dialog"
+} from "@liorian/sdk/presentation/ui/alert-dialog"
 import {toast} from "sonner"
 import {useMutation} from "@tanstack/react-query"
 import {getOrganizationApiKeyColumns} from "@/modules/organization/presentation/components/organization-api-keys-columns"
@@ -77,7 +77,7 @@ export function OrganizationApiKeysDataGrid({organizationId}: { organizationId: 
             <DataGridSearchEngine table={table} value={search} onChange={setSearch}/>
             {isLoading && (
                 <div className="flex-auto flex items-center justify-center">
-                    <WaitingActivity size={16}/>
+                    <Activity.Loader size={16}/>
                 </div>
             )}
         </Fragment>

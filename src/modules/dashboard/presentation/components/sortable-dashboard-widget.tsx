@@ -4,9 +4,9 @@ import * as React from "react"
 import {useSortable} from "@dnd-kit/sortable";
 import {CSS} from "@dnd-kit/utilities";
 import {GripVerticalIcon, XIcon, EyeOffIcon, EyeIcon} from "lucide-react";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Tooltip, TooltipContent, TooltipTrigger} from "@sentients/sdk/presentation/ui/tooltip";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@liorian/sdk/presentation/ui/tooltip";
 import {DashboardWidgetEntry} from "@/modules/dashboard/domain/dashboard-layout.interface";
 
 interface SortableDashboardWidgetProps {

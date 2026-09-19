@@ -2,13 +2,13 @@
 
 import * as React from "react";
 import {useQuery} from "@tanstack/react-query";
-import {cn} from "@sentients/sdk";
-import {Button} from "@sentients/sdk/presentation/ui/button";
-import {Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle} from "@sentients/sdk/presentation/ui/dialog";
+import {cn} from "@liorian/sdk/index";
+import {Button} from "@liorian/sdk/presentation/ui/button";
+import {Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle} from "@liorian/sdk/presentation/ui/dialog";
 import {MusicIcon, PaperclipIcon, PlayIcon, UploadIcon} from "lucide-react";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
-import {StorageApiService} from "@sentients/sdk/application/service/storage-api-service";
-import {FetchResponseInterface} from "@sentients/sdk/domain/typing/response";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
+import {StorageApiService} from "@liorian/sdk/application/service/storage-api-service";
+import {FetchResponseInterface} from "@liorian/sdk/domain/typing/response";
 
 // ---------------------------------------------------------------------------
 // Types & service
@@ -249,7 +249,7 @@ export function MediaPickerDialog({
 
                             {isLoading ? (
                                 <div className="flex items-center justify-center gap-2 py-10 text-sm text-muted-foreground">
-                                    <WaitingActivity size={16}/>
+                                    <Activity.Loader size={16}/>
                                     Chargement…
                                 </div>
                             ) : items.length === 0 ? (

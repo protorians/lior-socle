@@ -1,6 +1,6 @@
-import {ThemeLogo} from "@sentients/sdk/presentation/system/logo.theme";
-import {Waiting} from "@sentients/sdk/presentation/components/waiting";
-import {WaitingBar} from "@sentients/sdk/presentation/components/waiting-bar";
+import {ThemeLogo} from "@liorian/sdk/presentation/system/logo.theme";
+import {Waiting} from "@liorian/sdk/presentation/components/waiting";
+import {WaitingBar} from "@liorian/sdk/presentation/components/waiting-bar";
 
 export default function Loading() {
     // return (

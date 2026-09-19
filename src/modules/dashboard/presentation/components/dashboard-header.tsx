@@ -1,6 +1,6 @@
-import { Button } from "@sentients/sdk/presentation/ui/button"
-import { Separator } from "@sentients/sdk/presentation/ui/separator"
-import { SidebarTrigger } from "@sentients/sdk/presentation/ui/sidebar"
+import { Button } from "@liorian/sdk/presentation/ui/button"
+import { Separator } from "@liorian/sdk/presentation/ui/separator"
+import { SidebarTrigger } from "@liorian/sdk/presentation/ui/sidebar"
 
 export function DashboardHeader({ title = "Tableau de bord" }: { title?: string }) {
   return (

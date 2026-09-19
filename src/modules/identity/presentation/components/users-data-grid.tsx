@@ -1,28 +1,28 @@
 "use client"
 
-import {DataGrid, RowAction} from "@sentients/sdk/presentation/data-grid/data-grid";
+import {DataGrid, RowAction} from "@liorian/sdk/presentation/data-grid/data-grid";
 import {getUsersColumns} from "@/modules/identity/presentation/components/users-columns";
 import {useQuery} from "@tanstack/react-query";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
-import {GetAllUsersFilterOptions, UserInterface} from "@sentients/sdk/domain/entities/user.interface";
-import {AppConfig} from "@sentients/sdk/domain/config/app.config";
-import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@sentients/sdk/presentation/ui/empty";
+import {GetAllUsersFilterOptions, UserInterface} from "@liorian/sdk/domain/entities/user.interface";
+import {AppConfig} from "@liorian/sdk/domain/config/app.config";
+import {Empty, EmptyContent, EmptyDescription, EmptyMedia, EmptyTitle} from "@liorian/sdk/presentation/ui/empty";
 import {BanIcon, EyeIcon, LayersIcon, PencilIcon, TrashIcon, UsersIcon} from "lucide-react";
-import {Waiting} from "@sentients/sdk/presentation/components/waiting";
-import {Button} from "@sentients/sdk/presentation/ui/button";
+import {Waiting} from "@liorian/sdk/presentation/components/waiting";
+import {Button} from "@liorian/sdk/presentation/ui/button";
 import {useRouter} from "next/navigation";
 import {toast} from "sonner";
-import {authUserConnectedStore} from "@sentients/sdk/infrastructure/stores/auth-user-connected.store";
+import {authUserConnectedStore} from "@liorian/sdk/infrastructure/stores/auth-user-connected.store";
 import {Fragment, useEffect, useState} from "react";
-import {DataGridSearchEngine} from "@sentients/sdk/presentation/data-grid/data-grid-search-engine";
+import {DataGridSearchEngine} from "@liorian/sdk/presentation/data-grid/data-grid-search-engine";
 import {PaginationState, Table} from "@tanstack/react-table";
-import {FetchResponseWithMetaInterface} from "@sentients/sdk/domain/typing/response";
-import {WaitingActivity} from "@sentients/sdk/presentation/components/waiting-activity";
+import {FetchResponseWithMetaInterface} from "@liorian/sdk/domain/typing/response";
+import {Activity} from "@liorian/sdk/presentation/components/activity";
 import {UserDetailsSheet} from "@/modules/identity/presentation/components/user-details-sheet";
 import {handleUpdateUser, UpdateUserStepper} from "@/modules/identity/presentation/components/update-user-stepper";
-import {useAuth} from "@sentients/sdk/infrastructure/hooks/use-auth";
+import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
 import {useQueryClient} from "@tanstack/react-query";
-import {useModalStepper} from "@sentients/sdk/presentation/modals/components/ModalStepper";
+import {useModalStepper} from "@liorian/sdk/presentation/modals/components/ModalStepper";
 import {CreateUserInterface} from "@/modules/identity/domain/users.interface";
 
 
@@ -83,7 +83,7 @@ export function UsersDataGrid() {
             {
                 isLoading && (
                     <div className="flex-auto flex items-center justify-center">
-                        <WaitingActivity size={16}/>
+                        <Activity.Loader size={16}/>
                     </div>
                 )
             }

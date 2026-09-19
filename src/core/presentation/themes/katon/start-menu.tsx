@@ -3,19 +3,19 @@
 import {
     ModuleDeclarationInterface,
     ModuleNavigationInterface
-} from "@sentients/sdk/domain/entities/module.interface";
-import {useModuleStore} from "@sentients/sdk/infrastructure/stores/module.store";
+} from "@liorian/sdk/domain/entities/module.interface";
+import {useModuleStore} from "@liorian/sdk/infrastructure/stores/module.store";
 import Link from "next/link";
-import {cn} from "@sentients/sdk/infrastructure/utilities/utils";
-import {LucideIcon} from "@sentients/sdk/presentation/icons/lucide";
+import {cn} from "@liorian/sdk/infrastructure/utilities/utils";
+import {LucideIcon} from "@liorian/sdk/presentation/icons/lucide";
 import {usePathname} from "next/navigation";
 import {Fragment} from "react";
 import {
     SheetDescription,
     SheetHeader,
     SheetTitle
-} from "@sentients/sdk/presentation/ui/sheet";
-import {LegacySheet} from "@sentients/sdk/presentation/sheets/legacy-sheet";
+} from "@liorian/sdk/presentation/ui/sheet";
+import {LegacySheet} from "@liorian/sdk/presentation/sheets/legacy-sheet";
 
 
 export function StartMenuItem(module: ModuleNavigationInterface) {
