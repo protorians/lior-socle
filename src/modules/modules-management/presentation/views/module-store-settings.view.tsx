@@ -4,7 +4,7 @@ import * as React from "react";
 import {useQuery, useMutation, useQueryClient} from "@tanstack/react-query";
 import {toast} from "sonner";
 import {ModuleStoreLayout} from "@/modules/modules-management/presentation/views/module-store-layout.view";
-import {SettingsLayout} from "@/external_modules/pos-management/presentation/components/settings-layout";
+import {SettingsLayout} from "@/library/modules/pos-management/presentation/components/settings-layout";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";
 import {Button} from "@liorian/sdk/presentation/ui/button";
 import {Switch} from "@liorian/sdk/presentation/ui/switch";

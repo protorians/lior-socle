@@ -7,7 +7,7 @@ import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
 import {requestPushPermission} from "@liorian/sdk/infrastructure/utilities/push-permission.util";
 import {NotificationsPushService} from "@liorian/sdk/application/service/notifications-push.service";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
-import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout";
+import {SettingsLayout} from "../../../../../library/modules/pos-management/presentation/components/settings-layout";
 import {Label} from "@liorian/sdk/presentation/ui/label";
 import {Switch} from "@liorian/sdk/presentation/ui/switch";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@liorian/sdk/presentation/ui/card";

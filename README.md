@@ -2,7 +2,7 @@
 
 Interface de gestion (manager) de la plateforme **Liorian**. Elle permet d'administrer des organisations, leurs utilisateurs, accès, médiathèque, notifications et modules métiers, sur le web comme en application de bureau (Tauri).
 
-Périmètre du projet : le code applicatif sous `src/`. Les modules métiers livrés séparément sont dans `external_modules/` (voir plus bas).
+Périmètre du projet : le code applicatif sous `src/`. Les modules métiers livrés séparément sont dans `library/modules/` (voir plus bas).
 
 ## Stack
 
@@ -45,7 +45,7 @@ Application modulaire : chaque fonctionnalité métier est un module à 4 couche
 | `modules-management` | Store de modules : explorateur, installation, réglages |
 | `auth` | Authentification SSO (routes `/auth/*`) |
 
-### Modules externalisés (`external_modules/`)
+### Modules externalisés (`library/modules/`)
 
 Modules métiers fournis à part, branchés via des alias `@liorian/module-*` et le store de modules : `accounting`, `billing`, `blogging`, `calendar`, `crm`, `customer`, `ecommerce`, `messenger`, `pos-management`, `project-management`, `restaurant`, `stock-management`.
 

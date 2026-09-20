@@ -1,6 +1,6 @@
 "use client"
 
-import {externalModules} from "@/external_modules";
+import {externalModules} from "@/library/modules";
 import UsersModule from "@/modules/identity";
 import DashboardModule from "@/modules/dashboard";
 import AccessControlModule from "@/modules/access-control";

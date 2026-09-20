@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.23.0] - 2026-09-20
+
+### Changed
+- **Relocalisation des modules vers `library/modules/`** : le dossier `external_modules/` devient `library/modules/` ; l'agrégateur `library/modules/index.tsx`, l'import de `modules.ts`, les alias TypeScript (`@/library/modules`, `@liorian/module-*`), l'alias de test Vitest et l'ensemble des imports relatifs (vues, layouts, widgets) sont mis à jour en conséquence.
+- **Documentation** : le `README.md` et le `README` des modules référencent désormais le chemin `library/modules/`.
+
 ## [0.22.0] - 2026-09-18
 
 ### Changed

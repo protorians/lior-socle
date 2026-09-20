@@ -4,7 +4,7 @@ import React from "react";
 import {toast} from "sonner";
 import {useAuth} from "@liorian/sdk/infrastructure/hooks/use-auth";
 import {ActivityLockService} from "@liorian/sdk/infrastructure/utilities/activity-lock.service";
-import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout";
+import {SettingsLayout} from "../../../../../library/modules/pos-management/presentation/components/settings-layout";
 import {Input} from "@liorian/sdk/presentation/ui/input";
 import {Label} from "@liorian/sdk/presentation/ui/label";
 import {Button} from "@liorian/sdk/presentation/ui/button";

@@ -10,7 +10,7 @@ import {ModuleStoreAppsSection} from "@/modules/modules-management/presentation/
 import {ModuleStoreInstallDialog} from "@/modules/modules-management/presentation/components/module-store-install-dialog";
 import {ModuleStoreDetailDialog} from "@/modules/modules-management/presentation/components/module-store-detail-dialog";
 import {ModuleStorePublishDialog} from "@/modules/modules-management/presentation/components/module-store-publish-dialog";
-import {SettingsLayout} from "@/external_modules/pos-management/presentation/components/settings-layout";
+import {SettingsLayout} from "@/library/modules/pos-management/presentation/components/settings-layout";
 import {
     ModuleCategory,
     MODULE_CATEGORY_LABELS,

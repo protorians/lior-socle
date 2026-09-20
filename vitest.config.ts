@@ -13,7 +13,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@/native-modules': path.resolve(__dirname, './external_modules'),
+      '@/native-modules': path.resolve(__dirname, './library/modules'),
     },
   },
 })

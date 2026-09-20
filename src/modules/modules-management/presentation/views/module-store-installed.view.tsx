@@ -6,7 +6,7 @@ import {ModuleStoreSearch} from "@/modules/modules-management/presentation/compo
 import {ModuleStoreCategoryMenu} from "@/modules/modules-management/presentation/components/module-store-category-menu";
 import {ModuleStoreCard} from "@/modules/modules-management/presentation/components/module-store-card";
 import {ModuleStoreDetailDialog} from "@/modules/modules-management/presentation/components/module-store-detail-dialog";
-import {SettingsLayout} from "@/external_modules/pos-management/presentation/components/settings-layout";
+import {SettingsLayout} from "@/library/modules/pos-management/presentation/components/settings-layout";
 import {Card, CardContent} from "@liorian/sdk/presentation/ui/card";
 import {CheckCircle2Icon, PackageIcon} from "lucide-react";
 import {

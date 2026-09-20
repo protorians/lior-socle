@@ -12,7 +12,7 @@ import type {MediaStorageInterface} from "@liorian/sdk/domain/entities/media";
 import {StorageMedia} from "@liorian/sdk/presentation/uploading/storage-media";
 import {Progress} from "@liorian/sdk/presentation/ui/progress";
 import {UsersApiService} from "@/modules/identity/application/service/users-api-service";
-import {SettingsLayout} from "../../../../../external_modules/pos-management/presentation/components/settings-layout";
+import {SettingsLayout} from "../../../../../library/modules/pos-management/presentation/components/settings-layout";
 import {Input} from "@liorian/sdk/presentation/ui/input";
 import {Label} from "@liorian/sdk/presentation/ui/label";
 import {Button} from "@liorian/sdk/presentation/ui/button";

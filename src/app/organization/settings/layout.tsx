@@ -1,6 +1,6 @@
 "use client";
 
-import {SettingsLayout} from "../../../../external_modules/pos-management/presentation/components/settings-layout";
+import {SettingsLayout} from "../../../../library/modules/pos-management/presentation/components/settings-layout";
 import React from "react";
 import {View} from "@liorian/sdk/presentation/themes/katon/view";
 
